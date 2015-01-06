@@ -1521,7 +1521,7 @@ in
     
 }
 .page .pCamino .areaInfo {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+    background: none repeat scroll 0 0 rgba(256, 256, 256, 0.6);
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;
     bottom: 200px;
