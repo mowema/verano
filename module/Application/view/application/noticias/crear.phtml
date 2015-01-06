@@ -1,0 +1,33 @@
+<div class="panel panel-default">
+   <div class="panel-heading">Creación de Noticia</div>
+   
+   
+  
+    <?php echo $this->ztbForm($this->form); ?>
+    <div class="row">      
+        <div id="controls-imagen" class="col-lg-10 col-md-offset-2 form-group">
+             <a data-fancybox-type="iframe" class="btn btn-default upload-img upload"
+                href="<?php  echo $this->url('noticias', array('action'=>'upload'))?>">                 
+               <span class="glyphicon glyphicon-upload"></span>
+               Subir imagen               
+             </a>  
+         </div>
+   </div>
+   
+</div>
+<script>
+       $(".upload").fancybox({
+           
+        		'autoDimensions'	: true,
+			'transitionIn'		: 'none',
+			'transitionOut'		: 'none',
+                        'autoScale'             : true,
+                      
+	
+            'afterClose': function() {   
+              parent.location.reload(true);
+             }
+        });
+
+             
+</script>

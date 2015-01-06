@@ -1,0 +1,117 @@
+<?php 
+
+$contenido = array(
+    1 => array (
+        'bg1' => 'rp-mdq-02.jpg',
+        'bg2' => 'rp-mdq-01.jpg',
+        'titulo' => 'Disfrutá de <b>Mar del Plata</b>',
+        'contenido' => '
+            <p>La Rambla, el Torreón, los lobos marinos, los cornalitos en el puerto, los alfajores, los boliches de Constitución.</p>
+<p>Este verano además de lo que hacés todos los años, en Mar del Plata vas a poder ir a recitales, recorrer la Fragata Libertad, ver dinosaurios, jugar ajedrez, fabricar tus propios instrumentos, bailar tango y probar comidas típicas de todo el país, entre otras muchas cosas.</p>
+<p>Para seguir profundizando el camino de integración y acceso a las distintas expresiones culturales en todo nuestro territorio, nada mejor que tomar esta ruta cultural y disfrutar con alegría. </p>
+<p>Este verano vas a emocionarte como nunca.  Vení a disfrutar de  Mar del Plata. Vení a disfrutar de tu país. Vení a un verano lleno de emociones. </p>
+            ',
+        
+    ),
+    2 => array (
+        'bg1' => 'rp-eze-02.jpg',
+        'bg2' => 'rp-eze-01.jpg',
+        'titulo' => 'Divertite en Los Piletones de Ezeiza',
+        'contenido' => '
+            <p>Los asados, los amigos, los picaditos, tirarse de bomba, el grito del guardavidas para que no corras por el borde de la pileta, los sandwiches de milanesa, el mate a la tardes.</p>
+<p>Este verano, además de todo lo que tienen los piletones de Ezeiza para que disfrutes, vas a poder ver recitales, probar platos típicos de todo el país, aprender jugando y aprovechar los puestos de hidratación. </p>
+<p>Para seguir profundizando el camino de integración y acceso a las distintas expresiones culturales en todo nuestro territorio, nada mejor que tomar esta ruta cultural y disfrutar con alegría. </p>
+<p>Este verano vas a emocionarte como nunca.  Vení a divertirte en Los Piletones de Ezeiza. Vení a disfrutar de tu país. Vení a un verano lleno de emociones. </p>
+            ',
+        
+    ),
+    3 => array (
+        'bg1' => 'rp-sr-02.jpg',
+        'bg2' => 'rp-sr-01.jpg',
+        'titulo' => 'Conocé San Rafael',
+        'contenido' => '
+            <p>Las cabalgatas, el rafting, los asados, el kayak, las bodegas, las caminatas.</p>
+<p>Este verano, además de todo lo que haces todos los años, en San Rafael vas a poder ver recitales, jugar ajedrez, ver una muestra del cuerpo humano, bailar tango, fabricar tus propios instrumentos, probar platos típicos de todo el país y ver el trabajo de los artesanos locales.</p>
+<p>Para seguir profundizando el camino de integración y acceso a las distintas expresiones culturales en todo nuestro territorio, nada mejor que tomar esta ruta cultural y disfrutar con alegría. </p>
+<p>Este verano vas a emocionarte como nunca.  Vení a conocer San Rafael. Vení a disfrutar de tu país. Vení a un verano lleno de emociones. </p>
+            ',
+        
+    ),
+    4 => array (
+        'bg1' => 'rp-sms-02.jpg',
+        'bg2' => 'rp-sms-01.jpg',
+        'titulo' => 'Relajate en San Marcos Sierras',
+        'contenido' => '
+            <p>Las caminatas, el aire puro, las picadas, las artesanías, los alfajores, el museo hippie, la naturaleza, las quebradas y los ríos.</p>  
+<p>Este verano, además de lo que disfrutás todos los años, en San Marcos Sierras vas a poder ir a recitales, jugar ajedrez, fabricar tus propios instrumentos, bailar tango, ver una muestra de máscaras y probar comidas típicas de todo el país, entre otras muchas cosas.</p>
+<p>Para seguir profundizando el camino de integración y acceso a las distintas expresiones culturales en todo nuestro territorio, nada mejor que tomar esta ruta cultural y disfrutar con alegría. </p>
+<p>Este verano vas a emocionarte como nunca.  Vení a relajarte en San Marcos Sierras. Vení a disfrutar de tu país. Vení a un verano lleno de emociones.</p>
+            ',
+        
+    ),
+    5 => array (
+        'bg1' => 'rp-grutas-02.jpg',
+        'bg2' => 'rp-grutas-01.jpg',
+        'titulo' => 'Descubrí Las Grutas',
+        'contenido' => '
+            <p>Los chapuzones, los campings, la pesca, los asados, los loros barranqueros, las mareas pronunciadas, los atardeceres en la playa.</p>
+<p>Este verano, además de lo que hacés todos los años, en Las Grutas vas a poder ver recitales, jugar ajedrez, fabricar tus propios instrumentos, bailar tango, probar comidas típicas de todo el país,  recorrer la feria de artesanos, ver muestras de fotos y mucho más.</p>
+<p>Para seguir profundizando el camino de integración y acceso a las distintas expresiones culturales en todo nuestro territorio, nada mejor que tomar esta ruta cultural y disfrutar con alegría. </p>
+<p>Este verano vas a emocionarte como nunca.  Vení a descubrir Las Grutas. Vení a disfrutar de  tu país. Vení a un verano lleno de emociones</p>
+
+',
+        
+    ),
+);
+?>
+
+<?php  echo $this->data['id'] ?>
+<div class="bg1" style="background-image: url(img/<?php  echo $contenido[$this->data['id']]['bg1'] ?>);"></div>
+<div class="bg2" style="background-image: url(img/<?php  echo $contenido[$this->data['id']]['bg2'] ?>); display: block"></div>
+<div class="cExtra">
+    <div class="contenido">
+
+        <div class="areaBtnStreet">
+                <div class="btnStreet" target="_blank" data-lb="1">
+                        <div class="icon"><img width="100%" src="img/icStreet.png"/></div>
+                        <span>Plano</span>
+                        <div class="clear"></div>
+                        <div class="icStreetVertical"></div>
+                </div>
+    </div>
+
+
+
+        <div class="titular">
+            <div class="span"><?php  echo $contenido[$this->data['id']]['titulo'] ?></div>
+        </div><!--titular-->
+
+
+        <div class="dataTxt">
+            <?php  echo $contenido[$this->data['id']]['contenido'] ?>
+        </div><!--dataTxt-->
+
+        <div class="imgTop imgAuto" style="background-image: url(img/islas/isla-fernandina-3.jpg);"></div>
+
+        <div class="islaLugares">
+            <div class="btnLugar" data-idlug="fernandina1" style="background-image: url(/assets/puntaEspinozaM.jpg);">
+                <img class="imgCache" src="/assets/puntaEspinozaM.jpg">
+                <span>ciudad y playa</span>
+            </div><!--btnLugar-->
+        </div><!--islaLugares-->
+
+        <div class="clear"></div>
+
+        <div class="comentario">
+            <div class="txt">
+                <span class="color clIsla">"Una de las ciudades mas bonitas de Buenos Aires"</span>
+                <span class="blanco">Pedro Molinari</span>
+            </div><!--txt-->
+            <div class="clear"></div>
+        </div><!--comentario-->
+
+        <div class="clear"></div>
+
+
+    </div><!--contenido-->
+</div><!--cExtra-->

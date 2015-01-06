@@ -1,0 +1,22 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">Listado de Roles</h3>
+	</div>
+<?php if ($this->isAllowed('roles', 'crear')) { ?> 
+	<div class="toolbardt"><a class="btn btn-success" href="/roles/crear">Nuevo</a></div>
+<?php } ?>
+
+<table class="table table-hover">
+	<tr>
+	    <th>ID</th>
+	    <th>Rol</th>
+	    <th>&nbsp;</th>
+	
+	</tr> 
+<?php $this->partialloop()->setObjectKey('rol');
+echo $this->partialloop('/partial/rowRol', $this->roles)?>
+</table>
+<?php  echo (count($this->roles) > 0 ) ? $this->paginationControl($this->roles, 'Sliding', 'pager.phtml', array('lang'=>$this->lang, 'controller'=>'roles')) : ""; ?>
+</div>
+
+

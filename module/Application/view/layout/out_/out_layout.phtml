@@ -1,0 +1,115 @@
+﻿<?php 
+use Zend\Mvc\Controller\Plugin\FlashMessenger;
+use Zend\Session\Container;
+die();
+$container = new Container('grupo');
+$flashMessenger = new FlashMessenger();
+
+echo $this->doctype(); ?>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <?php echo $this->headTitle('ZF2 '. $this->translate('Comunicados'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?php //echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+    <!-- Le styles -->
+    <?php $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+       				->appendStylesheet($this->basePath() . '/css/smoothness/jquery-ui-1.10.3.custom.css')
+    				->appendStylesheet(array('rel' => 'stylesheet/less', 'href' => $this->basePath() . '/bootstrap-3.0.0/less/bootstrap.less'))
+    				->appendStylesheet(array('rel' => 'stylesheet/less', 'href' => $this->basePath() . '/css/style.less'));
+					
+    
+    echo $this->headLink (); ?>
+    <!-- Scripts -->
+    <?php  $this->headScript()->offsetSetFile(100,$this->basePath() . '/js/html5.js', 'text/javascript',array('conditional' => 'lt IE 9'))
+    						  ->offsetSetFile(200,$this->basePath() . '/js/jquery-1.10.2.min.js', 'text/javascript')
+    						  ->offsetSetFile(500,$this->basePath() . '/js/less-1.4.1.min.js', 'text/javascript')
+    						  ->offsetSetFile(700,$this->basePath() . '/bootstrap-3.0.0/js/dropdown.js', 'text/javascript')
+   							  ->offsetSetFile(600,$this->basePath() . '/bootstrap-3.0.0/js/alert.js', 'text/javascript');
+  						
+
+    
+    $this->headScript()->captureStart(); 
+    
+
+ ?> 
+    <?php 
+    $this->headScript()->captureEnd();
+       
+    echo $this->headScript();
+	?>
+
+  </head>
+
+  <body>
+  <div style="display:block;height:70px"></div>
+	
+	<?php if ($this->layout()->actionName == 'crear' || $this->layout()->actionName == 'editar' ) { ?>
+	<div class="container">
+		<a href="<?php echo $this->url($this->layout()->controllerName) ?>" class="boton-cancelar btn btn-danger">Cancelar</a>
+	</div>
+	<?php $disabled = true; ?>
+<?php } ?>
+	
+
+<div class="navbar navbar-fixed-top navbarmine">
+   <div class="container">
+     <ul class="nav navbar-nav ">
+            	
+			  <li><a href="<?php echo $this->url('home') ?>"
+			  class="btn"><?php echo $this->translate('Portada') ?></a></li>
+         
+          <?php if ($this->isAllowed('certificaciones', 'index')) { ?>
+              <li class=""><a href="<?php echo $this->url('certificaciones') ?>"
+              class="btn"><?php echo $this->translate('Certificaciones') ?></a></li>
+           <?php } ?>
+      </ul>
+      <?php  if ($this->zfcUserIdentity()) { ?>
+       <ul class="nav navbar-nav pull-right ">
+
+			<li>
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+	            <span class="glyphicon glyphicon-user"></span>
+	           	<?php echo $this->zfcUserDisplayName() ?>
+	           	<b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					 <li><a href="<?php echo $this->url('zfcuser/perfil') ?>">Perfil</a></li>
+		   		     <li class="divider"></li>
+		   			 <li><a href="<?php echo $this->url('zfcuser/logout') ?>">Cerrar sesión</a></li>
+		 		 </ul>
+			</li>
+		</ul>
+		<?php } ?>
+
+  </div>
+</div>		
+<div class="container">
+
+	<?php 
+	if ($flashMessenger->hasMessages()) {
+		foreach ($flashMessenger->getMessages() as $flashMessage) { ?>
+			<div class="alert-dismiss alert">
+			<button class="close" data-dismiss="alert" type="button">×</button>
+			<?php echo $this->escapeHtml($flashMessage); ?>
+			</div>
+		<?php }
+			 $flashMessenger->clearMessages(); ?>
+			 
+	<?php } ?>
+		  
+      <?php echo $this->content; ?>
+
+      
+    <?php echo $this->partial('layout/footer'); ?>
+
+
+    </div> <!-- /container -->
+
+  <?php echo $this->inlineScript() ?>
+  </body>
+
+
+
+</html>

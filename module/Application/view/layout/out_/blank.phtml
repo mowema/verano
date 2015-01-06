@@ -1,0 +1,85 @@
+<?php
+use Zend\Mvc\Controller\Plugin\FlashMessenger;
+use Zend\Session\Container;
+
+?>
+<html lang="es">
+  <head>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+  <meta charset="UTF-8">
+
+<?php $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+        ->appendStylesheet($this->basePath() . '/css/smoothness/jquery-ui-1.10.3.custom.css')
+      //  ->appendStylesheet(array('rel' => 'stylesheet/less', 'href' => $this->basePath() 
+      //      . '/bootstrap-3.0.0/less/bootstrap.less'))
+        ->appendStylesheet(array('rel' => 'stylesheet/less', 'href' => $this->basePath() 
+            . '/css/style.less'))
+        //->appendStylesheet(array('rel' => 'stylesheet/less', 'href' => $this->basePath() 
+        //    . '/datetimepicker/less/bootstrap-datetimepicker.less'))
+        ->appendStylesheet( $this->basePath() 
+            . '/bootstrap-3.1.1/dist/css/bootstrap.min.css')
+        ->appendStylesheet( $this->basePath() 
+            . '/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css')
+        ->appendStylesheet( $this->basePath() 
+            . '/eventCalendar/css/eventCalendar.css')
+        ->appendStylesheet( $this->basePath() 
+            . '/eventCalendar/css/eventCalendar_theme_responsive.css')
+        ->appendStylesheet( $this->basePath() 
+            . '/fancybox/jquery.fancybox.css');
+		
+    echo $this->headLink ();
+
+  $this->headScript()->offsetSetFile(100,$this->basePath() . '/js/html5.js', 'text/javascript',array('conditional' => 'lt IE 9'))
+        ->offsetSetFile(200,$this->basePath() . '/js/jquery-1.10.2.min.js', 'text/javascript')
+        ->offsetSetFile(220,$this->basePath() . '/fancybox/jquery.fancybox.js', 'text/javascript')
+        ->offsetSetFile(300,$this->basePath() . '/js/less-1.4.1.min.js', 'text/javascript')
+        ->offsetSetFile(400,$this->basePath() . '/bootstrap-3.1.1/js/dropdown.js', 'text/javascript')
+        ->offsetSetFile(401,$this->basePath() . '/bootstrap-3.1.1/js/modal.js', 'text/javascript')
+        ->offsetSetFile(402,$this->basePath() . '/bootstrap-3.1.1/js/alert.js', 'text/javascript')
+        ->offsetSetFile(403,$this->basePath() . '/bootstrap-3.1.1/js/transition.js', 'text/javascript')
+        ->offsetSetFile(404,$this->basePath() . '/bootstrap-3.1.1/js/collapse.js', 'text/javascript')
+        ->offsetSetFile(405,$this->basePath() . '/bootstrap-3.1.1/js/tooltip.js', 'text/javascript')
+     //  ->offsetSetFile(406,$this->basePath() . '/bootstrap-3.1.1/js/affix.js', 'text/javascript')
+        ->offsetSetFile(800,$this->basePath() . '/scripts/moment-2.4.0.js', 'text/javascript')
+        ->offsetSetFile(900,$this->basePath() . '/bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js', 'text/javascript')
+        ->offsetSetFile(1000,$this->basePath() . '/bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.es.js', 'text/javascript')
+        ->offsetSetFile(1100,$this->basePath() . '/js/confirm-deletion.js', 'text/javascript');
+     ;
+       //confirm-deletion
+    $this->headScript()->captureStart(); 
+?>
+    
+    // capture script
+
+<?php $this->headScript()->captureEnd();?>
+    
+    
+<?php echo $this->headScript(); ?>
+    
+  </head>
+  <body class="blank">
+      	<?php 
+        $flashMessenger = new FlashMessenger();
+	if ($flashMessenger->hasMessages()) {
+		foreach ($flashMessenger->getMessages() as $flashMessage) { 
+                    $parte = explode("_", $flashMessage);?>
+			<div class="alert-dismiss alert-<?php echo $this->escapeHtml($parte[0]); ?> alert">
+			<button class="close" data-dismiss="alert" type="button">×</button>
+			<?php echo $this->escapeHtml($parte[1]); ?>
+			</div>
+		<?php } ?>
+	<?php } ?>
+      <?php echo $this->content;
+      $closeiframeContainer = new  Container('closeiframe');
+      if ($closeiframeContainer->cerrar == 'ok') {
+      $closeiframeContainer->cerrar = ''?>
+      <script type="text/javascript">
+        $(function () {
+            parent.$.fancybox.close();
+        });
+        <?php } else {
+            $flashMessenger->clearMessages();
+        } ?>
+    </script>
+  </body>
+</html>

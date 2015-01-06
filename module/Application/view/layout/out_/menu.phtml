@@ -1,0 +1,58 @@
+<?php
+
+use Zend\Debug\Debug;
+
+// echo $this->layout()->controllerName . ' | ' . echo $this->layout()->actionName;
+$disabled = false;
+
+$children = $this->viewModel()->getCurrent()->getChildren();
+if ($children) {
+    $child = $children[0];
+//Debug::dump($child);
+    if ($child->congrupo) {
+        echo 'go-' . $child->congrupo;
+        $disabled = false;
+    }
+}
+?>	 
+<div class="navbar navbar-inverse navbar-fixed-top">	
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-xs-8">
+                <?php echo $this->navigation('navigation')
+                        ->menu()
+                        ->setMinDepth(0)
+                        ->setMaxDepth(0)
+                        ->setUlClass('nav navbar-nav')
+                        ->setPartial('partial/navigation.phtml')
+                        ->render() ?>
+            </div>
+<?php if ($this->zfcUserIdentity()) { ?>
+            <div class="col-md-5 col-xs-3">
+                <ul class="nav navbar-nav pull-right ">
+                    <li>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="glyphicon glyphicon-user"></span>
+<?php echo $this->zfcUserDisplayName() ?>
+                            <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo $this->url('zfcuser/changepassword') ?>">Modificar Contraseña</a></li>
+                            <li class="divider"></li>
+                            <li><a href="<?php echo $this->url('zfcuser/logout') ?>"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+<?php } ?>
+        </div>
+    </div>
+</div>
+
+
+<!--
+<?php if ($this->layout()->actionName == 'crear' || $this->layout()->actionName == 'editar') { ?>
+    <div class="container">
+        <p><a href="<?php echo $this->url($this->layout()->controllerName) ?>" class="boton-cancelar btn btn-danger">Cancelar</a></p>
+    </div>
+<?php } ?>
+-->

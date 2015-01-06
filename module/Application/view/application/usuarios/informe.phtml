@@ -1,0 +1,61 @@
+
+<div class="panel panel-primary">
+	<div class="panel-heading">
+	<h3 class="panel-title">Informe de Usuario</h3>
+	</div>
+	
+	<h3><?php echo $this->usuario->getUsername() ?></h3>
+	
+	<div class="panel-body">
+		<h3>Grupos asignados</h3>
+		<ul>
+		
+			<?php foreach ($this->usuario->getGrupos() as $grupo): ?>
+			 
+				<li><?php echo $grupo->getGrupo()->getNombre(); ?></li>
+			
+			
+			<?php endforeach; ?>
+		
+		  
+		</ul>
+		<h3>Roles</h3>
+		
+		<ul>
+		
+			<?php foreach ($this->usuario->getRoles() as $rol): ?>
+			 
+				<li><?php echo $rol->getRoleId(); ?></li>
+			
+			
+			<?php endforeach; ?>
+		
+		  
+		</ul>
+		<h3>Noticia creadas</h3>
+		
+		<table class="table table-hover">
+			<tr>
+			    <th>Título</th>
+			    <th>Fecha creación</th>
+			    <th>Fecha modificado</th>
+			</tr>
+		<?php foreach ($this->noticias as $noticia): ?>
+		 
+			<tr>
+				<td><?php echo $noticia->getTitulo(); ?></td>
+				<td><?php echo $noticia->getFechaCreacion()->format('d/m/Y'); ?></td>
+				<td><?php echo $noticia->getFechaModificado()->format('d/m/Y'); ?></td>
+			</tr>
+		
+		
+		<?php endforeach; ?>
+		
+		</table>
+		
+		
+	</div>
+	
+	
+	
+</div>

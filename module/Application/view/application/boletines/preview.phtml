@@ -1,0 +1,6 @@
+<?php
+//$this->Layouthelper('2columnas',$boletin);
+//$this->partialloop()->setObjectKey('elemento');
+//echo $this->partialloop('rowMaqueta', $boletin->getNoticia());
+$this->partial()->setObjectKey('boletin');
+echo $this->partial($this->boletin->getPlantilla()->getRuta(),$this->boletin);

@@ -1,0 +1,43 @@
+<?php 
+$title = 'Asignar usuario al grupo de trabajo';
+$this->headTitle($title);?>
+<div id="main" class="row">	
+<h2><?php echo $this->escapeHtml($title); ?>: "<?php echo $this->grupotrabajo->getNombre();?>"</h2>
+
+    <div class="col-md-4 " id="unassigned">
+         <div><h3 class="highlight">Usuarios sin asignar</h3></div>
+
+         <?php $this->placeholder('usuario')->captureStart();
+         foreach ($this->usuarios as $datum): ?>
+         <div class="foo">
+
+         <?php echo $datum->getEmail() ;?>
+                 <a href="<?php echo $this->url('grupo-trabajo', array('action'=>'asignar', 'id' => $this->id, 'idusuario' => $datum->getId()))?>">&gt&gt</a>
+         </div>
+         <?php endforeach; ?>
+         <?php $this->placeholder('usuario')->captureEnd() ?>
+
+         <?php echo $this->placeholder('usuario') ?>
+     </div>
+
+     <div class="col-md-offset-1 col-md-6 well"  id="unassigned">
+        <div><h3>Usuarios asignados</h3></div>
+
+
+         <?php $this->placeholder('userasign')->captureStart();
+         foreach ($this->grupotrabajo->getUsuario() as $datum): ?>
+         <div class="foo">
+
+                 <a href="<?php echo $this->url('grupo-trabajo', array('action'=>'desasignar', 'idusuario' => $datum->getUsuario()->getId(), 'id' => $this->id))?>">&lt&lt</a>
+
+         <?php echo $datum->getUsuario()->getEmail() ;?> 
+         </div>
+         <?php endforeach; ?>
+         <?php $this->placeholder('userasign')->captureEnd() ?>
+
+         <?php echo $this->placeholder('userasign')  ?>
+
+     </div>
+     <div class="clear"></div>
+
+</div>

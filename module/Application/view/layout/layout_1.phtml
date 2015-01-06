@@ -1,0 +1,83 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="es">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+        <?php echo $this->headTitle('Puntos de Cultura ' . $this->translate('Inscripción'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php
+        echo $this->headMeta()
+                ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                ->appendStylesheet($this->basePath() . '/css/style.css')
+                ->appendStylesheet($this->basePath() . '/css/bootstrap.min.css')
+                // ->appendStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
+                ->appendStylesheet($this->basePath() . '/css/theme.css')
+                ->appendStylesheet($this->basePath() . '/css/bootstrap-select.min.css')
+                ->appendStylesheet($this->basePath() . '/fuelux/css/fuelux.min.css')
+        ?>
+
+
+
+        <!-- Scripts -->
+        <?php
+        echo $this->headScript()
+                ->appendFile($this->basePath() . '/js/jquery.min.js')
+                //->appendFile($this->basePath() . '/js/jquery.validate.min.js')
+                ->appendFile($this->basePath() . '/js/bootstrap.min.js')
+                ->appendFile($this->basePath() . '/js/bootstrap-select.min.js')
+                ->appendFile($this->basePath() . '/js/i18n/defaults-es_CL.js')
+                ->appendFile($this->basePath() . '/fuelux/js/fuelux.min.js')
+                ->appendFile($this->basePath() . '/fuelux/js/wizard.js')
+                ->appendFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->appendFile($this->basePath() . '/js/html5shiv.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+
+
+        ;
+        ?>
+
+    </head>
+    <body class="fuelux">
+        <header>
+            <div id="header">
+                <div class="container">
+                    <a class="logo navbar-brand" href="/">
+                        <img class="img-responsive" alt="" width="260" src="/img/logo-cultura-nacion.png">
+                    </a></div></div></header>
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- <a class="navbar-brand" href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Formulario') ?></a> -->
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="<?php echo $this->url('home') ?>"><?php echo $this->translate('Formulario') ?></a></li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <div class="container">
+            <?php echo $this->content; ?>
+            <hr>
+            <footer>
+                <p>Ministerio de Cultura</p>
+            </footer>
+        </div> <!-- /container -->
+        <?php echo $this->inlineScript() ?>
+        <script>
+            $('select').selectpicker();
+        </script>
+    </body>
+</html>

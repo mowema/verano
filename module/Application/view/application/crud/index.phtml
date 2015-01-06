@@ -1,0 +1,158 @@
+<?php 
+
+/* use Zend\Session\Container; ?>
+
+<?php $container = new Container('grupo'); ?>
+	
+<?php if(!$container->grupo) { ?>
+
+	<div class="alert">
+		<strong>Atención!</strong>
+		Debe seleccionar un grupo para continuar.
+	</div>
+		
+<?php } else { */?>
+
+<?php if ($this->congrupo) {?>	
+	<!--   CONTROL de NOTICIAS Y BOLETINES    -->
+	<?php if ( ($this->isAllowed('noticias', 'crear') == true) 
+			|| ($this->isAllowed('noticias', 'index') == true) 
+			|| ($this->isAllowed('boletines', 'crear') == true) 
+			|| ($this->isAllowed('boletines', 'index') == true) ) {  ?>
+	<div class="panel panel-primary caja-admin">
+		<div class="panel-heading">
+			<h3 class="panel-title">Panel Contenidos</h3>
+		</div>
+		<div class="cpanel">
+		<?php if ($this->isAllowed('noticias', 'crear')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('noticias') ?>/crear"><img src="<?php echo $this->basepath()?>/images/icon-48-article-add.png" class="img-rounded">
+					<span>Crear noticia</span>
+				</a>
+			</div>
+		 <?php } ?>
+		 <?php if ($this->isAllowed('noticias', 'index')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('noticias') ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-article.png" class="img-rounded">
+					<span>Listar noticias</span>
+				</a>
+			</div>
+		<?php } ?>
+		<?php if ($this->isAllowed('boletines', 'crear')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('boletines') ?>/crear"><img src="<?php echo $this->basepath()?>/images/icon-48-themes.png" class="img-rounded">
+					<span>Crear boletin</span>
+				</a>
+			</div>
+		<?php  } ?>
+		<?php if ($this->isAllowed('boletines', 'index')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('boletines') ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-unarchive.png" class="img-rounded">
+					<span>Listar boletines</span>
+				</a>
+			</div>
+		<?php } ?>
+		
+		</div>
+	</div>
+	<?php  } ?>
+<?php } ?>	
+		<?php if ( ($this->isAllowed('grupo-trabajo', 'crear') == true) 
+			|| ($this->isAllowed('grupo-trabajo', 'index') == true) ) {  ?>
+	
+	<!--    GRUPOS DE TRABAJO    -->
+	<div class="panel panel-warning caja-admin">
+		<div class="panel-heading">
+			<h3 class="panel-title">Panel Grupos de Trabajo</h3>
+		</div>
+		<div class="cpanel">
+		<?php if ($this->isAllowed('grupo-trabajo', 'index')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('grupo-trabajo') ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-groups.png" class="img-rounded">
+					<span>Grupos de Trabajo</span>
+				</a>
+			</div>
+		<?php } ?>
+		<?php if ($this->isAllowed('grupo-trabajo', 'crear')) { ?>
+			<div class="icon">	
+				<a href="<?php echo $this->url('grupo-trabajo') ?>/crear"><img src="<?php echo $this->basepath()?>/images/icon-48-groups-add.png" class="img-rounded">
+					<span>Crear grupo de trabajo</span>
+				</a>
+			</div>
+		<?php } ?>
+		</div>
+	</div>
+	<?php  } ?>
+	
+	<?php if ( ($this->isAllowed('usuarios', 'crear') == true) 
+			|| ($this->isAllowed('usuarios', 'index') == true) 
+			|| ($this->isAllowed('roles', 'crear') == true) 
+			|| ($this->isAllowed('roles', 'index') == true) ) {  ?>
+<!--    CONTROL de USUARIOS    -->
+	<div class="panel panel-danger caja-admin">
+		<div class="panel-heading">
+			<h3 class="panel-title">Panel Administración</h3>
+		</div>
+		<div class="cpanel">
+		<?php if ($this->isAllowed('usuarios', 'crear')) { ?>
+		    <div class="icon">	
+				<a href="<?php echo $this->url('usuarios') ?>/crear"><img src="<?php echo $this->basepath()?>/images/icon-48-user-add.png" class="img-rounded">
+					<span>Crear usuario</span>
+				</a>
+			</div>
+		<?php  } ?>
+		<?php if ($this->isAllowed('usuarios', 'index')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('usuarios') ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-user.png" class="img-rounded">
+					<span>Listar usuarios</span>
+				</a>
+				
+			</div>
+		<?php } ?>
+		<?php if ($this->isAllowed('roles', 'crear')) { ?>
+			<div class="icon">	
+				<a href="<?php echo $this->url('roles') ?>/crear"><img src="<?php echo $this->basepath()?>/images/icon-48-groups-add.png" class="img-rounded">
+					<span>Crear rol</span>
+				</a>
+			</div>
+		<?php } ?>
+		<?php if ($this->isAllowed('roles', 'index')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('roles') ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-groups.png" class="img-rounded">
+					<span>Listar roles</span>
+				</a>
+			</div>
+		<?php } ?>
+		</div>
+		
+	</div>	
+	
+	<?php  } ?>	
+	
+	
+	<?php /* if ( ($this->isAllowed('certificaciones', 'crear') == true) 
+			|| ($this->isAllowed('certificaciones', 'index') == true) ) {  ?>
+	<div class="panel panel-success  caja-admin">
+		<div class="panel-heading">
+			<h3 class="panel-title">Panel Certificaciones</h3>
+		</div>
+		<div class="cpanel">
+		<?php if ($this->isAllowed('certificaciones', 'index')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('certificaciones') ?>"><img src="<?php echo $this->basepath()?>/images/certificaciones-lista.png" class="img-rounded">
+					<span>Listado de Certificaciones</span>
+				</a>
+			</div>
+		<?php } ?>
+		<?php if ($this->isAllowed('certificaciones', 'crear')) { ?>
+			<div class="icon">	
+				<a href="<?php echo $this->url('certificaciones') ?>/crear"><img src="<?php echo $this->basepath()?>/images/certificacion.png" class="img-rounded">
+					<span>Crear Certificaciones</span>
+				</a>
+			</div>
+		<?php } ?>
+		</div>
+	</div>
+	<?php } */ ?>	
+
+	

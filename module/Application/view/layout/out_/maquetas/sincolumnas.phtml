@@ -1,0 +1,102 @@
+<?php 
+$this->partialloop()->setObjectKey('data');
+?>
+
+<div id="header">
+</div>
+<div class="fecha"><?php echo $this->boletin->getFechaCreacion()->format('d/m/Y') ?></div>
+<div id="main">
+  
+<!--  
+  <div id="col_izq">
+    <?php foreach ($this->boletin->getNoticia() as $noticia){ 
+    	if ( $noticia->getNoticia()->getTipo() == 1) {?>
+    	<p><a href="#<?php echo $noticia->getNoticia()->getId() ?>"><?php echo $noticia->getNoticia()->getTitulo() ?></a></p>
+	    <?php } else {?>
+	    <p><b><?php echo $noticia->getNoticia()->getTitulo() ?></b></p>
+	<?php } } ?>
+  </div>
+ --> 
+  <div id="col_der">
+      <?php foreach ($this->boletin->getNoticia() as $noticia){ ?>
+     
+	      <a id="<?php echo $noticia->getNoticia()->getId() ?>"></a>
+	      
+	      	<?php switch($noticia->getNoticia()->getTipo()) {
+					
+	      		case 2:?>
+	      		<h1 style="text-align:center"><?php echo $noticia->getNoticia()->getTitulo() ?></h1>
+	      		
+	      		<?php 
+	      		
+	      		break;
+				
+				case 2: ?> <div class="well">
+				<p><?php echo $noticia->getNoticia()->getCuerpo() ?></p>
+				 </div>
+				<?php 
+					
+				break;
+					      		
+				case 1: ?>
+	      		 <div class="well">
+	      		<h3><?php echo $noticia->getNoticia()->getTitulo() ?></h3>
+	      		<p><?php echo $noticia->getNoticia()->getCuerpo() ?></p>
+	      			 </div>
+			<?php break; 
+	      	
+	      	} ?>
+	     	
+    <?php } ?>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div id="footer">
+  <p>&nbsp;</p>
+</div>
+
+<style type="text/css">
+
+	      	
+#main{
+	
+	width:718px;
+}
+.well {
+	background-color: #E9E9E9;
+	padding:12px;
+	border: 1px solid #cecece;
+	margin: 8px 0
+}
+	      	
+#col_der {
+	
+	
+	
+}
+#col_izq {
+	background-color: #E9E9E9;
+	float: left;
+	width: 188px;
+	padding:8px;
+}
+.clear {
+	clear: both;
+}
+.encabezado{
+	background-color: #E9E9E9;
+	
+}
+#header{
+	
+	background: url("/images/boletin/headercci.jpg");
+	width:718px;
+	height:118px;
+	
+}
+.fecha{
+	
+	width:718px;
+}
+</style>

@@ -1,0 +1,919 @@
+<?php /*
+  <iframe width="600" height="380" frameborder="0" scrolling="no"
+  marginheight="0" marginwidth="0"
+  src="https://maps.google.com/maps?ll=<?php
+  echo $this->html['lat'] ?>,<?php
+  echo  $this->html['lng'] ?>&amp;q=<?php
+  echo $this->html['lat'] ?>,<?php
+  echo  $this->html['lng'] ?>&amp;saddr=Av. Alvear 1690&amp;mrt=yp&amp;hl=es&amp;z=17&amp;t=m&amp;output=embed"></iframe>
+  <br />
+ */ ?>
+
+<div class="row rounded-box-drop-shadow">
+
+    <div class="col-xs-12 ">
+
+        <?php //echo $this->ztbForm($this->form); 
+        $form = $this->form;
+        $formregistro = $form->get('registro');
+        $form->prepare();
+        
+        //echo $this->formCollection($form); ?>
+
+        <?php echo $this->form()->openTag($form); ?>
+
+        <legend><h3>Registro <small><i class="ace-icon fa fa-angle-double-right"></i> Punto de Cultura</small></h3></legend>
+
+         
+            <div class="step-content">
+                <div class="step-pane active sample-pane alert step-pane-one" data-step="1">
+                    <div class="form-group">
+                        <?php echo $this->formLabel($formregistro->get('nombre') ); ?>
+                        <div class="col-sm-10">
+                            <?php echo $this->formInput($formregistro->get('nombre')); ?>
+                            <?php echo $this->formElementErrors($formregistro->get('nombre'),
+                                    array('class' => "li-help-block")); ?>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">Sede Central</label>
+                        <div class="col-sm-10">
+                            <div class="form-group">
+                                <?php echo $this->formLabel($formregistro->get('direccion')); ?>
+
+                                <div class="col-sm-5">
+                                    <?php echo $this->formInput($formregistro->get('direccion')); ?>
+                                    <?php echo $this->formElementErrors($formregistro->get('direccion'),
+                                            array('class' => "li-help-block")); ?>
+                        
+                                </div>
+
+                                <?php echo $this->formLabel($formregistro->get('cpostal')); ?>
+                                <div class="col-sm-3">
+                                    <?php echo $this->formInput($formregistro->get('cpostal')); ?>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <?php echo $this->formLabel($formregistro->get('provincia')); ?>
+                                <div class="col-sm-4">
+                                    <?php echo $this->formSelect($formregistro->get('provincia')); ?>
+                                    <?php echo $this->formElementErrors($formregistro->get('provincia'),
+                                            array('class' => "li-help-block")); ?>
+                                </div>
+
+                                <?php echo $this->formLabel($formregistro->get('localidad')); ?>
+                                <div class="col-sm-4">
+                                    <?php echo $this->formInput($formregistro->get('localidad'));?>
+                                    <?php echo $this->formElementErrors($formregistro->get('localidad'),
+                                            array('class' => "li-help-block")); ?>
+                                    
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <?php echo $this->formLabel($formregistro->get('telefono')); ?>
+                                <div class="col-sm-4">
+                                    <?php echo $this->formInput($formregistro->get('telefono')); ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <hr>
+
+                    <div class="form-group">
+
+                        <?php
+                        echo $this->formLabel($formregistro->get('email'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formInput($formregistro->get('email'));
+                            ?></div>
+
+                        <?php
+                        echo $this->formLabel($formregistro->get('web'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formInput($formregistro->get('web'));
+                            ?></div>
+                    </div>
+
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('blog'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formInput($formregistro->get('blog'));
+                            ?></div>
+
+                        <?php
+                        echo $this->formLabel($formregistro->get('rsocial'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formInput($formregistro->get('rsocial'));
+                            ?></div>
+                    </div>
+                    <hr>
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('referente'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formInput($formregistro->get('referente'));
+                            ?></div>
+
+                        <?php
+                        echo $this->formLabel($formregistro->get('referentel'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formInput($formregistro->get('referentel'));
+                            ?></div>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel(
+                                $formregistro->get('tienePJ')->setLabelAttributes(array('class' => 'col-sm-3 control-label')));
+                        ?>
+
+                        <div class="col-sm-9">
+                            <div class="form-group">
+
+
+                                <?php
+                                echo $this->formCheckbox($formregistro
+                                                ->get('tienePJ'));
+                                ?>
+
+                                <?php /*
+                                 * 
+                                 * ver si tienePJ y puestro div
+                                 * 
+                                 */
+                                ?>
+                                <div class="col-sm-11">
+
+                                    <div class="form-group show-conPJ collapse">
+                                    <?php
+                                    echo $this->formLabel($formregistro->get('npj'));
+                                    ?>
+                                    <div class="col-sm-4"><?php
+                                        echo $this->formInput($formregistro->get('npj'));
+                                        ?></div>
+
+                                    <?php
+                                    echo $this->formLabel($formregistro->get('ncuit'));
+                                    ?>
+                                    <div class="col-sm-4"><?php
+                                        echo $this->formInput($formregistro->get('ncuit'));
+                                        ?></div>
+                                    </div>
+
+                                    <div class="form-group show-conPJ collapse">
+                                        <?php
+                                        echo $this->formLabel($formregistro->get('tipoConPJ'));
+                                        ?>
+                                        <div class="col-sm-8"><?php
+                                            echo $this->formSelect($formregistro->get('tipoConPJ'));
+                                            ?></div>
+                                        <!-- tipo de personeria -->
+                                    </div>
+                                    <div class="form-group show-sinPJ">
+                                        <?php
+                                        echo $this->formLabel($formregistro->get('tipoSinPJ'));
+                                        ?>
+                                        <div class="col-sm-8"><?php
+                                            echo $this->formSelect($formregistro->get('tipoSinPJ'));
+                                            ?></div>
+                                        <!-- tipo de personeria -->
+                                    </div>
+
+                                    <div class="form-group collapse">
+                                        <?php
+                                        echo $this->formLabel($formregistro
+                                                        ->get('tipoOtro')->setLabelAttributes(array('class' => 'col-sm-3 control-label')));
+                                        ?>
+                                        <div class="col-sm-6"><?php
+                                            echo $this->formInput($formregistro
+                                                            ->get('tipoOtro'));
+                                            ?></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <hr>
+
+
+                    
+                    <div class="form-group">
+                        <div class="col-sm-1"></div>
+                        <?php
+                        echo $this->formLabel($formregistro->get('creado'));
+                        ?>
+                        <div class="col-sm-2"><?php
+                            echo $this->formInput($formregistro->get('creado'));
+                            ?></div>
+
+                        <?php
+                        echo $this->formLabel($formregistro->get('alcance'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formSelect($formregistro->get('alcance'));
+                            ?></div>
+                    </div>
+
+
+<hr>
+
+
+                    <div class="form-group">
+                        <?php echo $this->formLabel(
+                                $formregistro->get('perfil')->setLabelAttributes(array('class' => 'col-sm-3 control-label'))); ?>
+                        <div class="col-sm-9">
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <?php
+                                    echo $this->formSelect($formregistro
+                                                    ->get('perfil'));
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="form-group collapse">
+                                <?php
+                                echo $this->formLabel($formregistro
+                                                ->get('perfilotro')->setLabelAttributes(array('class' => 'col-sm-3 control-label')));
+                                ?>
+                                <div class="col-sm-6"><?php
+                                    echo $this->formInput($formregistro
+                                                    ->get('perfilotro'));
+                                    ?></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+
+                    <hr>
+                    
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('intervencion'));
+                        ?>
+                        <div class="col-sm-8"><?php
+                            echo $this->formSelect($formregistro->get('intervencion'));
+                            ?></div>
+                    </div>
+                    
+                    <hr>
+                    
+                    
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('cantIntegrantes'));
+                        ?>
+                        <div class="col-sm-1"><?php
+                            echo $this->formInput($formregistro->get('cantIntegrantes'));
+                            ?></div>
+                        <?php
+                        echo $this->formLabel($formregistro->get('cantMilitantes'));
+                        ?>
+                        <div class="col-sm-1"><?php
+                            echo $this->formInput($formregistro->get('cantMilitantes'));
+                            ?></div>
+                        <?php
+                        echo $this->formLabel($formregistro->get('cantProfesionales'));
+                        ?>
+                        <div class="col-sm-1"><?php
+                            echo $this->formInput($formregistro->get('cantProfesionales'));
+                            ?></div>
+                        <?php
+                        echo $this->formLabel($formregistro->get('cantOcacionales'));
+                        ?>
+                        <div class="col-sm-1"><?php
+                            echo $this->formInput($formregistro->get('cantOcacionales'));
+                    ?></div>
+                    </div>
+
+
+                    <hr>
+
+                    <div class="btn-group" data-toggle="buttons">
+                        <label class="btn btn-primary active">
+                            <input type="radio" name="options" id="option1" autocomplete="1" checked> 1
+                        </label>
+                        <label class="btn btn-warning">
+                            <input type="radio" name="options" id="option2" autocomplete="2"> 2
+                        </label>
+                        <label class="btn btn-warning">
+                            <input type="radio" name="options" id="option3" autocomplete="3"> 3
+                        </label>
+                        <label class="btn btn-default">
+                            <input type="radio" name="options" id="option3" autocomplete="off"> no
+                        </label>
+                    </div>
+                    <hr>
+
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('actividades'));
+                        ?>
+                        
+                        <div class="col-sm-4"><?php
+                        echo $this->formSelect($formregistro->get('actividades'));
+                        ?></div>
+                        
+                        <?php
+                                echo $this->formLabel($formregistro
+                                                ->get('actividadesOtro'));
+                                ?>
+                                <div class="col-sm-4"><?php
+                                    echo $this->formInput($formregistro
+                                                    ->get('actividadesOtro'));
+                                    ?></div>
+                        
+               
+                        
+                    </div>
+                    <div class="form-group">
+
+                        <?php
+                        echo $this->formLabel($formregistro->get('descActividades'));
+                        ?>
+                        <div class="col-sm-9"><?php
+                            echo $this->formTextarea($formregistro->get('descActividades'));
+                            ?></div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('destinatarios'));
+                        ?>
+                        <div class="col-sm-7"><?php
+                            echo $this->formSelect($formregistro->get('destinatarios'));
+                            ?>
+                        </div>
+                        
+                        <?php
+                        echo $this->formLabel($formregistro->get('cantParticipantes'));
+                        ?>
+                        <div class="col-sm-1"><?php
+                            echo $this->formInput($formregistro->get('cantParticipantes'));
+                            ?>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('espacioInfo')->setLabelAttributes(array('class' => 'col-sm-5 control-label')));
+                        ?>
+                        <div class="col-sm-3"><?php
+                            echo $this->formSelect($formregistro->get('espacioInfo'));
+                            ?>
+                        </div>
+                        
+                        <?php
+                         echo $this->formLabel($formregistro->get('espacioInicio'));
+                        ?>
+                        <div class="col-sm-2"><?php
+                             echo $this->formInput($formregistro->get('espacioInicio'));
+                            ?>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('espacioTipoUso')->setLabelAttributes(array('class' => 'col-sm-1 control-label')));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formSelect($formregistro->get('espacioTipoUso'));
+                            ?>
+                        </div>
+                        
+                        <?php
+                         echo $this->formLabel($formregistro->get('espacioTipoCompartido'));
+                        ?>
+                        <div class="col-sm-5"><?php
+                             echo $this->formInput($formregistro->get('espacioTipoCompartido'));
+                            ?>
+                        </div>
+                    </div>
+                    
+                    
+                    
+
+
+
+
+                     <hr>
+                    
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Dimensiones Totales</label>
+                        <div class="col-sm-9">
+                            <div class="form-group">
+                                <?php
+                                echo $this->formLabel($formregistro->get('espacioMtsCubiertos')->setLabelAttributes(array('class' => 'col-sm-3 control-label')));
+                                ?>
+                                <div class="col-sm-3"><?php
+                                    echo $this->formInput($formregistro->get('espacioMtsCubiertos'));
+                                    ?>
+                                </div>
+
+                                <?php
+                                 echo $this->formLabel($formregistro->get('espacioMtsDescubiertos')->setLabelAttributes(array('class' => 'col-sm-3 control-label')));
+                                ?>
+                                <div class="col-sm-3"><?php
+                                     echo $this->formInput($formregistro->get('espacioMtsDescubiertos'));
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <?php
+                                echo $this->formLabel($formregistro->get('sectoresCubiertos')->setLabelAttributes(array('class' => 'col-sm-3 control-label')));
+                                ?>
+                                <div class="col-sm-2"><?php
+                                    echo $this->formInput($formregistro->get('sectoresCubiertos'));
+                                    ?>
+                                </div>
+
+                                <?php
+                                 echo $this->formLabel($formregistro->get('sectoresDescubiertos')->setLabelAttributes(array('class' => 'col-sm-3 col-sm-offset-1 control-label')));
+                                ?>
+                                <div class="col-sm-2"><?php
+                                     echo $this->formInput($formregistro->get('sectoresDescubiertos'));
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                     <hr>
+                     
+                     
+                    <div class="form-group">
+                        
+                        <?php
+                        echo $this->formLabel($formregistro->get('sectores')->setLabelAttributes(array('class' => 'col-sm-3 control-label')));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formSelect($formregistro->get('sectores'));
+                            ?>
+                        </div>
+                        
+                        <?php
+                         echo $this->formLabel($formregistro->get('sectoresOtro')->setLabelAttributes(array('class' => 'col-sm-1 control-label')));
+                        ?>
+                        <div class="col-sm-4"><?php
+                             echo $this->formInput($formregistro->get('sectoresOtro'));
+                            ?>
+                        </div>
+                    </div>
+                     
+                    <div class="form-group">
+                        
+                        <label class="col-sm-3 control-label">Sala de Teatro (complete si requiere)</label>
+                        <?php
+                        echo $this->formLabel($formregistro->get('salaTeatroMts'));
+                        ?>
+                        <div class="col-sm-2"><?php
+                            echo $this->formInput($formregistro->get('salaTeatroMts'));
+                            ?>
+                        </div>
+                        
+                        <?php
+                         echo $this->formLabel($formregistro->get('salaTeatroButacas'));
+                        ?>
+                        <div class="col-sm-2"><?php
+                             echo $this->formInput($formregistro->get('salaTeatroButacas'));
+                            ?>
+                        </div>
+                    </div>
+                     
+                    <div class="form-group">
+                        
+                        <label class="col-sm-3 control-label">Sala de Cine (complete si requiere)</label>
+                        <?php
+                        echo $this->formLabel($formregistro->get('salaCineMts'));
+                        ?>
+                        <div class="col-sm-2"><?php
+                            echo $this->formInput($formregistro->get('salaCineMts'));
+                            ?>
+                        </div>
+                        
+                        <?php
+                         echo $this->formLabel($formregistro->get('salaCineButacas'));
+                        ?>
+                        <div class="col-sm-2"><?php
+                             echo $this->formInput($formregistro->get('salaCineButacas'));
+                            ?>
+                        </div>
+                    </div>
+                     
+                    <div class="form-group">
+                        
+                        <label class="col-sm-3 control-label">Espacio Radial (complete si requiere)</label>
+                        <?php
+                        echo $this->formLabel($formregistro->get('salaRadioMts'));
+                        ?>
+                        <div class="col-sm-2"><?php
+                            echo $this->formInput($formregistro->get('salaRadioMts'));
+                            ?>
+                        </div>
+                        
+                        <?php
+                         echo $this->formLabel($formregistro->get('salaRadioEquip'));
+                        ?>
+                        <div class="col-sm-3"><?php
+                             echo $this->formInput($formregistro->get('salaRadioEquip'));
+                            ?>
+                        </div>
+                    </div>
+                     
+                    <div class="form-group">
+                        
+                        <label class="col-sm-3 control-label">Estudio de Grabación / TV (complete si requiere)</label>
+                        <?php
+                        echo $this->formLabel($formregistro->get('salaGrabaMts'));
+                        ?>
+                        <div class="col-sm-2"><?php
+                            echo $this->formInput($formregistro->get('salaGrabaMts'));
+                            ?>
+                        </div>
+                        
+                        <?php
+                         echo $this->formLabel($formregistro->get('salaGrabaEquip'));
+                        ?>
+                        <div class="col-sm-3"><?php
+                             echo $this->formInput($formregistro->get('salaGrabaEquip'));
+                            ?>
+                        </div>
+                    </div>
+                     <hr>
+
+                     
+                     
+                    <div class="form-group">
+                        
+                        <label class="col-sm-2 control-label">Equipamiento</label>
+                            <div class="col-sm-10">
+                        
+                                <div class="form-group">
+                                    <?php
+                                    echo $this->formLabel($formregistro->get('equipAV'));
+                                    ?>
+                                    <div class="col-sm-4"><?php
+                                        echo $this->formSelect($formregistro->get('equipAV'));
+                                        ?>
+                                    </div>
+
+                                    <?php
+                                     echo $this->formLabel($formregistro->get('equipAVOtro'));
+                                    ?>
+                                    <div class="col-sm-4"><?php
+                                         echo $this->formInput($formregistro->get('equipAVOtro'));
+                                        ?>
+                                    </div>
+                                </div>
+                        
+                                <div class="form-group">
+                                    <?php
+                                    echo $this->formLabel($formregistro->get('equipInformatico'));
+                                    ?>
+                                    <div class="col-sm-4"><?php
+                                        echo $this->formSelect($formregistro->get('equipInformatico'));
+                                        ?>
+                                    </div>
+
+                                    <?php
+                                     echo $this->formLabel($formregistro->get('equipInformaticoOtro'));
+                                    ?>
+                                    <div class="col-sm-4"><?php
+                                         echo $this->formInput($formregistro->get('equipInformaticoOtro'));
+                                        ?>
+                                    </div>
+                                </div>
+                        
+                                <div class="form-group">
+                                    <?php
+                                    echo $this->formLabel($formregistro->get('equipSonido'));
+                                    ?>
+                                    <div class="col-sm-4"><?php
+                                        echo $this->formSelect($formregistro->get('equipSonido'));
+                                        ?>
+                                    </div>
+
+                                    <?php
+                                     echo $this->formLabel($formregistro->get('equipSonidoOtro'));
+                                    ?>
+                                    <div class="col-sm-4"><?php
+                                         echo $this->formInput($formregistro->get('equipSonidoOtro'));
+                                        ?>
+                                    </div>
+                                </div>
+                        
+                                <div class="form-group">
+                                    <?php
+                                    echo $this->formLabel($formregistro->get('equipEscen'));
+                                    ?>
+                                    <div class="col-sm-4"><?php
+                                        echo $this->formSelect($formregistro->get('equipEscen'));
+                                        ?>
+                                    </div>
+
+                                    <?php
+                                     echo $this->formLabel($formregistro->get('equipEscenOtro'));
+                                    ?>
+                                    <div class="col-sm-4"><?php
+                                         echo $this->formInput($formregistro->get('equipEscenOtro'));
+                                        ?>
+                                    </div>
+                                </div>
+                        
+                                <div class="form-group">
+                                    <?php
+                                    echo $this->formLabel($formregistro->get('equipOtro'));
+                                    ?>
+                                    <div class="col-sm-4"><?php
+                                        echo $this->formSelect($formregistro->get('equipOtro'));
+                                        ?>
+                                    </div>
+
+                                    <?php
+                                     echo $this->formLabel($formregistro->get('equipOtroOtro'));
+                                    ?>
+                                    <div class="col-sm-4"><?php
+                                         echo $this->formInput($formregistro->get('equipOtroOtro'));
+                                        ?>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                     
+                     
+                     <hr>
+                     
+                     
+                     
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('produccionAV'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formSelect($formregistro->get('produccionAV'));
+                            ?>
+                        </div>
+                        <?php
+                        echo $this->formLabel($formregistro->get('produccionAVOtro'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formInput($formregistro->get('produccionAVOtro'));
+                            ?>
+                        </div>
+                    </div>
+                     
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('produccionRadio'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formSelect($formregistro->get('produccionRadio'));
+                            ?>
+                        </div>
+                        <?php
+                        echo $this->formLabel($formregistro->get('produccionRadioOtro'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formInput($formregistro->get('produccionRadioOtro'));
+                            ?>
+                        </div>
+                    </div>
+                     
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('produccionMultimedia'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formSelect($formregistro->get('produccionMultimedia'));
+                            ?>
+                        </div>
+                        <?php
+                        echo $this->formLabel($formregistro->get('produccionMultimediaOtro'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formInput($formregistro->get('produccionMultimediaOtro'));
+                            ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('produccionGrafica'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formSelect($formregistro->get('produccionGrafica'));
+                            ?>
+                        </div>
+                        <?php
+                        echo $this->formLabel($formregistro->get('produccionGraficaOtro'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formInput($formregistro->get('produccionGraficaOtro'));
+                            ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('espectaculos'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formSelect($formregistro->get('espectaculos'));
+                            ?>
+                        </div>
+                        <?php
+                        echo $this->formLabel($formregistro->get('espectaculosOtro'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formInput($formregistro->get('espectaculosOtro'));
+                            ?>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <?php
+                        echo $this->formLabel($formregistro->get('muestras'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formSelect($formregistro->get('muestras'));
+                            ?>
+                        </div>
+                        <?php
+                        echo $this->formLabel($formregistro->get('muestrasOtro'));
+                        ?>
+                        <div class="col-sm-4"><?php
+                            echo $this->formInput($formregistro->get('muestrasOtro'));
+                            ?>
+                        </div>
+                    </div>
+                     
+                     <hr>
+                    
+                    <div class="form-group"> <?php
+                        echo $this->formLabel($formregistro->get('talleresArtisticos'));
+                        ?> <div class="col-sm-9"><?php
+                            echo $this->formInput($formregistro->get('talleresArtisticos')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group"> <?php
+                        echo $this->formLabel($formregistro->get('talleresDidacticos'));
+                        ?> <div class="col-sm-9"><?php
+                            echo $this->formInput($formregistro->get('talleresDidacticos')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group"> <?php
+                        echo $this->formLabel($formregistro->get('talleresComunicPopular'));
+                        ?> <div class="col-sm-9"><?php
+                            echo $this->formInput($formregistro->get('talleresComunicPopular')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group"> <?php
+                        echo $this->formLabel($formregistro->get('talleresOficio'));
+                        ?> <div class="col-sm-9"><?php
+                            echo $this->formInput($formregistro->get('talleresOficio')); ?>
+                        </div>
+                    </div>
+                    <div class="form-group"> <?php
+                        echo $this->formLabel($formregistro->get('talleresOtros'));
+                        ?> <div class="col-sm-9"><?php
+                            echo $this->formInput($formregistro->get('talleresOtros')); ?>
+                        </div>
+                    </div>
+                     
+                     <hr>
+                     
+                     
+                </div> 
+
+            </div> <!-- FIN DE STEPCONTENT -->
+
+
+
+
+
+
+
+
+
+
+        <div class="form-group">
+            <div id="controls-csrf"><?php echo $this->formInput($form->get('csrf')->setLabelAttributes(array('class' => 'form-control'))); ?></div>
+        </div>
+        <div class="form-group">
+            <div id="controls-submit" class="col-sm-12"><?php echo $this->formSubmit($form->get('submit')); ?></div>
+        </div>
+
+
+
+
+        <?php echo $this->form()->closeTag(); ?>        
+        <hr>
+
+    </div>
+
+
+
+
+
+</div>
+<script>
+   /* $('#wizardForm').on('actionclicked.fu.wizard', function (e, data) {
+
+        var value;
+        var prevent = false;
+
+        $('.step-pane-one').find(':input[required]').each(function (i, requiredField) {
+
+            value = $(requiredField).val();
+            if (!value) {
+                prevent = true;
+            }
+        });
+        console.log(value);
+        console.log(prevent);
+        if (data.direction === 'next' && prevent) {
+            console.log(data);
+            e.preventDefault();
+        }
+    });*/
+
+    if ($('#perfil').val() === "otro") {
+        $("#perfilotro").parent().parent().show();
+    }
+
+    $('#perfil').on('change', function () {
+        if ($(this).val() === "otro") {
+            $("#perfilotro").parent().parent().show();
+        } else {
+            $("#perfilotro").parent().parent().hide();
+            $("#perfilotro").val('');
+        }
+    });
+    
+    
+    if ($('#tipoConPJ').val() === "otro" && $('#tipoSinPJ').val() === "otro") {
+        $("#tipoOtro").parent().parent().show();
+    }
+
+    $('#tipoConPJ').on('change', function () {
+        if ($(this).val() === "otro") {
+            $("#tipoOtro").parent().parent().show();
+        } else {
+            $("#tipoOtro").parent().parent().hide();
+            $("#tipoOtro").val('');
+        }
+    });
+    $('#tipoSinPJ').on('change', function () {
+        if ($(this).val() === "otro") {
+            $("#tipoOtro").parent().parent().show();
+        } else {
+            $("#tipoOtro").parent().parent().hide();
+            $("#tipoOtro").val('');
+        }
+    });
+
+function toggleTienePJ(element)
+    {
+      //element.checked = !element.checked;
+      if (element.checked){
+         console.log(element.checked);
+         $('.show-conPJ').show();
+         $('.show-sinPJ').hide();
+         $("#tipoOtro").parent().parent().hide();
+        $("#tipoSinPJ").val('');
+        $("#tipoOtro").val('');
+        $('button[data-id="tipoSinPJ"]').prop('title', 'Seleccionar...');
+        $('button[data-id="tipoSinPJ"] span:first').text('Seleccionar...');
+            
+            
+            
+      } else {
+         $('.show-conPJ').hide();
+         $('.show-sinPJ').show();
+         $("#tipoOtro").parent().parent().hide();
+        $("#npj").val('');
+        $("#ncuit").val('');
+        $("#tipoConPJ").val('');
+        $("#tipoOtro").val('');
+        $('[data-id="tipoConPJ"]').prop('title', 'Seleccionar...');
+        $('button[data-id="tipoConPJ"] span:first').text('Seleccionar...');
+      }
+    }  
+</script>

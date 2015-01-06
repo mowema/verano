@@ -1,0 +1,11 @@
+<tr>
+	    <td><?php echo $this->escapeHtml($this->rol->getId());?></td>
+	    <td><?php echo $this->escapeHtml($this->rol->getRoleId());?></td>
+	  
+	    <td>
+	    <?php if ($this->isAllowed('roles', 'editar')) { ?>  
+	        <a class="btn btn-warning" title="Modificar" href="<?php echo $this->url('roles',array('action'=>'editar', 'id' => $this->rol->getId()));?>">
+	        <span class="glyphicon glyphicon-pencil"></span></a>
+	    <?php } ?>
+	    
+</tr>

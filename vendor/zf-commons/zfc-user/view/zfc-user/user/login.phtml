@@ -1,0 +1,49 @@
+<div class="row">
+	<div class="col-md-12"><h2>Ingresar:</h2></div>
+</div>
+
+<?php 
+	$this->loginForm->setAttribute('class','form-horizontal');?>
+	
+	<div class="row well">
+		
+                <?php echo $this->form()->openTag($this->loginForm); ?>
+                <div class="form-horizontal loginForm">
+                        <div class="form-group">  
+                            <?php echo $this->formLabel($this->loginForm->get('identity')->setLabelAttributes(array('class'=>'col-md-3 control-label'))); ?>        
+                                <div class="col-md-4">
+                                        <?php echo $this->formInput($this->loginForm->get('identity')->setAttributes(array('class'=>'form-control')));
+                                        echo $this->formElementErrors()
+                        ->setMessageOpenFormat('<ul%s><li class="messaje">')
+                        ->setMessageSeparatorString('</li><li class="messaje">')
+                        ->render($this->loginForm->get('identity'), array('class' => 'form-validation-error'));
+               ?>
+                                </div>
+                        </div>
+                        <div class="form-group">  
+                            <?php echo $this->formLabel($this->loginForm->get('credential')->setLabelAttributes(array('class'=>'col-md-3 control-label'))); ?>        
+                                <div class="col-md-4">
+                                     <?php echo $this->formInput($this->loginForm->get('credential')->setAttributes(array('class'=>'form-control'))); 
+                                  //   echo $this->formElementErrors($this->loginForm->get('credential'), array('class' => 'form-validation-error'));
+                                           ?>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                        <div class="col-md-offset-3 col-md-9">
+                                                <?php echo $this->formInput($this->loginForm->get('submit')->setAttributes(array('class'=>'btn btn-primary '))); ?>
+                                </div>
+                        </div>
+                </div>
+             <?php echo $this->form()->closeTag(); ?>
+             <?php if ($this->enableRegistration) : ?>
+                        <p class="text-left">No esta registrado? <a href="<?php echo $this->url('zfcuser/register') . ($this->redirect ? '?redirect='.$this->redirect : '') ?>">Registrese</a></p> 
+             <?php endif; ?>
+             <p class="text-left">Olvidó su contraseña? <a href="<?php echo $this->url('zfcuser/forgot')?>">click aqui</a></p> 
+
+	</div>
+        <?php if ($this->redirect): ?>
+            <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
+        <?php endif ?>
+
+
+

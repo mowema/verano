@@ -1,0 +1,178 @@
+﻿<?php 
+use Zend\Mvc\Controller\Plugin\FlashMessenger;
+use Zend\Session\Container;
+die();
+$container = new Container('grupo');
+$flashMessenger = new FlashMessenger();
+
+echo $this->doctype(); ?>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <?php echo $this->headTitle('JGM '. $this->translate('SIP'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?php //echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+    <!-- Le styles -->
+    <?php $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+               ->appendStylesheet($this->basePath() . '/css/smoothness/jquery-ui-1.10.3.custom.css')
+               ->appendStylesheet($this->basePath() . '/datatable/css/jquery.dataTables.css')
+               ->appendStylesheet(array('rel' => 'stylesheet/less', 'href' => $this->basePath() . '/bootstrap-3.0.0/less/bootstrap.less'))
+               ->appendStylesheet(array('rel' => 'stylesheet/less', 'href' => $this->basePath() . '/css/style.less'))
+               ->appendStylesheet($this->basePath() . '/fancybox/jquery.fancybox.css');
+					
+    
+    echo $this->headLink (); ?>
+    <!-- Scripts -->
+
+
+    <link href="//fonts.googleapis.com/css?family=Open+Sans Condensed:400italic,400,700" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=PT+Sans:400italic,400,700italic,700" rel="stylesheet" type="text/css">
+
+    
+    <?php  $this->headScript()
+        ->offsetSetFile(100,$this->basePath() . '/js/html5.js', 'text/javascript',array('conditional' => 'lt IE 9'))
+        ->offsetSetFile(200,$this->basePath() . '/js/jquery-1.10.2.min.js', 'text/javascript')
+    	->offsetSetFile(300,$this->basePath() . '/js/jquery-ui-1.10.3.custom.js', 'text/javascript')
+    	->offsetSetFile(400,$this->basePath() . '/tinymce/tinymce.min.js', 'text/javascript')
+    	->offsetSetFile(500,$this->basePath() . '/js/less-1.4.1.min.js', 'text/javascript')
+   	->offsetSetFile(600,$this->basePath() . '/bootstrap-3.1.1/js/alert.js', 'text/javascript')
+  	->offsetSetFile(700,$this->basePath() . '/bootstrap-3.1.1/js/dropdown.js', 'text/javascript')
+  	->offsetSetFile(800,$this->basePath() . '/bootstrap-3.1.1/js/modal.js', 'text/javascript')
+  	->offsetSetFile(900,$this->basePath() . '/bootstrap-3.1.1/js/confirm-deletion.js', 'text/javascript')
+  	->offsetSetFile(1000,$this->basePath() . '/bootstrap-3.1.1/js/tooltip.js', 'text/javascript')
+        ->offsetSetFile(1100,$this->basePath() . '/datatable/js/jquery.dataTables.js', 'text/javascript')
+  	->offsetSetFile(1200,$this->basePath() . '/fancybox/jquery.fancybox.js', 'text/javascript');
+
+    
+    $this->headScript()->captureStart(); 
+    
+
+    ?>
+<!--   
+    $(function () {
+    	$('#select-workgroup').on('change', '.activar-grupo', function() {
+    	if (this.value == 'placeholder') {return};   	
+    	window.location = '/usuarios/activargrupo/grupo/' + this.value + '/controlador/' + '<?php echo $this->layout()->controllerName; ?>';
+    	});
+    });
+		
+	$(document).ready( function() {
+			$('.btn-file :file').on('fileselect', function(event, numFiles, label) {
+				
+				var input = $(this).parents('.input-group').find(':text'),
+					log = numFiles &gt; 1 ? numFiles + ' files selected' : label;
+				
+				if( input.length ) {
+					input.val(log);
+				} else {
+					if( log ) alert(log);
+				}
+				
+			});
+			
+		$('.btn').tooltip()
+		
+			
+			
+		});	
+
+
+			
+tinymce.init({
+	language : 'es',
+    entity_encoding : "raw",
+
+    mode: "textareas",
+    plugins: "table",
+    content_css: "/tinymce/skins/lightgray/content.min.css",
+    style_formats: [
+        {title: 'Bold text', inline: 'b'},
+        {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+        {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+        {title: 'Example 1', inline: 'span', classes: 'example1'},
+        {title: 'Example 2', inline: 'span', classes: 'example2'},
+        {title: 'Table styles'},
+        {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+    ],
+    formats: {
+        alignleft: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'left'},
+        aligncenter: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'center'},
+        alignright: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'right'},
+        alignfull: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'full'},
+        bold: {inline: 'span', 'classes': 'bold'},
+        italic: {inline: 'span', 'classes': 'italic'},
+        underline: {inline: 'span', 'classes': 'underline', exact: true},
+        strikethrough: {inline: 'del'},
+        customformat: {inline: 'span', styles: {color: '#00ff00', fontSize: '20px'}, attributes: {title: 'My custom format'}}
+    }
+});
+		
+
+-->   
+    <?php 
+    $this->headScript()->captureEnd();
+       
+    echo $this->headScript();
+	?>
+
+  </head>
+
+  <body>
+  <div style="display:block;height:70px"></div>
+  
+   <?php echo $this->partial('menu', array('grupos' => $this->zfcUserIdentity() ? $this->zfcUserIdentity()->getGrupos() : '', 'container' => $container) ); ?>
+   <?php echo $this->partial('layout/menu', array('grupos' => $this->zfcUserIdentity() ? $this->zfcUserIdentity()->getGrupos() : '', 'container' => $container) ); ?>
+  
+   
+  <?php //foreach ($this->zfcUserIdentity()->getRoles() as $roles) : ?>
+  	
+  	<?php //if($roles->getRoleId() == 'Gestor Certificaciones'){ ?>
+  			
+		
+  	<?php //}else{ ?>	
+   
+ 		
+  	<?php //} ?>
+  	
+  	<?php //endforeach; ?>
+  
+		
+	<div class="container">
+
+	<?php 
+	if ($flashMessenger->hasMessages()) {
+		foreach ($flashMessenger->getMessages() as $flashMessage) { ?>
+		
+		<?php $estadoAlert = strstr($this->escapeHtml($flashMessage), '_', true);
+		      $mensaje = strstr($this->escapeHtml($flashMessage), '_');	?>
+		
+			<div class="alert alert-<?php echo $estadoAlert ?>">
+				<button class="close" data-dismiss="alert" type="button">×</button>
+				<?php echo substr($mensaje, 1) ?>
+			</div>
+		<?php }
+			 $flashMessenger->clearMessages(); ?>
+		
+	<?php } ?>
+	<div class="row">	
+		<!-- <div class="col-md-12 page-header">
+			<h1>Comunicados <small>Gestor de Boletines</small></h1>
+		</div>	-->
+	</div>
+		  
+      <?php echo $this->content; ?>
+
+      
+    <?php echo $this->partial('layout/footer'); ?>
+
+
+    </div> <!-- /container -->
+
+  <?php echo $this->inlineScript() ?>
+  </body>
+
+
+
+</html>

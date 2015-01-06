@@ -1,0 +1,19 @@
+<?php 
+if ($this->layout()->actionName == 'crear' || $this->layout()->actionName == 'editar' ) { ?>
+	<div class="container">
+		<a href="<?php echo $this->url($this->layout()->controllerName) ?>" class="boton-cancelar btn btn-danger">Cancelar</a>
+	</div>
+	<?php $disabled = true; ?>
+<?php } ?>
+<?php $disabled = $this->container->grupo ? $disabled : true ; ?>
+
+<div class="navbar navbar-fixed-top navbarmine">
+   <div class="container">
+     <ul class="nav navbar-nav ">
+            	
+			  <li class=""><a href="<?php echo $this->url('home') ?>"
+			  class="btn"><?php echo $this->translate('Home') ?></a></li>
+     </ul>
+
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<?php 
+use Zend\Debug\Debug;
+
+// echo $this->layout()->controllerName . ' | ' . echo $this->layout()->actionName;
+$disabled = false;
+
+$children = $this->viewModel()->getCurrent()->getChildren();
+if ($children) {$child = $children[0];
+//Debug::dump($child);
+    if ( $child->congrupo ){echo 'go-'.$child->congrupo;
+        $disabled = false ;  
+    }
+}
+if ($this->layout()->actionName == 'crear' || $this->layout()->actionName == 'editar' ) { ?>
+	<div class="container">
+		<a href="<?php echo $this->url($this->layout()->controllerName) ?>" class="boton-cancelar btn btn-danger">Cancelar</a>
+	</div>
+	<?php //$disabled = true; ?>
+<?php } ?>
+<div class="row">	 
+    <div class="navbar navbar-default navbar-fixed-top">	
+	<div class="container">
+            <div class="col-md-7">
+              
+	  	<ul class="nav navbar-nav ">
+                    <li><a class="navbar-brand" href="<?php echo $this->url('home') ?>"
+			class="btn"><span class="glyphicon glyphicon-home"> </span></a></li>
+ 
+                   
+
+        
+<?php if ($this->isAllowed('usuarios', 'index') || $this->isAllowed('usuarios', 'crear') ||
+        $this->isAllowed('roles', 'index') || $this->isAllowed('roles', 'crear')) { ?>
+                    <li class="dropdown">
+                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Administración<b class="caret"></b></a>
+                       <ul class="dropdown-menu">	
+                            <?php if ($this->isAllowed('usuarios', 'index')) { ?>
+                           <li class="<?php echo $disabled ? 'disabled' : '' ?>"><a href="<?php echo $this->url('usuarios') ?>"
+                           class="<?php echo $disabled ? 'disabled' : '' ?>"><span class="glyphicon glyphicon-list-alt"> </span> Ver usuarios</a></li>
+                               <?php } ?>
+                               <?php if ($this->isAllowed('usuarios', 'crear')) { ?>
+                               <li class="<?php echo $disabled ? 'disabled' : '' ?>"><a href="<?php echo $this->url('usuarios', array('action'=>'crear')) ?>"
+                           class="<?php echo $disabled ? 'disabled' : '' ?>"><span class="glyphicon glyphicon-floppy-save"></span> <?php echo $this->translate('crear usuario')?></a></li>
+                               <?php } ?>
+                               <li class="divider"></li>
+                              <?php if ($this->isAllowed('roles', 'index')) { ?>
+                           <li class="<?php echo $disabled ? 'disabled' : '' ?>"><a href="<?php echo $this->url('roles') ?>"
+                           class="<?php echo $disabled ? 'disabled' : '' ?>"><span class="glyphicon glyphicon-list-alt"> </span> Ver roles</a></li>
+                              <?php } ?>
+                                <?php if ($this->isAllowed('roles', 'crear')) { ?>
+                               <li class="<?php echo $disabled ? 'disabled' : '' ?>"><a href="<?php echo $this->url('roles', array('action'=>'crear')) ?>"
+                           class="<?php echo $disabled ? 'disabled' : '' ?>"><span class="glyphicon glyphicon-floppy-save"></span> <?php echo $this->translate('crear rol')?></a></li>
+                               <?php } ?>
+                       </ul>
+                    </li>
+<?php } ?>
+		  </ul>
+	       </div>
+	<?php  if ($this->zfcUserIdentity()) { ?>
+	       <div class="col-md-5">
+	       <ul class="nav navbar-nav pull-right ">
+<?php if($this->isAllowed('noticias', 'index') || $this->isAllowed('boletines', 'index')
+         || $this->isAllowed('grupo-trabajo', 'index')){; ?>        
+				<li>
+				  <form id="select-workgroup" class="navbar-form">
+					<?php $disabled = $this->container->grupo ? $disabled : false ?>
+					
+						<select class="form-control activar-grupo"  style="width: 200px;">
+							<option value="placeholder">... Seleccione ...</option>
+							<?php foreach ($this->grupos as $grupo): ?>
+					 		<option value="<?php echo $grupo->getGrupo()->getId() ?>" <?php echo ( $this->container->grupo == $grupo->getGrupo()->getId() ) ?  "selected = selected" : "" ; ?>
+					 			>
+					 		<?php echo $grupo->getGrupo()->getNombre(); ?></option>
+				 			     
+				 	    <?php endforeach; ?>
+						</select>	
+					</form>
+				</li>
+         <?php } ?>   
+				<li>
+		            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+		            <span class="glyphicon glyphicon-user"></span>
+		           	<?php echo $this->zfcUserDisplayName() ?>
+		           	<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						 <li><a href="<?php echo $this->url('zfcuser/perfil') ?>">Perfil</a></li>
+			   		     <li class="divider"></li>
+			   			 <li><a href="<?php echo $this->url('zfcuser/logout') ?>"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</a></li>
+			  		</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<?php } ?> 	
+	</div>
+</div>

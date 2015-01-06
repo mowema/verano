@@ -1,0 +1,70 @@
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <?php echo $this->headTitle($this->translate('SIP'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?php //echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+    <!-- Le styles -->
+    <?php $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+        ->appendStylesheet($this->basePath() . '/css/smoothness/jquery-ui-1.10.3.custom.css')
+      //  ->appendStylesheet(array('rel' => 'stylesheet/less', 'href' => $this->basePath() 
+      //      . '/bootstrap-3.0.0/less/bootstrap.less'))
+        ->appendStylesheet(array('rel' => 'stylesheet/less', 'href' => $this->basePath() 
+            . '/css/style.less'))
+        //->appendStylesheet(array('rel' => 'stylesheet/less', 'href' => $this->basePath() 
+        //    . '/datetimepicker/less/bootstrap-datetimepicker.less'))
+       // ->appendStylesheet( $this->basePath() . '/chosen/docsupport/style.css')
+        ->appendStylesheet( $this->basePath() 
+            . '/chosen/docsupport/prism.css')
+        ->appendStylesheet( $this->basePath() 
+            . '/chosen/chosen.css')
+        ->appendStylesheet( $this->basePath() 
+            . '/bootstrap-3.1.1/dist/css/bootstrap.min.css')
+        ->appendStylesheet( $this->basePath() 
+            . '/bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.css')
+        ->appendStylesheet( $this->basePath() 
+            . '/eventCalendar/css/eventCalendar.css')
+        ->appendStylesheet( $this->basePath() 
+            . '/eventCalendar/css/eventCalendar_theme_responsive.css')
+        ->appendStylesheet( $this->basePath() 
+            . '/fancybox/jquery.fancybox.css');
+		
+    echo $this->headLink (); ?>
+    
+
+    <!-- Scripts -->
+    <?php  $this->headScript()->offsetSetFile(100,$this->basePath() . '/js/html5.js', 'text/javascript',array('conditional' => 'lt IE 9'))
+        ->offsetSetFile(200,$this->basePath() . '/js/jquery-1.10.2.min.js', 'text/javascript')
+        ->offsetSetFile(206,$this->basePath() . '/chosen/chosen.jquery.js', 'text/javascript')
+        ->offsetSetFile(208,$this->basePath() . '/chosen/docsupport/prism.js', 'text/javascript')
+        ->offsetSetFile(220,$this->basePath() . '/fancybox/jquery.fancybox.js', 'text/javascript')
+        ->offsetSetFile(300,$this->basePath() . '/js/less-1.4.1.min.js', 'text/javascript')
+        ->offsetSetFile(400,$this->basePath() . '/bootstrap-3.1.1/js/dropdown.js', 'text/javascript')
+        ->offsetSetFile(401,$this->basePath() . '/bootstrap-3.1.1/js/modal.js', 'text/javascript')
+        ->offsetSetFile(402,$this->basePath() . '/bootstrap-3.1.1/js/alert.js', 'text/javascript')
+        ->offsetSetFile(403,$this->basePath() . '/bootstrap-3.1.1/js/transition.js', 'text/javascript')
+        ->offsetSetFile(404,$this->basePath() . '/bootstrap-3.1.1/js/collapse.js', 'text/javascript')
+        ->offsetSetFile(405,$this->basePath() . '/bootstrap-3.1.1/js/tooltip.js', 'text/javascript')
+        ->offsetSetFile(406,$this->basePath() . '/bootstrap-3.1.1/js/popover.js', 'text/javascript')
+        ->offsetSetFile(407,$this->basePath() . '/bootstrap-3.1.1/js/tab.js', 'text/javascript')
+     //  ->offsetSetFile(408,$this->basePath() . '/bootstrap-3.1.1/js/affix.js', 'text/javascript')
+        ->offsetSetFile(800,$this->basePath() . '/scripts/moment-2.4.0.js', 'text/javascript')
+        ->offsetSetFile(900,$this->basePath() . '/bootstrap-datetimepicker/src/js/bootstrap-datetimepicker.js', 'text/javascript')
+        ->offsetSetFile(1000,$this->basePath() . '/bootstrap-datetimepicker/src/js/locales/bootstrap-datetimepicker.es.js', 'text/javascript')
+        ->offsetSetFile(1100,$this->basePath() . '/js/confirm-deletion.js', 'text/javascript');
+     ;
+       //confirm-deletion
+    $this->headScript()->captureStart(); 
+?>
+    
+    // capture script
+
+<?php $this->headScript()->captureEnd();?>
+    
+    
+<?php echo $this->headScript(); ?>
+
+
+
+  </head>

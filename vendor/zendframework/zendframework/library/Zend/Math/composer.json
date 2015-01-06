@@ -1,0 +1,34 @@
+{
+    "name": "zendframework/zend-math",
+    "description": " ",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "zf2",
+        "math"
+    ],
+    "autoload": {
+        "psr-0": {
+            "Zend\\Math\\": ""
+        }
+    },
+    "target-dir": "Zend/Math",
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "require-dev": {
+        "ircmaxell/random-lib": "*",
+        "ircmaxell/security-lib": "*",
+        "zendframework/zend-servicemanager": "self.version"
+    },
+    "suggest": {
+        "ircmaxell/random-lib": "Fallback random byte generator for Zend\\Math\\Rand if OpenSSL/Mcrypt extensions are unavailable",
+        "ircmaxell/security-lib": "SecurityLib component",
+        "zendframework/zend-servicemanager": "Zend\\ServiceManager component"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.2-dev",
+            "dev-develop": "2.3-dev"
+        }
+    }
+}

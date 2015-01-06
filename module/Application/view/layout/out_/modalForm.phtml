@@ -1,0 +1,63 @@
+<html>
+  <head>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+  <meta charset="UTF-8">
+      <?php $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+       				->appendStylesheet($this->basePath() . '/css/smoothness/jquery-ui-1.10.3.custom.css')
+    				->appendStylesheet(array('rel' => 'stylesheet/less', 'href' => $this->basePath() . '/bootstrap-3.0.0/less/bootstrap.less'))
+    				->appendStylesheet(array('rel' => 'stylesheet/less', 'href' => $this->basePath() . '/css/style.less'));
+    
+    echo $this->headLink ();
+
+    $this->headScript()->appendFile($this->basePath() . '/js/html5.js', 'text/javascript',array('conditional' => 'lt IE 9'))
+    						  ->appendFile($this->basePath() . '/js/jquery-1.10.2.min.js', 'text/javascript')
+    						  ->appendFile($this->basePath() . '/js/jquery-ui-1.10.3.custom.js', 'text/javascript')
+    						  ->appendFile($this->basePath() . '/tinymce/tinymce.min.js', 'text/javascript')
+    						  ->appendFile($this->basePath() . '/js/less-1.4.1.min.js', 'text/javascript');
+   						
+    $this->headScript()->captureStart();
+   ?> 
+      
+    <!--    
+    tinymce.init({
+    	entity_encoding : "raw",
+    
+    	mode: "textareas",
+    	plugins: "table",
+    	content_css: "/tinymce/skins/lightgray/content.min.css",
+    	style_formats: [
+    	{title: 'Bold text', inline: 'b'},
+    	{title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+    	{title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+    	{title: 'Example 1', inline: 'span', classes: 'example1'},
+    	{title: 'Example 2', inline: 'span', classes: 'example2'},
+    	{title: 'Table styles'},
+    	{title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+    	],
+    	formats: {
+    		alignleft: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'left'},
+    		aligncenter: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'center'},
+    		alignright: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'right'},
+    		alignfull: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'full'},
+    		bold: {inline: 'span', 'classes': 'bold'},
+    		italic: {inline: 'span', 'classes': 'italic'},
+    		underline: {inline: 'span', 'classes': 'underline', exact: true},
+    		strikethrough: {inline: 'del'},
+    		customformat: {inline: 'span', styles: {color: '#00ff00', fontSize: '20px'}, attributes: {title: 'My custom format'}}
+    	}
+    });
+    
+  -->  
+    <?php 
+    $this->headScript()->captureEnd();
+    
+    echo $this->headScript();
+    ?>
+   
+   
+    
+  </head>
+  <body>
+      <?php echo $this->content; ?>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+﻿<?php
+
+use Zend\Mvc\Controller\Plugin\FlashMessenger;
+//use Zend\Session\Container;
+
+$flashMessenger = new FlashMessenger();
+
+echo $this->doctype();
+?>
+<html lang="en">
+
+<?php echo $this->partial('block/head'); ?>
+
+    <body>
+
+<?php echo $this->partial('menu'); ?>
+ 
+        <div class="container">
+
+                <?php 
+    if ($flashMessenger->hasMessages()) {
+        foreach ($flashMessenger->getMessages() as $flashMessage) {
+            $parte = explode("_", $flashMessage);
+            echo $this->ztbAlert($this->escapeHtml($parte[1]), TRUE, 'alert-' . $this->escapeHtml($parte[0]));
+        }
+        $flashMessenger->clearMessages();
+    }
+    ?>
+
+        <?php echo $this->content; ?>
+
+        <?php echo $this->partial('layout/footer'); ?>
+
+        </div> <!-- /container -->
+
+<?php echo $this->inlineScript() ?>
+        
+    </body>
+
+</html>

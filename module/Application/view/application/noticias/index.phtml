@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">Listado de Noticias</h3>
+	</div>
+<?php if ($this->isAllowed('noticias', 'crear')) { ?> 
+	<div class="toolbardt">
+		<a class="btn btn-success" href="/noticias/crear">
+		<span class="glyphicon glyphicon-list-alt"></span> Nuevo</a>
+	</div>
+<?php } ?>
+
+
+<table class="table table-hover">
+	<tr>
+	    <th>ID</th>
+	    <th>Título</th>
+	    <th>Usuario creación</th>
+	    <th>Usuario modificado</th>
+	    <th>Fecha creación</th>
+	    <th>Fecha modificado</th>
+	    <th>&nbsp;</th>
+	</tr>
+
+<?php $this->partialloop()->setObjectKey('noticia');
+echo $this->partialloop('rowNoticia', $this->noticias) ?>
+</table>
+<?php  echo ( count($this->noticias) > 0 ) ? $this->paginationControl($this->noticias, 'Sliding', 'pager.phtml', array('lang'=>$lang, 'controller'=>'noticias')) : ""; ?>
+</div>

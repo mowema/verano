@@ -1,0 +1,16 @@
+<h1>403 Forbidden</h1>
+
+    <?php if (\BjyAuthorize\Guard\Controller::ERROR === $error) : ?>
+       <h2> No tiene permisos para acceder a <?php echo($controller);?>
+        <?php if ($action) : ?>
+        ::<?php echo($action);?>Action()</h2>
+        <?php endif;?>
+        .
+    <?php elseif (\BjyAuthorize\Guard\Route::ERROR === $error)  : ?>
+       <h3>No tiene permisos para acceder a <?php echo $route;?>.</h3> 
+    <?php elseif ($error == 'error-unauthorized') : ?>
+        Usted no está autorizado <?php echo $reason; ?>.
+    <?php else : ?>
+   <h3>Se ha producido un error desconocido.</h3>  
+    <?php endif;?>
+    <div style="margin:10px;"><img src="/images/acceso_candado.gif"></div>

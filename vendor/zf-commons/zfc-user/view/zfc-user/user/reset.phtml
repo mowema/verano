@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-12"><h2>¿Olvidó su contraseña?</h2></div>
+</div>
+
+<?php $this->resetForm->setAttribute('class','form-horizontal');?>
+
+<div class="row">
+    <div class="col-xs-4">
+        <?php echo $this->form()->openTag($this->resetForm); ?>
+            <div class="form-horizontal resetForm">
+                <div class="form-group">  
+                    <?php echo $this->formLabel($this->resetForm->get('email')->setLabelAttributes(array('class'=>'col-md-3 control-label'))); ?>        
+                    <div class="col-xs-9">
+                        <?php echo $this->formInput($this->resetForm->get('email')->setAttributes(array('class'=>'form-control')));
+                         ?>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-3 col-sm-9">
+                        <?php echo $this->formInput($this->resetForm->get('submit')->setAttributes(array('class'=>'btn btn-primary '))); ?>
+                    </div>
+                </div>
+            </div>
+         <?php echo $this->form()->closeTag(); ?>
+
+    </div>	   
+</div>
+<?php if ($this->redirect): ?>
+    <input type="hidden" name="redirect" value="<?php echo $this->escapeHtml($this->redirect) ?>" />
+<?php endif ?>
+
+
+

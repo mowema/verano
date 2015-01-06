@@ -1,0 +1,96 @@
+<?php 
+$this->partialloop()->setObjectKey('data');
+?>
+
+<div id="header">
+</div>
+<div class="fecha"><?php echo $this->boletin->getFechaCreacion()->format('d/m/Y') ?></div>
+<div id="main">
+  
+
+  <div id="col_izq">
+    <?php foreach ($this->boletin->getNoticia() as $noticia){ 
+    	if ( $noticia->getNoticia()->getTipo() == 1) {?>
+    	<p><a href="#<?php echo $noticia->getNoticia()->getId() ?>"><?php echo $noticia->getNoticia()->getTitulo() ?></a></p>
+	    <?php } else {?>
+	    <p><b><?php echo $noticia->getNoticia()->getTitulo() ?></b></p>
+	<?php } } ?>
+  </div>
+  
+  <div id="col_der">
+      <?php foreach ($this->boletin->getNoticia() as $noticia){ ?>
+	      <a id="<?php echo $noticia->getNoticia()->getId() ?>"></a>
+	      
+	      	<?php switch($noticia->getNoticia()->getTipo()) {
+					
+	      		case 2:?>
+	      		<h2 class="encabezado"><?php echo $noticia->getNoticia()->getTitulo() ?></h2>
+	      		
+	      		<?php 
+	      		
+	      		break;
+				
+				case 2: ?>
+				<p><?php echo $noticia->getNoticia()->getCuerpo() ?></p>
+				
+				<?php 
+					
+				break;
+					      		
+				case 1: ?>
+	      		
+	      		<h3><?php echo $noticia->getNoticia()->getTitulo() ?></h3>
+	      		<p><?php echo $noticia->getNoticia()->getCuerpo() ?></p>
+	      			
+			<?php break; 
+	      	
+	      	} ?>
+	      	
+    <?php } ?>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div id="footer">
+  <p>&nbsp;</p>
+</div>
+
+<style type="text/css">
+
+	      	
+#main{
+	
+	width:718px;
+}
+	      	
+#col_der {
+	float: left;
+	width: 502px;
+	padding:0 0 0 12px;
+	
+}
+#col_izq {
+	background-color: #E9E9E9;
+	float: left;
+	width: 188px;
+	padding:8px;
+}
+.clear {
+	clear: both;
+}
+.encabezado{
+	background-color: #E9E9E9;
+	
+}
+#header{
+	
+	background: url("/images/boletin/headercci.jpg");
+	width:718px;
+	height:118px;
+	
+}
+.fecha{
+	
+	width:718px;
+}
+</style>

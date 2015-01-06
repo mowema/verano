@@ -1,0 +1,29 @@
+<div class="panel panel-primary">
+	<div class="panel-heading">
+		<h3 class="panel-title">Listado de Usuarios</h3>
+	</div>
+<?php if ($this->isAllowed('usuarios', 'crear')) { ?> 
+	<div class="toolbardt"><a class="btn btn-success" href="/usuarios/crear">
+	<span class="glyphicon glyphicon-list-alt"></span> Nuevo</a></div>
+<?php } ?>
+
+
+<table class="table table-hover">
+<tr>
+    <th>ID</th>
+    <th>Usuario</th>
+    <th>Email</th>
+    <th>Dependencia</th>
+    <th>&nbsp;</th>
+</tr>
+<?php $this->partialloop()->setObjectKey('usuario');
+echo $this->partialloop('/partial/rowUsuario', $this->usuarios) ?>
+</table>
+
+<?php  echo ( count($this->usuarios) > 0 ) ? $this->paginationControl($this->usuarios, 'Sliding', 'pager.phtml', array('lang'=>$lang, 'controller'=>'usuarios')) : ""; ?>
+</div>
+<script type="text/javascript">
+	$(document).ready(function() {
+	$(".fancybox").fancybox();
+	});
+</script>

@@ -1,0 +1,375 @@
+<?php echo $this->doctype(); ?>
+
+<html lang="es">
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+        <?php echo $this->headTitle('Verano de Emociones ')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?php
+        echo $this->headMeta()
+                ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+                ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?php
+        echo $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/x-icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                  ->headLink(array('rel' => 'icon', 'type' => 'image/x-icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+                  ->appendStylesheet($this->basePath() . '/css/style.css')
+                
+                
+                
+                
+               // ->appendStylesheet($this->basePath() . '/css/bootstrap.min.css')
+                // ->appendStylesheet($this->basePath() . '/css/bootstrap-theme.min.css')
+               // ->appendStylesheet($this->basePath() . '/css/theme.css')
+               // ->appendStylesheet($this->basePath() . '/css/bootstrap-select.min.css')
+               // ->appendStylesheet($this->basePath() . '/fuelux/css/fuelux.min.css')
+        ?>
+
+        <!-- Important Owl stylesheet -->
+<link rel="stylesheet" href="/owl-carousel/owl.carousel.css">
+ 
+<!-- Default Theme -->
+<link rel="stylesheet" href="/owl-carousel/owl.theme.css">
+
+        <!-- Scripts -->
+        <?php
+        echo $this->headScript()
+                ->appendFile($this->basePath() . '/assets/jquery.min.js')
+                ->appendFile($this->basePath() . '/assets/jquery.spritely.js')
+                
+         /*       ->appendFile($this->basePath() . '/js/jquery.min.js')
+                //->appendFile($this->basePath() . '/js/jquery.validate.min.js')
+                ->appendFile($this->basePath() . '/js/bootstrap.min.js')
+                ->appendFile($this->basePath() . '/js/bootstrap-select.min.js')
+                ->appendFile($this->basePath() . '/js/i18n/defaults-es_CL.js')
+                ->appendFile($this->basePath() . '/fuelux/js/fuelux.min.js')
+                ->appendFile($this->basePath() . '/fuelux/js/wizard.js')
+                ->appendFile($this->basePath() . '/js/respond.min.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+                ->appendFile($this->basePath() . '/js/html5shiv.js', 'text/javascript', array('conditional' => 'lt IE 9',))
+*/
+
+        ;
+        ?>
+<!-- Include js plugin -->
+<script src="/owl-carousel/owl.carousel.js"></script>
+
+<script type="text/javascript">
+		var salto=0;
+		
+		$(document).ready(function() {
+			
+			console.log('...');
+			var miniAlto=700;
+			var fullHeight = $(window).height();
+			$('.fullAlto').css("min-height",fullHeight);
+			$(".margenAlto").css("margin-top", fullHeight+"px");
+			
+								$('#clima .ico').html('<img width="100%" src="img/clima/partly-cloudy-day.png"/>');
+					$('#clima .grados .g1').html('26&deg; C');
+					$('#clima .grados .g2').html('79&deg; F');
+							
+			//fullAlto
+			$(function(){
+				var $window = $(window).on('resize', function(){
+					var fullHeight = $(window).height();
+					if(fullHeight<miniAlto){fullHeight=miniAlto;}
+					$('.fullAlto').css("min-height",fullHeight);
+					//$(".margenAlto").css("margin-top", fullHeight+"px");
+				}).trigger('resize');
+			});
+			
+			//Hora actual
+			$.fn.jTime = function(ox){
+			  var mHF = function (){
+				var d2 = new Date();
+				d2.setHours(d2.getUTCHours() - 6);
+				h = d2.getHours();
+				m = d2.getUTCMinutes();
+				s = d2.getUTCSeconds();
+				if (h<=9) h = '0'+h;
+				if (m<=9) m = '0'+m;
+				if (s<=9) s = '0'+s;
+				hi = h + ":" + m + ":" + s;
+				//hi = h + "H" + m;
+				$('#'+ox).html(hi);
+			  }
+			  return this.each(function(){
+				ox = $(this).attr('id');
+				setInterval(mHF,1000);
+			  });
+			};
+			$('#horaAct').jTime();
+			
+		});
+	</script>
+    </head>
+        <body class="" 
+              style="overflow: auto;" 
+              data-twttr-rendered="true">
+
+            <?php echo $this->content; ?>
+            
+
+<script type="text/javascript" src="/assets/skrollr.min.js"></script>
+<script type="text/javascript" src="/assets/jquery.transform2d.js"></script>
+<script type="text/javascript" src="/assets/jquery.waitforimages.min.js"></script>
+<script type="text/javascript" src="/assets/jquery.interactive_bg.js"></script>
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="js/skrollr.ie.min.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+    
+    
+
+    $(document).ready(function() {
+     
+    $("#owl-demo").owlCarousel({
+        autoPlay:true,
+        navigation:false,
+        pagination:false,
+        singleItem:true,
+        jsonPath : 'http://api.flickr.com/services/feeds/photos_public.gne?id=129741112@N06&lang=es-ar&format=json&jsoncallback=?',
+        jsonSuccess : customDataSuccess
+        });
+
+        function customDataSuccess(data){
+            var content = "";
+            for(var i in data["items"]){
+            var img = data["items"][i].media.m;
+            var alt = data["items"][i].title;
+
+            content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
+            }
+        $("#owl-demo").html(content);
+    }
+     
+    });
+
+
+	var sk;
+	
+	$(document).ready(function() {
+		
+		var miniAlto=600;
+		var fullHeight = $(window).height();
+		
+		$('.saltarIntro').click(function(){
+			console.log('skip');
+			salto=1;
+			$('.saltarIntro').remove();
+			
+			$('#loading').removeClass('loadingOut');
+			$('#loading').slideDown(500,function(){
+				$('#intro').remove();
+			});
+			
+			$.ajax({
+				type:'POST',
+				dataType:'html',
+				cache:true,
+				url:'iniAjax.php',
+				success:function(htmlAjax){
+					
+					setTimeout(function() {
+						$(document).scrollTop(0);
+					}, 100);
+					
+					$('#full').append(htmlAjax).waitForImages(function() {
+						$('#full').show(0);
+						document.body.style.overflow = 'auto';
+						
+						$('#loading').addClass('loadingOut');
+						$('#loading').delay(350).slideUp(750,function(){
+							$('#loading').remove();
+							sk.refresh();
+						});
+						sk.refresh();
+					});
+					
+				}//success
+			});//ajax
+		});
+		
+		//fullAlto
+		$(function(){
+			var $window = $(window).on('resize', function(){
+				var fullHeight = $(window).height();
+				if(fullHeight<miniAlto){fullHeight=miniAlto;}
+				$('.fullAlto').css("min-height",fullHeight);
+				//$(".margenAlto").css("margin-top", fullHeight+"px");
+			}).trigger('resize');
+		});
+		
+		//smoothWheel
+		jQuery.extend(jQuery.easing, {
+			easeOutQuint: function(x, t, b, c, d) {
+				return c * ((t = t / d - 1) * t * t * t * t + 1) + b;
+			}
+		});
+		var wheel = false,
+		$docH = $(document).height() - $(window).height(),
+		$scrollTop = $(window).scrollTop();
+		$(window).bind('scroll', function() {
+			if (wheel === false) {
+				$scrollTop = $(this).scrollTop();
+			}
+		});
+		$('.smoothWheel').bind('DOMMouseScroll mousewheel', function(e, delta) {
+			delta = delta || -e.originalEvent.detail / 3 || e.originalEvent.wheelDelta / 120;
+			wheel = true;
+			$scrollTop = Math.min($docH, Math.max(0, parseInt($scrollTop - delta * 20)));
+			$($.browser.webkit ? 'body' : 'html').stop().animate({
+				scrollTop: $scrollTop + 'px'
+			}, 2000, 'easeOutQuint', function() {
+				wheel = false;
+			});
+			return false;
+		});
+		//smoothWheel
+		
+		//Scroll Anim
+		sk = skrollr.init({
+			smoothScrolling:false,
+			smoothScrollingDuration:200,
+			forceHeight: false
+		});
+		
+	});
+	
+	$(window).load(function(){
+		console.log('. => es');
+		
+		setTimeout(function() {
+			$(document).scrollTop(0);
+		}, 100);
+		
+		if(salto==0){
+			$('#loading').addClass('loadingOut');
+			$('#loading').delay(350).slideUp(500,function(){
+				//$('#loading').remove();
+				console.log('pre ...');
+				$.ajax({
+					type:'POST',
+					dataType:'html',
+					cache:true,
+					url:'iniAjax.php',
+					success:function(htmlAjax){
+						console.log('pre ok');
+					}//success
+				});//ajax
+			});
+		}
+		
+	});
+ 
+   $('.btnDespleDer').click(function() {
+  $('#loadingAjax').fadeToggle(250);
+
+  var idAjax = $(this).data('idajax');
+  var postData = 'id=' + idAjax;
+
+  $.ajax({
+    type: 'POST',
+    dataType: 'html',
+    cache: true,
+    url: '/ajax',
+    data: postData,
+    success: function(htmlLug) {
+
+        $('#rightPage').html(htmlLug).hide().waitForImages(function() {
+           $('#rightPage').show(0);
+
+          //$('#page').addClass('pageOff');
+          $('#page').css({
+            transform: 'translateX(-800px)'
+          });
+          //$('#rightPage').addClass('rightPageOn');
+          $('#rightPage').css({
+            transform: 'translateX(0px)'
+          });
+          $('.ocultarDer').fadeToggle(500);
+          $('#loadingAjax').fadeToggle(500);
+          $('body').addClass('sinScroll');
+
+          $('.imgData').remove();
+        });
+
+      } //success
+  }); //ajax
+
+});
+    
+$('.ocultarDer').click(function() {
+  //$('#page').removeClass('pageOff');
+  $('#page').css({
+    transform: 'translateX(0px)'
+  });
+  //$('#rightPage').removeClass('rightPageOn');
+  $('#rightPage').css({
+    transform: 'translateX(800px)'
+  });
+  $('.ocultarDer').fadeOut(500, function() {
+    $('body').removeClass('sinScroll');
+    $('#page').removeAttr('style');
+    /*$('#rightPage').fadeTo('fast',0,function(){
+				$('#rightPage').html('');
+			});*/
+  });
+  $('#rightPage').animate({
+    scrollTop: $('body').offset().top
+  }, 750);
+  return false;
+});
+
+
+$('.btnMenu').click(function() {
+  $('.btnMenu').toggleClass('actMenu');
+  $('.ocultar').toggleClass('oculto');
+  $('#menu').slideToggle(550);
+  $('#menu .lang').toggle(500);
+  $('#menu .iz').fadeToggle(500);
+});
+
+
+$('.link').click(function() {
+  var getIdLink = $(this).data('ancla');
+  $('html, body').animate({
+    scrollTop: $('#page' + getIdLink).offset().top
+  }, 1000);
+  $('.btnMenu').toggleClass('actMenu');
+  $('.ocultar').toggleClass('oculto');
+  $('#menu').slideToggle(550);
+  $('#menu .lang').toggle(500);
+  $('#menu .iz').fadeToggle(500);
+  return false;
+});
+var fullAlto = 900;
+$('#rightPage').scroll(function(e) {
+  scrollRightPage = ($('.rightPage').scrollTop());
+  $('.bg1, .bg2').css({
+    top: scrollRightPage + 'px'
+  });
+  if (fullAlto > 850) {
+    if (scrollRightPage > 100) {
+      $('.bg2').fadeOut(500);
+    } else {
+      $('.bg2').fadeIn(500);
+    }
+  } else {
+    if (scrollRightPage > 250) {
+      $('.bg2').fadeOut(500);
+    } else {
+      $('.bg2').fadeIn(500);
+    }
+  }
+});
+</script>
+	    
+    </body>
+</html>

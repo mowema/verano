@@ -1,0 +1,298 @@
+<?php
+ if (NULL !== $this->boletin->getPlantilla()){
+ 	$assignedLayout = $this->boletin->getPlantilla()->getId();
+ }
+	
+?>	<div id="selector_plantilla" class="row">
+
+                 <div id="selec_plantilla" class="nav-bar col-md-7">
+                    <a class="plantillastoggle btn btn-primary" href="#"><span class="glyphicon glyphicon-eye-open"></span> Selector plantilla</a>	
+                    <div id="plantillas" class="col-md-9 well well-lg pull-right"  style="display: none;">
+                            <ul>
+
+                            <?php 	foreach($this->plantillas as $plantilla):?>
+                                                    <li class="ui-draggable" style="<?php echo ($plantilla->getId() === $assignedLayout ? 'background-color:greenyellow' : '' )  ?>" data-blocktemplateid="1-col-text" data-action="insertPredefinedBlock">
+                                                                    <div class="blockTemplateIconContainer"><span class="icon"></span></div>
+                                                                     <a href="<?php echo $this->url('boletines', array('action'=>'confeccion', 'id' => $this->id , 'maqueta' => $plantilla->getId())) ?>">
+                                                                    <span><?php echo $plantilla->getNombre();?></span>
+                                                            </a>
+                                                    </li>
+                                    <?php endforeach;?>
+                            </ul>	
+                    </div>
+                </div>
+		<div id="sub-nav" class="nav-bar col-md-5">
+			<ul class="nav nav-pills">
+				<!--
+				<li class="pull-right">
+					<a data-action="addAttachment" href="#">
+						<i class="icon-clip"></i> Adjuntar archivo</a>
+				</li>
+                                -->
+				<li class="pull-left">
+					<?php if ($this->boletin->getPlantilla() != NULL):?>
+					
+				<!-- implementar $this->URL               -->
+					<a data-fancybox-type="iframe" class="preview btn btn-default" href="<?php  echo $this->url('boletines', array('action'=>'preview', 'preview' => $this->id))?>" >
+						<span class="glyphicon glyphicon-eye-open"></span> Previsualizar</a>
+						<?php endif; ?>
+                                </li>
+
+				<li class="pull-right">
+					<a class="btn btn-default" href="<?php  echo $this->url('boletines', array('action'=>'distribuir', 'preview' => $this->id))?>" >
+						<span class="glyphicon glyphicon-envelope"></span> Distribuir</a>
+				</li>
+			</ul>
+		</div>
+		
+	
+
+        </div>
+	<div class="row">
+		
+		<div id="principal" class="col-md-12">
+				
+                        <div class="row">
+                        	<div class="col-md-5">
+	                            <div class="drop panel panel-primary">
+	                                    <div class="panel-heading">
+	                                            <h3 class="panel-title">Noticias sin asignar</h3>
+	                                    </div>
+	                                    <div class="panel-body">	
+	                                  
+	                                             <table id="table-not" class="display table table-striped">    	
+	                                                    <?php $this->placeholder('noticia')->captureStart(); ?>
+	                                                            <thead>
+	                                                                <tr>
+	                                                                    <th>id</th>
+	                                                                    <th>Titulo</th>
+	                                                                    <th>fecha</th>
+	                                                                    <th></th>
+	                                                                </tr>
+	                                                            </thead>
+	                                                            <tbody></tbody>
+	
+	                                            </table>
+	
+	                                            <?php $this->placeholder('noticia')->captureEnd() ?>
+	
+	                                            <?php echo $this->placeholder('noticia') ?>
+	                                    </div>   		
+	                            </div>
+                            </div>
+
+			<div class="col-md-7">
+                            <div id="list-sort-assigned" class="drop panel panel-primary">
+
+                                    <div class="panel-heading">
+                                            <h3 class="panel-title">Noticias asignadas</h3>
+                                    </div>
+                                    <div class="panel-body">	
+                                            <a class="btn btn-primary show_hide_enc" href="#" >
+                                            <i class="icon-arrow-down"></i>Crear Encabezado</a>
+                                            <a class="btn btn-primary show_hide_bloq" href="#" >
+                                            <i class="icon-arrow-down"></i>Crear Bloque de texto</a>
+                                            <div class="slidingDiv_enc" style="margin:10px;">
+
+                                                    <?php $fsenc = $this->encabezadoform->get('noticias'); 
+                                                    echo $this->form()->openTag($this->encabezadoform); ?>
+                                                    <div class="form-group">
+                                                    <?php echo $this->formhidden($fsenc->get('tipo')); ?>
+                                                <div id="controls-encabezado" class="col-lg-6"><?php echo $this->formInput($fsenc->get('titulo')->setLabelAttributes(array('class'=>'form-control'))); ?></div>
+                                                    </div><a href="#" class="btn show_hide_enc"><i class="icon-arrow-up"></i></a>
+                                                    <div class="form-group">
+                                                               <div id="controls-submit" class="col-lg-offset-1 col-6"><?php echo $this->formSubmit($this->encabezadoform->get('submit')->setLabelAttributes(array('class'=>'form-control'))); ?></div>
+                                                    </div>
+                                                    <?php echo $this->form()->closeTag(); ?>
+
+                                            </div>
+                                            <div class="slidingDiv_bloq" style="margin:10px;">
+
+                                                    <?php $fsbloque = $this->bloqueform->get('noticias'); 
+                                                    echo $this->form()->openTag($this->bloqueform); ?>
+                                                    <div class="form-group">
+                                                    <?php echo $this->formhidden($fsbloque->get('tipo')); ?>
+                                                <div id="controls-bloque" class="col-lg-12"><?php echo $this->formtextarea($fsbloque->get('cuerpo')->setLabelAttributes(array('class'=>'form-control'))); ?></div>
+                                                    </div><a href="#" class="btn show_hide_enc"><i class="icon-arrow-up"></i></a>
+                                                    <div class="form-group">
+                                                               <div id="controls-submit" class="col-lg-offset-1 col-6"><?php echo $this->formSubmit($this->bloqueform->get('submit')->setLabelAttributes(array('class'=>'form-control'))); ?></div>
+                                                    </div>
+                                                    <?php echo $this->form()->closeTag(); ?><a href="#" class="btn show_hide_bloq"><i class="icon-arrow-up"></i></a>
+
+                                            </div>
+                                            <ul  id="sort-assigned" class="ui-sortable">
+
+                                                    <?php $this->placeholder('noticiaasign')->captureStart();
+                                                    foreach ($this->boletin->getNoticia() as $datum): ?>
+
+                                            <?php if($datum->getNoticia()->getEstado() == 1){ ?>
+
+                                                            <li id="sort_<?php echo $datum->getNoticia()->getId()?>" class="ui-state-default">
+                                                                    <span class="ui-icon ui-icon-arrowthick-2-n-s"></span>
+
+                                                             <?php switch($datum->getNoticia()->getTipo()){
+
+                                                                     case 1: ?>
+                                                                     <?php echo $datum->getNoticia()->getTitulo() ;?>
+                                                                            <a class="btn pull-right icono" href="<?php echo $this->url('boletines', array('action'=>'desasignar', 'idboletin' => $this->id, 'id' => $datum->getNoticia()->getId()))?>">
+                                                                            <span class="glyphicon glyphicon-remove"></span> </a>
+                                                                    <?php break; 
+
+                                                                     case 2: ?>
+                                                                     <?php echo $datum->getNoticia()->getTitulo() ;?>
+                                                                            <a class="btn pull-right icono" title="eliminar" href="#" 
+                                                                            onclick="return MyDialogs.loadConfirmationModal('<?php echo $datum->getNoticia()->getId() ?>',
+                                                                            '<?php echo $this->url('noticias', array('action' => 'apapelera', 'id' => $datum->getNoticia()->getId()))?>', 
+                                                            'El siguiente encabezado será eliminado', 
+                                                            '<?php echo $datum->getNoticia()->getTitulo() ?>','');"><span class="glyphicon glyphicon-trash"></span> </a>
+                                                                    <?php break;
+
+                                                                     case 3: ?>
+                                                                            <?php echo substr(strip_tags($datum->getNoticia()->getCuerpo()), 0, 30) ;?>
+                                                                            <a class="btn pull-right icono" title="eliminar" href="#" 
+                                                                                    onclick="return MyDialogs.loadConfirmationModal('<?php echo $datum->getNoticia()->getId() ?>',
+                                                                                    '<?php echo $this->url('noticias', array('action' => 'apapelera', 'id' => $datum->getNoticia()->getId()))?>', 
+                                                                    'El siguiente bloque de texto será eliminado', 
+                                                                    '<?php echo $datum->getNoticia()->getCuerpo() ?>','');"><span class="glyphicon glyphicon-trash"></span> </a>
+                                                                    <?php break;
+
+                                                             } ?>
+                                                                    <a class="editfb dropdown-toggle btn pull-right icono" data-fancybox-type="iframe" href="<?php echo $this->url('noticias', array('action'=>'editar', 'id' => $datum->getNoticia()->getId(), 'modal' => 'true', 'tipo' => $datum->getNoticia()->getTipo()))?>" >
+                                                                    <span class="glyphicon glyphicon-pencil"></span></a>
+                                                            </li>
+                                                            <?php } ?>
+                                                    <?php endforeach; ?>
+                                                    <?php $this->placeholder('noticiaasign')->captureEnd() ?>
+
+                                                    <?php echo $this->placeholder('noticiaasign')  ?>
+                                              </ul>   
+                                     </div>
+                            </div>
+                            </div>
+                        </div>
+									    
+                        <div class="clear"></div>
+						
+				
+		</div>	
+	</div>
+
+   <script type="text/javascript">
+
+   /*
+        Aloha.ready( function() {
+            Aloha.jQuery('#content').aloha();
+        });*/
+
+        $(document).ready(function() {
+                                          
+                $('#table-not').dataTable( {
+                   
+                    "sDom": '<"top"fl<"clear">>rt<"bottom"<"info-t1">ip<"clear">>',
+                   // "sDom": 'T<"clear">lfrtip',
+                    
+                    "oLanguage": {
+                        "sUrl": "/datatable/media/language/de_ES.txt"
+                    },
+                    "aaSorting": [[ 2, "desc" ]],
+                    "bUseRendered": true,
+                    "bProcessing": true,
+                    "sAjaxSource": "/boletines/jsondata/<?php echo $this->id ?>",
+                    "aoColumns": [
+                         { "aaData": "id" },
+                         { "aaData": "titulo" },
+                         { "aaData": "fecha_modificado" },
+                         { "aaData": "asignar" }                   
+                    ],
+                    /*
+                    "oTableTools": {
+                        "sRowSelect": "single",
+                        "fnRowSelected": function ( node ) {
+                            alert( 'The row with ID  '+ node[1]+'  was selected' );
+                        }
+                    },*/
+                  "aoColumnDefs": [ {
+                    "aTargets": [ 3 ],
+                    "mRender": function ( data, type, full ) {
+                      return '<a href="/boletines/asignar/'+data+'/<?php echo $this->id ?>"><span class="glyphicon glyphicon-arrow-right"></span></a>';
+                    }
+                  },
+                  { "bVisible": false, "aTargets": [ 0 ] },
+                  { "bSortable": false, "aTargets": [ 3 ] },
+                  { "sWidth": "50%", "aTargets": [ 1 ] }
+                ]
+                 
+                    
+                    
+                } );
+                
+                $("div.info-t1").html('hay <?php echo count($this->noticias) ?>  noticias disponibles');
+                  
+		$('.plantillastoggle').click(function() {
+			$('#plantillas').toggle();
+			$('#principal').toggleClass('nopadingueo');
+		});
+		
+		
+			/* $('.plantillastoggle').toggle(
+
+				function() {
+					$('#principal').css('padding-left', '0')
+				}, function() {
+					$('#principal').css('padding-left', '200px')
+			})*/
+			
+		});
+			
+        $(document).ready(function() {
+		
+             $(".slidingDiv_enc").hide();
+			$(".slidingDiv_bloq").hide();
+            $(".show_hide_enc").show();
+			$(".show_hide_bloq").show();
+     
+        $('.show_hide_enc').click(function(){
+        $(".slidingDiv_enc").slideToggle();
+		$(".slidingDiv_bloq").hide();
+        });
+		$('.show_hide_bloq').click(function(){
+        $(".slidingDiv_bloq").slideToggle();
+		$(".slidingDiv_enc").hide();
+        });
+            
+            /*   $("#sort-assigned").sortable({
+       	        handle : '.handle',
+       	        update : function () {
+       	        var order = $('#test-list').sortable('serialize');
+       	        $("#info").load("process-sortable.php?"+order);
+       	        }
+       	     });*/
+
+               $( "#sort-assigned" ).sortable({
+                   placeholder: "ui-state-highlight",
+                   opacity: 0.6,
+               update: function(event, ui) {
+               	var info = $('#sort-assigned').sortable("serialize") + '&id=' + <?php echo $this->id?>;
+
+                   $.ajax({
+                 	  url: "/boletines/sort",
+                 	  data: info,
+                 	  context: document.body,
+                 	  success: function(){
+                 	    // success
+                   		// alert(info)
+                 	  }
+                 	});
+               }
+               });
+           
+               $(".editfb").fancybox({
+            	   'afterClose': function() {   
+            	     parent.location.reload(true);
+            	    }
+            	   });
+               $(".preview").fancybox();
+       });
+
+
+    </script>
