@@ -1502,21 +1502,23 @@ in
 }
 
 .page .pCamino .titular {
-    //color:#18152d;
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
     cursor: default;
     display: block;
     font-family: "claire_handbold",sans-serif;
     font-size: 46px;
     font-weight: 900;
-    left: 45%;
+    left: 0;
     letter-spacing: -1px;
     line-height: 55px;
-    margin-left: -450px;
+    padding: 14px 28px 14px 100px;
     position: absolute;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
-    top: 75px;
-    width: 700px;
+    width: 540px;
+    
+    
+    //color:#18152d;
+    
 }
 .page .pCamino .areaInfo {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
