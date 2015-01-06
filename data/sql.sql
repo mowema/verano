@@ -1,3 +1,29 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.10
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost:3306
+-- Generation Time: Jan 06, 2015 at 11:00 PM
+-- Server version: 5.5.38
+-- PHP Version: 5.6.2
+
+SET FOREIGN_KEY_CHECKS=0;
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `verano`
+--
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `role`
@@ -15,11 +41,7 @@ CREATE TABLE `role` (
 
 INSERT INTO `role` (`id`, `parent_id`, `roleId`) VALUES
 (1, NULL, 'Administrador'),
-(2, NULL, 'Gestor Noticias'),
-(3, NULL, 'Gestor Boletines'),
-(4, NULL, 'Publicador'),
-(8, NULL, 'Gestor de Certificados'),
-(9, NULL, 'Gestor de Reuniones');
+(4, NULL, 'Publicador');
 
 -- --------------------------------------------------------
 
@@ -44,7 +66,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `displayName`, `password`, `permisos`, `ruta`, `state`, `loged`) VALUES
-(1, 'admin', 'admin@jefatura.gob.ar', 'Admin', '$2y$14$lHTek5OnjRZTFwWOLKbobumrfib7dze.wJ1V.Pq8F4xeAV1UqD0Te', NULL, NULL, 1, 1),
+(1, 'admin', 'admin@jefatura.gob.ar', 'Admin', '$2y$14$lHTek5OnjRZTFwWOLKbobumrfib7dze.wJ1V.Pq8F4xeAV1UqD0Te', NULL, NULL, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -62,11 +84,12 @@ CREATE TABLE `users_roles` (
 --
 
 INSERT INTO `users_roles` (`user_id`, `role_id`) VALUES
-(1, 1),
+(1, 1);
 
 --
 -- Indexes for dumped tables
 --
+
 --
 -- Indexes for table `role`
 --
@@ -88,6 +111,7 @@ ALTER TABLE `users_roles`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
 --
 -- AUTO_INCREMENT for table `role`
 --
@@ -114,3 +138,9 @@ ADD CONSTRAINT `FK_57698A6A727ACA70` FOREIGN KEY (`parent_id`) REFERENCES `role`
 ALTER TABLE `users_roles`
 ADD CONSTRAINT `FK_51498A8EA76ED395` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`),
 ADD CONSTRAINT `FK_51498A8ED60322AC` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`);
+SET FOREIGN_KEY_CHECKS=1;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
