@@ -5,18 +5,22 @@
 /data/
 
 ## VHost
-<VirtualHost *:80>
-    DocumentRoot "/Sites/verano/public"
-    ServerName verano.local
-    <Directory "/Sites/verano/public">
-       Options Indexes MultiViews FollowSymLinks
-       AllowOverride All
-       Order allow,deny
-       Allow from all
-   </Directory>
-</VirtualHost>
+	<VirtualHost *:80>
+    	DocumentRoot "/Sites/verano/public"
+    		ServerName verano.local
+    		<Directory "/Sites/verano/public">
+       			Options Indexes MultiViews FollowSymLinks
+       			AllowOverride All
+       			Order allow,deny
+       			Allow from all
+   			</Directory>
+	</VirtualHost>
 
 ## mod_rewrite disponible
+
+FIN! ->
+
+
 
 
 ZendSkeletonApplication
