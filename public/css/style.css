@@ -1503,7 +1503,7 @@ in
 }
 
 .page .pCamino .titular {
-    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
+    //background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
     cursor: default;
     display: block;
     font-family: "claire_handbold",sans-serif;
@@ -1522,7 +1522,7 @@ in
     
 }
 .page .pCamino .areaInfo {
-    background: none repeat scroll 0 0 rgba(256, 256, 256, 0.6);
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;
     bottom: 200px;
@@ -2533,7 +2533,7 @@ in
     z-index: 9999;
 }
 .areaLugares .bgLug .closeLug {
-    background: url("/assets/closeLug.png") no-repeat scroll center center / 75% auto rgba(0, 0, 0, 0);
+    background: url("/img/closeLug.png") no-repeat scroll center center / 75% auto rgba(0, 0, 0, 0);
     border: 3px solid #f5f5f5;
     cursor: pointer;
     display: block;
