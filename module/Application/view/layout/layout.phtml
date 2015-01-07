@@ -138,16 +138,36 @@
         jsonSuccess : customDataSuccess
         });
 
-        function customDataSuccess(data){
-            var content = "";
-            for(var i in data["items"]){
-            var img = data["items"][i].media.m;
-            var alt = data["items"][i].title;
+    function customDataSuccess(data){
+        var content = "";
+        for(var i in data["items"]){
+        var img = data["items"][i].media.m;
+        var alt = data["items"][i].title;
 
-            content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
-            }
+        content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
+        }
+        
         $("#owl-demo").html(content);
-    }
+        }
+    $("#owl-galeria").owlCarousel({
+        autoPlay:true,
+        navigation:false,
+        pagination:false,
+        jsonPath : 'http://api.flickr.com/services/feeds/photos_public.gne?id=129741112@N06&lang=es-ar&format=json&jsoncallback=?',
+        jsonSuccess : customDataSuccess2
+        });
+        
+        function customDataSuccess2(data){
+        var content = "";
+        for(var i in data["items"]){
+        var img = data["items"][i].media.m;
+        var alt = data["items"][i].title;
+
+        content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
+        }
+        
+        $("#owl-galeria").html(content);
+        }
      
     });
 
