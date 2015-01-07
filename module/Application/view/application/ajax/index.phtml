@@ -9,8 +9,12 @@ $contenido = array(
             <p>La Rambla, el Torreón, los lobos marinos, los cornalitos en el puerto, los alfajores, los boliches de Constitución.</p>
 <p>Este verano además de lo que hacés todos los años, en Mar del Plata vas a poder ir a recitales, recorrer la Fragata Libertad, ver dinosaurios, jugar ajedrez, fabricar tus propios instrumentos, bailar tango y probar comidas típicas de todo el país, entre otras muchas cosas.</p>
 <p>Para seguir profundizando el camino de integración y acceso a las distintas expresiones culturales en todo nuestro territorio, nada mejor que tomar esta ruta cultural y disfrutar con alegría. </p>
-<p>Este verano vas a emocionarte como nunca.  Vení a disfrutar de  Mar del Plata. Vení a disfrutar de tu país. Vení a un verano lleno de emociones. </p>
-            ',
+<p>Este verano vas a emocionarte como nunca.  Vení a disfrutar de  Mar del Plata. Vení a disfrutar de tu país. Vení a un verano lleno de emociones.</p>',
+        'info' => '<h5>Actividades Mar del Plata</h5>
+<p>(Base Naval de Mar del Plata – Av. Martinez de Hoz s/n. Desde el 14 de enero al 23 de febrero)</p>
+<p>Buque escuela de la Armada Argentina Fragata Libertad, Parque de Dinosaurios, Ajedrecear, Hacelo Sonar, Café Cultura, Tango de mis Amores (Año Gardeliano), Chocolate Cultura, Alta Fogata / Tablas, 
+Tienda Matra, Jornadas Argentinas de Humor, Feria de comidas y artesanos, Muestra de Paleontología, 
+Parque ECO, Feria de emprendedores, Kermes de Pakapaka, Muestra de fotos.</p>',
         
     ),
     2 => array (
@@ -23,6 +27,8 @@ $contenido = array(
 <p>Para seguir profundizando el camino de integración y acceso a las distintas expresiones culturales en todo nuestro territorio, nada mejor que tomar esta ruta cultural y disfrutar con alegría. </p>
 <p>Este verano vas a emocionarte como nunca.  Vení a divertirte en Los Piletones de Ezeiza. Vení a disfrutar de tu país. Vení a un verano lleno de emociones. </p>
             ',
+        'info' => ''
+        . '',
         
     ),
     3 => array (
@@ -35,6 +41,8 @@ $contenido = array(
 <p>Para seguir profundizando el camino de integración y acceso a las distintas expresiones culturales en todo nuestro territorio, nada mejor que tomar esta ruta cultural y disfrutar con alegría. </p>
 <p>Este verano vas a emocionarte como nunca.  Vení a conocer San Rafael. Vení a disfrutar de tu país. Vení a un verano lleno de emociones. </p>
             ',
+        'info' => ''
+        . '',
         
     ),
     4 => array (
@@ -47,6 +55,8 @@ $contenido = array(
 <p>Para seguir profundizando el camino de integración y acceso a las distintas expresiones culturales en todo nuestro territorio, nada mejor que tomar esta ruta cultural y disfrutar con alegría. </p>
 <p>Este verano vas a emocionarte como nunca.  Vení a relajarte en San Marcos Sierras. Vení a disfrutar de tu país. Vení a un verano lleno de emociones.</p>
             ',
+        'info' => ''
+        . '',
         
     ),
     5 => array (
@@ -60,6 +70,8 @@ $contenido = array(
 <p>Este verano vas a emocionarte como nunca.  Vení a descubrir Las Grutas. Vení a disfrutar de  tu país. Vení a un verano lleno de emociones</p>
 
 ',
+        'info' => ''
+        . '',
         
     ),
 );
@@ -70,7 +82,7 @@ $contenido = array(
 <div class="bg2" style="background-image: url(img/<?php  echo $contenido[$this->data['id']]['bg2'] ?>); display: block"></div>
 <div class="cExtra">
     <div class="contenido">
-
+<!--
         <div class="areaBtnStreet">
                 <div class="btnStreet" target="_blank" data-lb="1">
                         <div class="icon"><img width="100%" src="img/icStreet.png"/></div>
@@ -79,7 +91,7 @@ $contenido = array(
                         <div class="icStreetVertical"></div>
                 </div>
     </div>
-
+-->
 
 
         <div class="titular">
@@ -91,21 +103,21 @@ $contenido = array(
             <?php  echo $contenido[$this->data['id']]['contenido'] ?>
         </div><!--dataTxt-->
 
-        <div class="imgTop imgAuto" style="background-image: url(img/islas/isla-fernandina-3.jpg);"></div>
+        <!-- <div class="imgTop imgAuto" style="background-image: url(img/islas/isla-fernandina-3.jpg);"></div>
 
         <div class="islaLugares">
             <div class="btnLugar" data-idlug="fernandina1" style="background-image: url(/assets/puntaEspinozaM.jpg);">
                 <img class="imgCache" src="/assets/puntaEspinozaM.jpg">
                 <span>ciudad y playa</span>
-            </div><!--btnLugar-->
-        </div><!--islaLugares-->
+            </div>
+        </div>
 
         <div class="clear"></div>
-
+-->
         <div class="comentario">
             <div class="txt">
-                <span class="color clIsla">"Una de las ciudades mas bonitas de Buenos Aires"</span>
-                <span class="blanco">Pedro Molinari</span>
+                <?php  echo $contenido[$this->data['id']]['info'] ?>
+                
             </div><!--txt-->
             <div class="clear"></div>
         </div><!--comentario-->

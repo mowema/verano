@@ -1047,7 +1047,7 @@ input:focus, textarea:focus, label:focus, button:focus, select:focus {
     margin-right: auto;
     margin-top: 20px;
     position: relative;
-    width: 80px;
+    width: 300px;
 }
 .page .pInicio .txt1 .conteBajar img {
     width: 100%;
@@ -1057,11 +1057,18 @@ input:focus, textarea:focus, label:focus, button:focus, select:focus {
     display: block;
     height: auto;
     left: 0;
+    top: -12px;
     position: absolute;
     transition: all 250ms ease-out 0s;
-    width: 80px;
+    width: 200px;
+    font-size: 24px;
+    color:#003865;
+    
+    font-family: "claire_handbold",sans-serif;
+    z-index:3
 }
 .page .pInicio .txt1 .conteBajar .ic2 {
+    
     display: block;
     left: 0;
     margin-left: 18px;
@@ -1071,7 +1078,7 @@ input:focus, textarea:focus, label:focus, button:focus, select:focus {
     //width: 45px;
 }
 .page .pInicio .txt1 .conteBajar:hover .ic1 {
-    transform: rotateY(180deg);
+    
 }
 .page .pInicio .txt1 .conteBajar:hover .ic2 {
     margin-top: 15px;
@@ -1408,7 +1415,7 @@ in
     font-family: "claire_handbold",sans-serif;
     display: block;
     float: left;
-    font-size: 70px;
+    font-size: 34px;
     font-weight: 900;
     text-transform: uppercase;
 }
@@ -1506,7 +1513,8 @@ in
     //background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
     cursor: default;
     display: block;
-    font-family: "claire_handbold",sans-serif;
+    
+    font-family: "Raleway",sans-serif;
     font-size: 46px;
     font-weight: 900;
     left: 0;
@@ -1515,8 +1523,8 @@ in
     padding: 14px 28px 14px 100px;
     position: absolute;
     text-transform: uppercase;
-    width: 540px;
-    
+    width: 100%;
+    z-index:3;
     
     //color:#18152d;
     
@@ -2363,7 +2371,7 @@ in
     float: right;
     height: 350px;
     position: relative;
-    width: 325px;
+    width: 380px;
 }
 .rightPage .cExtra .contenido .comentario .txt {
     bottom: 0;
@@ -2371,10 +2379,10 @@ in
     display: block;
     font-family: "Raleway",sans-serif;
     left: 0;
-    padding-right: 15px;
+    padding-right: 14px;
     position: absolute;
     text-align: right;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 .rightPage .cExtra .contenido .comentario .txt .color {
     display: block;

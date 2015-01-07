@@ -153,6 +153,8 @@
         autoPlay:true,
         navigation:false,
         pagination:false,
+        autoHeight : true,
+        transitionStyle:"fade",
         jsonPath : 'http://api.flickr.com/services/feeds/photos_public.gne?id=129741112@N06&lang=es-ar&format=json&jsoncallback=?',
         jsonSuccess : customDataSuccess2
         });
@@ -163,7 +165,7 @@
         var img = data["items"][i].media.m;
         var alt = data["items"][i].title;
 
-        content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
+        content += "<div style='width:90%' ><img src=\"" +img+ "\" alt=\"" +alt+ "\"><p>"+data["items"][i].title+"</p></div>";
         }
         
         $("#owl-galeria").html(content);
