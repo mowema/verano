@@ -1729,7 +1729,7 @@ in
     position: absolute;
     right: 0;
     top: 150px;
-    width: 425px;
+    width: 275px;
     z-index: 2;
 }
 .page .pDescargas .txt1 p {
@@ -1752,7 +1752,7 @@ in
     position: absolute;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
-    top: 75px;
+    top: 55px;
     width: 450px;
 }
 .page .pDescargas .dataDescargas {

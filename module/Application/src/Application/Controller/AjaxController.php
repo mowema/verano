@@ -87,5 +87,16 @@ class AjaxController extends AbstractActionController {
         $this->view->setVariable('data', $data);
         return $this->view;
     }
+    public function planoAction() {
+        
+        $request = $this->getRequest();
+        $data = $request->getPost();
+        //echo $data['id'];
+        
+        $this->view->setTerminal(true);
+        
+        $this->view->setVariable('data', $data);
+        return $this->view;
+    }
 
 }
