@@ -104,7 +104,7 @@
 		<div class="areaRequerimiento ocultar skrollable skrollable-before" data-700-top="width:35%;" data-500-top="width:40%;">
 			<div class="btnReq">
                             <span>
-                                <?php
+                                <?php /*
                                 switch($this->imgnrand){
                                     case 1 : echo 'Mar del Plata';
                                         break;
@@ -116,8 +116,8 @@
                                         break;
                                     case 5 : echo 'Las Grutas';
                                         break;
-                                    
-                                }
+                                }    
+                  */              
                                 
                                 ?>
                                 
@@ -162,8 +162,8 @@ Elegí tu lugar y viví un verano pleno de emociones.</p>
             </div><!--divEspecies-->
             <div class="areaBotones ocultar skrollable skrollable-before" data-700-top="right:-184px" data-500-top="right:0;" >
 			<div class="btns">
-                            <a data-idactividad="fiestas" href="#" class="btnActividades"><img width="80%" src="/img/bt_fiestas.png"></a>
-                            <a data-idactividad="casas" href="#" class="btnActividades"><img width="80%" src="/img/bt_casas.png"></a>
+                            <a data-idactividad="fiestas" href="#" class="btnRedondo"><img width="80%" src="/img/bt_fiestas.png"></a>
+                            <a data-idactividad="casas" href="#" class="btnRedondo"><img width="80%" src="/img/bt_casas.png"></a>
 			</div><!--btnReq-->
 			<div class="clear"></div>
 		</div><!--areaRequerimiento-->
@@ -217,4 +217,56 @@ Elegí tu lugar y viví un verano pleno de emociones.</p>
 
 
 </div><!--full-->
+<script>
+$('.btnRedondo').click(function(event) {
+    event.preventDefault();
+  $('#loadingAjaxLug').fadeToggle(250);
+  idActividad = $(this).data('idactividad');
 
+  var postDataLug = 'idactividad=' + idActividad;
+
+  $.ajax({
+    type: 'POST',
+    dataType: 'html',
+    cache: true,
+    url: '/ajax/actividades',
+    data: postDataLug,
+    success: function(htmlLug) {
+
+        $('#areaLugares').html(htmlLug).hide().waitForImages(function() {
+          $('#areaLugares').show();
+          $('#loadingAjaxLug').fadeToggle(250);
+$('body').addClass( "sinScroll" );
+          //BG Img
+          /*$(".bgLug").interactive_bg({
+            strength: 25,
+            scale: 1.05,
+            animationSpeed: "100ms"
+          });*/
+          $(window).resize(function() {
+            $(".bgLug > .ibg-bg").css({
+              width: $(window).outerWidth(),
+              height: $(window).outerHeight()
+            });
+          });
+          $("#bgLug,#nombreLug,#descripcionLug").css('cursor', 'url(img/cursor.png),auto');
+          
+          $('#closeLug').click(function() {
+            $('body').removeClass( "sinScroll" );
+            $('#areaLugares').fadeOut(250, function() {
+              $('#areaLugares').html('');
+            });
+            return false;
+          });
+          $('.btnFullImg').not('#closeLug').click(function() {
+            $('.fullImgOcultar').fadeToggle();
+          });
+          //BG Img
+
+        });
+
+      } //success
+  }); //ajax
+
+});
+</script>

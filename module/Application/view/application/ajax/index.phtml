@@ -2,9 +2,13 @@
 
 $contenido = array(
     1 => array (
+        'id' => 'mardelplata',
+        'plano' => 'si',
+        'btn' => 'agenda-mardelplata',
         'bg1' => 'rp-mdq-02.jpg',
         'bg2' => 'rp-mdq-01.jpg',
         'titulo' => 'Disfrutá de <b>Mar del Plata</b>',
+        'dire' => 'Base Naval de Mar del Plata <br>Av. Martinez de Hoz s/n. <br>Desde el 14 de enero al 23 de febrero, de miércoles a domingo de 16 a 24 hs.',
         'contenido' => '
             <p>La Rambla, el Torreón, los lobos marinos, los cornalitos en el puerto, los alfajores, los boliches de Constitución.</p>
 <p>Este verano además de lo que hacés todos los años, en Mar del Plata vas a poder ir a recitales, recorrer la Fragata Libertad, ver dinosaurios, jugar ajedrez, fabricar tus propios instrumentos, bailar tango y probar comidas típicas de todo el país, entre otras muchas cosas.</p>
@@ -18,9 +22,15 @@ Parque ECO, Feria de emprendedores, Kermes de Pakapaka, Muestra de fotos.</p>',
         
     ),
     2 => array (
+        'id' => 'ezeiza',
+        'plano' => 'no',
+        'btn' => 'agenda-ezeiza',
         'bg1' => 'rp-eze-02.jpg',
         'bg2' => 'rp-eze-01.jpg',
         'titulo' => 'Divertite en Los Piletones de Ezeiza',
+        'dire' => 'Centro Recreativo Nacional de Ezeiza - Autopista Ricchieri, bajada puente El Trébol, acceso Jorge Newbery. <br>
+
+Desde el 13 de enero al 28 de febrero, de martes a domingo de 9 a 21 hs.',
         'contenido' => '
             <p>Los asados, los amigos, los picaditos, tirarse de bomba, el grito del guardavidas para que no corras por el borde de la pileta, los sandwiches de milanesa, el mate a la tardes.</p>
 <p>Este verano, además de todo lo que tienen los piletones de Ezeiza para que disfrutes, vas a poder ver recitales, probar platos típicos de todo el país, aprender jugando y aprovechar los puestos de hidratación. </p>
@@ -34,9 +44,13 @@ Desde el 13 de enero al 28 de febrero, de martes a domingo de 9 a 21 hs.</p>'
         
     ),
     3 => array (
+        'id' => 'sanrafael',
+        'plano' => 'si',
+        'btn' => 'agenda-sanrafael',
         'bg1' => 'rp-sr-02.jpg',
         'bg2' => 'rp-sr-01.jpg',
         'titulo' => 'Conocé San Rafael',
+        'dire' => 'Parque Hipólito Irigoyen de San Rafael. <br>Desde el 10 de enero al 23 de febrero, de miércoles a domingo de 16 a 24 hs.',
         'contenido' => '
             <p>Las cabalgatas, el rafting, los asados, el kayak, las bodegas, las caminatas.</p>
 <p>Este verano, además de todo lo que haces todos los años, en San Rafael vas a poder ver recitales, jugar ajedrez, ver una muestra del cuerpo humano, bailar tango, fabricar tus propios instrumentos, probar platos típicos de todo el país y ver el trabajo de los artesanos locales.</p>
@@ -48,9 +62,14 @@ Desde el 13 de enero al 28 de febrero, de martes a domingo de 9 a 21 hs.</p>'
         
     ),
     4 => array (
+        'id' => 'sms',
+        'plano' => 'no',
+        'btn' => 'agenda-sms',
         'bg1' => 'rp-sms-02.jpg',
         'bg2' => 'rp-sms-01.jpg',
         'titulo' => 'Relajate en San Marcos Sierras',
+        'dire' => 'Polideportivo Municipal Humberto "el gringo" Casini - Libetad y el Jilguero. <br>Del 10 de enero al 23 de febrero, de miércoles a domingo de 16 a 24 hs.
+',
         'contenido' => '
             <p>Las caminatas, el aire puro, las picadas, las artesanías, los alfajores, el museo hippie, la naturaleza, las quebradas y los ríos.</p>  
 <p>Este verano, además de lo que disfrutás todos los años, en San Marcos Sierras vas a poder ir a recitales, jugar ajedrez, fabricar tus propios instrumentos, bailar tango, ver una muestra de máscaras y probar comidas típicas de todo el país, entre otras muchas cosas.</p>
@@ -63,9 +82,13 @@ Desde el 13 de enero al 28 de febrero, de martes a domingo de 9 a 21 hs.</p>'
         
     ),
     5 => array (
+        'id' => 'lasgrutas',
+        'plano' => 'no',
+        'btn' => 'agenda-lasgrutas',
         'bg1' => 'rp-grutas-02.jpg',
         'bg2' => 'rp-grutas-01.jpg',
         'titulo' => 'Descubrí Las Grutas',
+        'dire' => 'Boulevard av. Int. Bresciano - calle Treneta y Yamine entre 4° y 3°. <br>Desde el 10 de enero al 23 de febrero, de miércoles a domingo de 16 a 24 hs',
         'contenido' => '
             <p>Los chapuzones, los campings, la pesca, los asados, los loros barranqueros, las mareas pronunciadas, los atardeceres en la playa.</p>
 <p>Este verano, además de lo que hacés todos los años, en Las Grutas vas a poder ver recitales, jugar ajedrez, fabricar tus propios instrumentos, bailar tango, probar comidas típicas de todo el país,  recorrer la feria de artesanos, ver muestras de fotos y mucho más.</p>
@@ -89,11 +112,14 @@ Desde el 10 de enero al 23 de febrero, de miércoles a domingo de 16 a 24 hs</p>
     <div class="contenido">
 
         <div class="areaBtnStreet">
-                <div class="btnStreet" target="_blank" data-lb="1">
-                        <div class="icon"><img width="100%" src="img/pin_plano.png"/></div>
-                        <!--<span>Dirección</span>
+            <?php if ($contenido[$this->data['id']]['plano']=='si'){?>
+                <div class="btnStreet btnActividades" target="_blank" data-idactividad="plano-<?php echo $contenido[$this->data['id']]['id'] ?>">
+            <?php } else { ?> <div class="btnStreet "> <?php } ?>
+                    
+                    <div class="icon"><img width="100%" src="img/pin_plano.png"/></div>
+                       
                         <div class="clear"></div>
-                        <div class="icStreetVertical"></div>-->
+                        <div class="icStreetVertical"><?php  echo $contenido[$this->data['id']]['dire'] ?></div><!---->
                 </div>
     </div>
 
@@ -109,20 +135,20 @@ Desde el 10 de enero al 23 de febrero, de miércoles a domingo de 16 a 24 hs</p>
         </div><!--dataTxt-->
 
         <!-- <div class="imgTop imgAuto" style="background-image: url(img/islas/isla-fernandina-3.jpg);"></div>
-
+-->
         <div class="islaLugares">
-            <div class="btnLugar" data-idlug="fernandina1" style="background-image: url(/assets/puntaEspinozaM.jpg);">
-                <img class="imgCache" src="/assets/puntaEspinozaM.jpg">
-                <span>ciudad y playa</span>
+            <div class="btnLugar btnActividades" data-idactividad="<?php echo $contenido[$this->data['id']]['id'] ?>" style="background-image: url('/img/<?php  echo $contenido[$this->data['id']]['btn'] ?>.jpg');">
+                <img class="imgCache" src="/img/<?php  echo $contenido[$this->data['id']]['btn'] ?>.jpg">
+                <span>Agenda</span>
             </div>
         </div>
 
         <div class="clear"></div>
--->
+
         <div class="comentario">
             <div class="txt">
-                <?php  echo $contenido[$this->data['id']]['info'] ?>
-                
+                <?php  //echo $contenido[$this->data['id']]['info'] ?>
+                Vení a disfrutar de un Verano de Emociones.
             </div><!--txt-->
             <div class="clear"></div>
         </div><!--comentario-->
@@ -132,3 +158,59 @@ Desde el 10 de enero al 23 de febrero, de miércoles a domingo de 16 a 24 hs</p>
 
     </div><!--contenido-->
 </div><!--cExtra-->
+<script>
+    
+$('.btnActividades').click(function(event) {
+    event.preventDefault();
+  $('#loadingAjaxLug').fadeToggle(250);
+  idActividad = $(this).data('idactividad');
+
+  var postDataLug = 'idactividad=' + idActividad;
+
+  $.ajax({
+    type: 'POST',
+    dataType: 'html',
+    cache: true,
+    url: '/ajax/actividades',
+    data: postDataLug,
+    success: function(htmlLug) {
+
+        $('#areaLugares').html(htmlLug).hide().waitForImages(function() {
+          $('#areaLugares').show();
+          $('#loadingAjaxLug').fadeToggle(250);
+$('body').addClass( "sinScroll" );
+          //BG Img
+          /*$(".bgLug").interactive_bg({
+            strength: 25,
+            scale: 1.05,
+            animationSpeed: "100ms"
+          });*/
+          $(window).resize(function() {
+            $(".bgLug > .ibg-bg").css({
+              width: $(window).outerWidth(),
+              height: $(window).outerHeight()
+            });
+          });
+          $("#bgLug,#nombreLug,#descripcionLug").css('cursor', 'url(img/cursor.png),auto');
+          
+          $('#closeLug').click(function() {
+            $('body').removeClass( "sinScroll" );
+            $('#areaLugares').fadeOut(250, function() {
+              $('#areaLugares').html('');
+            });
+            return false;
+          });
+          $('.btnFullImg').not('#closeLug').click(function() {
+            $('.fullImgOcultar').fadeToggle();
+          });
+          //BG Img
+
+        });
+
+      } //success
+  }); //ajax
+
+});
+
+
+    </script>

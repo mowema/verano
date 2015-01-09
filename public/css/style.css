@@ -877,12 +877,16 @@ input:focus, textarea:focus, label:focus, button:focus, select:focus {
     font-weight: 900;
 }
 .page .menu .institucional {    
-    float: right;           
-    font-size: 15px;
+    float: right;    
+    font-size: 14px;
+    height: 430px;
     line-height: 21px;
     margin-top: 18px;
+    overflow: scroll;
     width: 64%;
+    
 }
+
 .page .menu .institucional p {
     font-family: 'Helvetica',sans-serif;
     text-transform: none;
@@ -1605,6 +1609,7 @@ in
     right: 0;
     width: 40%;
     z-index: 3;
+        height:70px;
 }
 .page .pCamino .areaRequerimiento .btnReq {
     cursor: pointer;
@@ -1623,8 +1628,8 @@ in
 }
 .page .pCamino .areaRequerimiento .btnReq .flDer {
     display: block;
-    margin-right: 252px;
-    margin-top: -24px;
+    margin-right: 245px;
+    margin-top: -10px;
     position: absolute;
     right: 0;
     top: 50%;
@@ -2276,15 +2281,16 @@ in
     transition: all 150ms ease-out 0s;
 }
 .rightPage .cExtra .contenido .areaBtnStreet .btnStreet .icStreetVertical {
-    background: url("/assets/icStreetVertical.png") no-repeat scroll center bottom rgba(0, 0, 0, 0);
+    //background: url("/assets/icStreetVertical.png") no-repeat scroll center bottom rgba(0, 0, 0, 0);
+    text-shadow: 0 0 7px rgba(21, 27, 109, 0.7);
     display: block;
     height: 70px;
     left: 0;
-    margin-left: 18px;
-    margin-top: 43px;
+    margin-left: 52px;
+    margin-top: 0;
     position: absolute;
     top: 0;
-    width: 4px;
+    width: 404px;
 }
 .rightPage .cExtra .contenido .areaBtnStreet .btnStreet:hover span {
     padding-left: 5px;
@@ -2369,12 +2375,11 @@ in
 .rightPage .cExtra .contenido .comentario {
     background: url("/assets/trComentario.png") no-repeat scroll right center rgba(0, 0, 0, 0);
     display: block;
-    float: right;
-    height: 350px;
+    float: right;    top: 150px;
     position: relative;
-    width: 380px;
+    width: 440px;
 }
-.rightPage .cExtra .contenido .comentario .txt {
+.rightPage .cExtra .contenido .comentario .txt {    font-size: 21px;
     bottom: 0;
     cursor: default;
     display: block;
@@ -2529,6 +2534,7 @@ in
     position: absolute;
     width: 100%;
     z-index: 1;
+    overflow: scroll
 }
 .areaLugares .bgLug .cacheImg {
     border: 1px solid #f5f5f5;
@@ -2549,7 +2555,7 @@ in
     height: 34px;
     left: 0;
     margin: 20px;
-    position: absolute;
+    position: fixed;
     top: 0;
     transition: background 75ms ease-out 0s;
     width: 34px;
@@ -2576,6 +2582,25 @@ in
     width: 440px;
     z-index: 3;
 }
+
+
+.areaLugares .bgLug .agendaLug {
+    color: #f5f5f5;
+    cursor: default;
+    display: block;
+    font-family: "Raleway",sans-serif;
+    font-size: 23px;
+    left: 0;
+    line-height: 28px;
+    margin-left: 175px;
+    margin-top: 70px;
+    position: absolute;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    top: 0;
+    width: 600px;
+    z-index: 3;
+}
+
 .areaLugares .bgLug .nombreLug b {
     display: block;
     font-weight: 900;
@@ -2583,7 +2608,7 @@ in
 .areaLugares .bgLug .descripcionLug {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.75);
     border-radius: 1px;
-    bottom: 0;
+    top: 300px;
     overflow: scroll;
     color: #f5f5f5;
     cursor: default;
@@ -2596,6 +2621,22 @@ in
     right: 0;
     width: 490px;
     z-index: 3;
+}
+.areaLugares .bgLug .planito {
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.75);
+    border-radius: 1px;
+    overflow: scroll;
+    color: #f5f5f5;
+    cursor: default;
+    display: block;
+    font-size: 15px;
+    line-height: 17px;
+    padding: 25px;
+    position: absolute;
+    z-index: 3;
+    top: 20%;
+    left: 10%;
+    
 }
 .areaLugares .bgLug .descripcionLug p {
     padding: 3px 0;
