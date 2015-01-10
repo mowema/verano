@@ -1609,7 +1609,7 @@ in
     right: 0;
     width: 40%;
     z-index: 3;
-        height:70px;
+        height:120px;
 }
 .page .pCamino .areaRequerimiento .btnReq {
     cursor: pointer;
@@ -1628,16 +1628,20 @@ in
 }
 .page .pCamino .areaRequerimiento .btnReq .flDer {
     display: block;
-    margin-right: 245px;
-    margin-top: -10px;
+    margin-right: 200px;
+    margin-top: -30px;
     position: absolute;
     right: 0;
     top: 50%;
     transition: all 100ms ease-out 0s;
-    width: 120px;
+    width: 140px; 
+}
+.page .pCamino .areaRequerimiento a {color:snow;
+}
+.page .pCamino .areaRequerimiento a:hover {color:#1798D1;
 }
 .page .pCamino .areaRequerimiento .btnReq:hover .flDer {
-    margin-right: 270px;
+    margin-right: 230px;
 }
 .page .pEvolucion {
     background: url("/assets/bgPage8.jpg") no-repeat scroll 0 0 / cover #010101;
