@@ -35,7 +35,34 @@
 <!-- Default Theme -->
 <link rel="stylesheet" href="/owl-carousel/owl.theme.css">
 <style>
+    .captiono{    background:rgba(0,0,0,0.5);
+    bottom: 4px;
+    display: block;
+    padding: 12px;
+    position: absolute;
+    width: 64%;}
     .caption{position:absolute;bottom:0%;left:0px;width:100%;display:block;background:rgba(0,0,0,0.5);color:#fff;padding:10px;font-size:2em;letter-spacing:0.1em;line-height:1.2;opacity:0;}
+    
+    .p2noticia .cap{
+        float:left;
+    }
+    .noticap p {
+    color: darkgray;
+    font-size: 14px;
+    margin-top: 8px;
+}
+    .noticap {
+    float:right;
+    width:280px;
+}
+    .noticap img{
+    float:left;
+    width:190px;
+}
+
+#page4 .txt1 a{
+    color:snow;
+}
 </style>
 
         <!-- Scripts -->
@@ -70,11 +97,7 @@
 			var fullHeight = $(window).height();
 			$('.fullAlto').css("min-height",fullHeight);
 			$(".margenAlto").css("margin-top", fullHeight+"px");
-			
-								$('#clima .ico').html('<img width="100%" src="img/clima/partly-cloudy-day.png"/>');
-					$('#clima .grados .g1').html('26&deg; C');
-					$('#clima .grados .g2').html('79&deg; F');
-							
+				
 			//fullAlto
 			$(function(){
 				var $window = $(window).on('resize', function(){
@@ -85,34 +108,10 @@
 				}).trigger('resize');
 			});
 			
-			//Hora actual
-			$.fn.jTime = function(ox){
-			  var mHF = function (){
-				var d2 = new Date();
-				d2.setHours(d2.getUTCHours() - 6);
-				h = d2.getHours();
-				m = d2.getUTCMinutes();
-				s = d2.getUTCSeconds();
-				if (h<=9) h = '0'+h;
-				if (m<=9) m = '0'+m;
-				if (s<=9) s = '0'+s;
-				hi = h + ":" + m + ":" + s;
-				//hi = h + "H" + m;
-				$('#'+ox).html(hi);
-			  }
-			  return this.each(function(){
-				ox = $(this).attr('id');
-				setInterval(mHF,1000);
-			  });
-			};
-			$('#horaAct').jTime();
-			
 		});
 	</script>
     </head>
-        <body class="" 
-              style="overflow: auto;" 
-              data-twttr-rendered="true">
+        <body>
 
             <?php echo $this->content; ?>
             
@@ -132,32 +131,55 @@
 
     $(document).ready(function() {
      
-    $("#owl-emociones").owlCarousel({
+    $("#owl-noticias").owlCarousel({
+
+        navigation:false,
+        slideSpeed : 300,
+        paginationSpeed : 400,
+        singleItem:true
+
+        // "singleItem:true" is a shortcut for:
+        // items : 1,
+        // itemsDesktop : false,
+        // itemsDesktopSmall : false,
+        // itemsTablet: false,
+        // itemsMobile : false
+
+        });
+    
+     <?php 
+     $array=array(
+         array('tag'=>'destacadas'),
+         array('tag'=>'recitales'),
+     );
+     foreach ($array as $ele) { ?>
+    $("#owl-<?php echo $ele['tag'] ?>").owlCarousel({
         autoPlay:true,
         navigation:false,
         pagination:false,
-        singleItem:true,
+        autoHeight : true,
         transitionStyle:"fade",
-        jsonPath : 'http://api.flickr.com/services/feeds/photos_public.gne?tags=emociones&id=129741112@N06&lang=es-ar&format=json&jsoncallback=?',
+        jsonPath : 'http://api.flickr.com/services/feeds/photos_public.gne?tags=<?php echo $ele['tag'] ?>&id=129741112@N06&lang=es-ar&format=json&jsoncallback=?',
         jsonSuccess : function(data){
                             var content = "";
                             for(var i in data["items"]){
                             var img = data["items"][i].media.m;
                             var alt = data["items"][i].title;
                             console.log(data["items"][i]);
-                            content += "<img src='" +img+ "' alt='" +alt+ "'>";
+                            content += "<div><div class='captiono'>" +alt+ "</div><img width='176' src='" +img+ "' alt='" +alt+ "'></div>";
                             }
-                            $("#owl-emociones").html(content);
+
+                            $("#owl-<?php echo $ele['tag'] ?>").html(content);
                         }
     });
-    
-     <?php 
-     $array=array(
-         array('tag'=>'destacadas'),
-         array('tag'=>'recitales'),
+
+     <?php } ?>
+
+          <?php 
+     $array2=array(
          array('tag'=>'grafica'),
      );
-     foreach ($array as $ele) { ?>
+     foreach ($array2 as $ele) { ?>
     $("#owl-<?php echo $ele['tag'] ?>").owlCarousel({
         autoPlay:true,
         navigation:false,

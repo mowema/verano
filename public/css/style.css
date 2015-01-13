@@ -1546,8 +1546,8 @@ in
     cursor: default;
     display: block;
     float: right;
-    padding: 20px 20px 30px;
-    width: 240px;
+    padding: 20px 20px 14px;
+    width: 480px;
 }
 .page .pCamino .areaInfo .caminoInfo .clima {
     display: block;
@@ -1770,7 +1770,7 @@ in
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 25px;
-    padding-top: 200px;
+    padding-top: 180px;
     width: 900px;
 }
 .page .pGaleria .dataGaleria h2 {
