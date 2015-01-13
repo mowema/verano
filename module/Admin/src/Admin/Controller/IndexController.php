@@ -13,7 +13,7 @@ namespace Admin\Controller;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\Controller\AbstractActionController;
 use Doctrine\ORM\EntityManager;
-
+use Application\Form\NoticiasForm;
 
 class IndexController extends AbstractActionController {
 
@@ -76,6 +76,13 @@ class IndexController extends AbstractActionController {
     public function indexAction()
     {
     	
+    	return new ViewModel(array(
+    	));
+	    	 
+	}
+    public function noticiaAction()
+    {
+    	$noticiaForm = new NoticiasForm();
     	return new ViewModel(array(
     	));
 	    	 

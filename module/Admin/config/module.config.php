@@ -17,54 +17,26 @@ return array(
                     ),*/
                 ),
             ),
-     	  	'a' => array(
-       				'type' => 'segment',
-       				'options' => array(
-       						'route'    => '/a[/][/:action][/:id][/apapelera/:apapelera]',
-       						'constraints' => array(
-       								'action' => '(?!\bpag\b)[a-zA-Z][a-zA-Z0-9_-]*',
-       								'id'     => '[0-9]+',
-       								'pag'     => '[0-9]+',
-       		
-       						),
-       						'defaults' => array(
-       								'controller' => 'Admin\Controller\Index',
-       								'action'     => 'index',
-       						),
-       				),
-       		),
-        	
-        	
-            // The following is a route to simplify getting started creating
-            // new controllers and actions without needing to create a new
-            // module. Simply drop new controllers in, and you can access them
-            // using the path /Admin/:controller/:action
-            'admin' => array(
-                'type'    => 'Literal',
+            'a' => array(
+                'type' => 'segment',
                 'options' => array(
-                    'route'    => '/admin',
-                    'defaults' => array(
-                        '__NAMESPACE__' => 'Admin\Controller',
-                        'controller'    => 'Index',
-                        'action'        => 'index',
+                    'route' => '/a[/:action][/:id][/apapelera/:apapelera]',
+                    'constraints' => array(
+                        'action' => '(?!\bpag\b)[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                        'pag' => '[0-9]+',
                     ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    'default' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '/[:controller[/:action]]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                            'defaults' => array(
-                            ),
-                        ),
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\Index',
+                        'action' => 'index',
                     ),
                 ),
             ),
+        // The following is a route to simplify getting started creating
+            // new controllers and actions without needing to create a new
+            // module. Simply drop new controllers in, and you can access them
+            // using the path /Admin/:controller/:action
+            
         ),
     ),
     'doctrine' => array(

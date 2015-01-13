@@ -1,7 +1,7 @@
 <?php
 namespace Application\Form;
  
-use Application\Entity\Noticia;
+use Admin\Entity\Noticias;
 use Zend\Form\Fieldset;
 use Zend\InputFilter\InputFilterProviderInterface;
 use Zend\Stdlib\Hydrator\ClassMethods as ClassMethodsHydrator;
@@ -18,7 +18,7 @@ class NoticiasFieldset extends Fieldset implements InputFilterProviderInterface
         
     	 $this->setAttribute('method', 'post');
          $this->setHydrator(new ClassMethodsHydrator(false))
-          	  ->setObject(new Noticia());
+          	  ->setObject(new Noticias());
       
     $this->add(array(
 	      'name' => 'titulo',
