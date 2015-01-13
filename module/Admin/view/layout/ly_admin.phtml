@@ -1,0 +1,170 @@
+﻿<?php 
+use Zend\Mvc\Controller\Plugin\FlashMessenger;
+use Zend\Debug\Debug;
+$children = $this->viewModel()->getCurrent()->getChildren();
+$child = $children[0];
+
+echo $this->doctype();
+$flashMessenger = new FlashMessenger();
+?>
+<html lang="es">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
+    <?php echo $this->headTitle('ZF2 '. $this->translate('Administrador - Verano de Emociones'))->setSeparator(' - ')->setAutoEscape(false) ?>
+
+    <?php //echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
+
+    <!-- Le styles -->
+    <?php $this->headLink(array('rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/images/favicon.ico'))
+            ->headLink(array('rel' => 'icon', 'type' => 'image/x-icon', 'href' => $this->basePath() . '/img/favicon.ico'))
+       				//->appendStylesheet($this->basePath() . '/css/smoothness/jquery-ui-1.10.3.custom.css')
+    				
+                  ->appendStylesheet($this->basePath() . '/css/admin.css')
+                
+                ->appendStylesheet($this->basePath() . '/bootstrap/css/bootstrap.min.css')
+                ->appendStylesheet($this->basePath() . '/bootstrap/css/bootstrap-theme.min.css')
+               //->appendStylesheet($this->basePath() . '/css/theme.css')
+               ->appendStylesheet($this->basePath() . '/fuelux/css/fuelux.min.css');
+        
+             
+    echo $this->headLink (); ?>
+    <!-- Scripts -->
+    <?php  /*$this->headScript()->offsetSetFile(100,$this->basePath() . '/js/html5.js', 'text/javascript',array('conditional' => 'lt IE 9'))
+    						  ->offsetSetFile(200,$this->basePath() . '/js/jquery-1.10.2.min.js', 'text/javascript')
+    						  ->offsetSetFile(300,$this->basePath() . '/js/jquery-ui-1.10.3.custom.js', 'text/javascript')
+    						  ->offsetSetFile(400,$this->basePath() . '/tinymce/tinymce.min.js', 'text/javascript')
+    						  ->offsetSetFile(500,$this->basePath() . '/js/less-1.4.1.min.js', 'text/javascript')
+   							  ->offsetSetFile(600,$this->basePath() . '/bootstrap-3.0.0/js/alert.js', 'text/javascript')
+  							  ->offsetSetFile(700,$this->basePath() . '/bootstrap-3.0.0/js/dropdown.js', 'text/javascript')
+  							  ->offsetSetFile(800,$this->basePath() . '/bootstrap-3.0.0/js/modal.js', 'text/javascript')
+  							  ->offsetSetFile(900,$this->basePath() . '/bootstrap-3.0.0/js/confirm-deletion.js', 'text/javascript')
+  							  ->offsetSetFile(1000,$this->basePath() . '/bootstrap-3.0.0/js/tooltip.js', 'text/javascript')
+  							  ->offsetSetFile(1100,$this->basePath() . '/fancybox/jquery.fancybox.js', 'text/javascript');*/
+
+    
+    $this->headScript()
+                ->appendFile($this->basePath() . '/js/jquery-1.11.2.js')
+                ->appendFile($this->basePath() . '/js/tinymce/tinymce.min.js')
+                ->appendFile($this->basePath() . '/bootstrap/js/bootstrap.min.js');
+    
+    $this->headScript()->captureStart(); 
+    
+
+    ?>
+<!--   
+		
+	$(document).ready( function() {
+		
+		$('.btn').tooltip()
+
+		});	
+
+
+			
+tinymce.init({
+	language : 'es',
+    entity_encoding : "raw",
+
+    mode: "textareas",
+    plugins: "table",
+    content_css: "/tinymce/skins/lightgray/content.min.css",
+    style_formats: [
+        {title: 'Bold text', inline: 'b'},
+        {title: 'Red text', inline: 'span', styles: {color: '#ff0000'}},
+        {title: 'Red header', block: 'h1', styles: {color: '#ff0000'}},
+        {title: 'Example 1', inline: 'span', classes: 'example1'},
+        {title: 'Example 2', inline: 'span', classes: 'example2'},
+        {title: 'Table styles'},
+        {title: 'Table row 1', selector: 'tr', classes: 'tablerow1'}
+    ],
+    formats: {
+        alignleft: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'left'},
+        aligncenter: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'center'},
+        alignright: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'right'},
+        alignfull: {selector: 'p,h1,h2,h3,h4,h5,h6,td,th,div,ul,ol,li,table,img', classes: 'full'},
+        bold: {inline: 'span', 'classes': 'bold'},
+        italic: {inline: 'span', 'classes': 'italic'},
+        underline: {inline: 'span', 'classes': 'underline', exact: true},
+        strikethrough: {inline: 'del'},
+        customformat: {inline: 'span', styles: {color: '#00ff00', fontSize: '20px'}, attributes: {title: 'My custom format'}}
+    }
+});
+		
+
+-->   
+    <?php 
+    $this->headScript()->captureEnd();
+       
+    echo $this->headScript();
+	?>
+
+  </head>
+
+  <body>
+
+      <!--  -------------------------- MENU ---------------------------------------- -->
+      <div class="navbar navbar-inverse navbar-fixed-top">	
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-7">
+                      <ul class="nav navbar-nav">
+                          <li>
+                              <a href="/admin" class="nav-header">
+                                  <span class="glyphicon glyphicon-home"></span>
+                              </a>
+                          </li>
+                          <li>
+                              <a href="/admin" class="nav-header">
+                                  Noticias
+                              </a>
+                          </li>
+                          <li>
+                              <a href="/admin" class="nav-header">
+                                  Agenda
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+  
+		
+	<div class="container">
+		
+	<?php 
+	if ($flashMessenger->hasMessages()) {
+		foreach ($flashMessenger->getMessages() as $flashMessage) { ?>
+		
+		<?php $estadoAlert = strstr($this->escapeHtml($flashMessage), '_', true);
+		      $mensaje = strstr($this->escapeHtml($flashMessage), '_');	?>
+		
+			<div class="alert alert-<?php echo $estadoAlert ?>">
+				<button class="close" data-dismiss="alert" type="button">×</button>
+				<?php echo substr($mensaje, 1) ?>
+			</div>
+		<?php }
+			 $flashMessenger->clearMessages(); ?>
+		
+	<?php } ?>	
+			
+		<div class="page-header">
+			<h1>LAYOUT ADMIN</h1>
+		</div>	
+			  
+	      <?php echo $this->content; ?>
+	
+	      
+	    <?php // echo $this->partial('layout/footer'); ?>
+
+
+    </div> <!-- /container -->
+
+  <?php echo $this->inlineScript() ?>
+  </body>
+
+
+
+</html>

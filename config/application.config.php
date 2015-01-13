@@ -10,6 +10,7 @@ $modules = array(
     	'Application',
        	'ZfcUserDoctrineORM',
     	'ZfcTwitterBootstrap',
+    	'Admin',
     //	'GoogleMaps',
      // 'GoalioMailService',
      // 'GoalioForgotPassword'
