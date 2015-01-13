@@ -129,47 +129,58 @@
 
     $(document).ready(function() {
      
-    $("#owl-demo").owlCarousel({
+    $("#owl-emociones").owlCarousel({
         autoPlay:true,
         navigation:false,
         pagination:false,
         singleItem:true,
-        jsonPath : 'http://api.flickr.com/services/feeds/photos_public.gne?tags=destacada&id=129741112@N06&lang=es-ar&format=json&jsoncallback=?',
-        jsonSuccess : customDataSuccess
-        });
+        transitionStyle:"fade",
+        jsonPath : 'http://api.flickr.com/services/feeds/photos_public.gne?tags=emociones&id=129741112@N06&lang=es-ar&format=json&jsoncallback=?',
+        jsonSuccess : function(data){
+                            var content = "";
+                            for(var i in data["items"]){
+                            var img = data["items"][i].media.m;
+                            var alt = data["items"][i].title;
+                            console.log(data["items"][i]);
+                            content += "<img src='" +img+ "' alt='" +alt+ "'>";
+                            }
 
-    function customDataSuccess(data){
-        var content = "";
-        for(var i in data["items"]){
-        var img = data["items"][i].media.m;
-        var alt = data["items"][i].title;
-
-        content += "<img src=\"" +img+ "\" alt=\"" +alt+ "\">";
-        }
-        
-        $("#owl-demo").html(content);
-        }
-    $("#owl-galeria").owlCarousel({
+                            $("#owl-emociones").html(content);
+                        }
+    });
+    
+     <?php 
+     $array=array(
+         array('tag'=>'destacadas'),
+         array('tag'=>'recitales'),
+         array('tag'=>'grafica'),
+     );
+     foreach ($array as $ele) { ?>
+    $("#owl-<?php echo $ele['tag'] ?>").owlCarousel({
         autoPlay:true,
         navigation:false,
         pagination:false,
         autoHeight : true,
         transitionStyle:"fade",
-        jsonPath : 'http://api.flickr.com/services/feeds/photos_public.gne?tags=emociones&id=129741112@N06&lang=es-ar&format=json&jsoncallback=?',
-        jsonSuccess : customDataSuccess2
-        });
-        
-        function customDataSuccess2(data){
-        var content = "";
-        for(var i in data["items"]){
-        var img = data["items"][i].media.m;
-        var alt = data["items"][i].title;
+        jsonPath : 'http://api.flickr.com/services/feeds/photos_public.gne?tags=<?php echo $ele['tag'] ?>&id=129741112@N06&lang=es-ar&format=json&jsoncallback=?',
+        jsonSuccess : function(data){
+                            var content = "";
+                            for(var i in data["items"]){
+                            var img = data["items"][i].media.m;
+                            var alt = data["items"][i].title;
+                            console.log(data["items"][i]);
+                            content += "<img width='176' src='" +img+ "' alt='" +alt+ "'>";
+                            }
 
-        content += "<div style='width:90%' ><img src=\"" +img+ "\" alt=\"" +alt+ "\"><p>"+data["items"][i].title+"</p></div>";
-        }
-        
-        $("#owl-galeria").html(content);
-        }
+                            $("#owl-<?php echo $ele['tag'] ?>").html(content);
+                        }
+    });
+
+    
+     <?php } ?>
+ 
+ 
+     
      
     });
 
