@@ -153,7 +153,7 @@ $settings = array(
      * Accepted values: A valid route name within your application
      *
      */
-    'login_redirect_route' => 'admin',
+    'login_redirect_route' => 'a',
 
     /**
      * Logout Redirect Route

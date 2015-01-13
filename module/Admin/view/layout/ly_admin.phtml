@@ -107,24 +107,41 @@ tinymce.init({
       <div class="navbar navbar-inverse navbar-fixed-top">	
           <div class="container">
               <div class="row">
-                  <div class="col-md-7">
+                  <div class="col-sm-12">
                       <ul class="nav navbar-nav">
                           <li>
-                              <a href="/admin" class="nav-header">
+                              <a href="/a" class="nav-header">
                                   <span class="glyphicon glyphicon-home"></span>
                               </a>
                           </li>
                           <li>
-                              <a href="/admin" class="nav-header">
+                              <a href="/a/noticia" class="nav-header">
                                   Noticias
                               </a>
                           </li>
                           <li>
-                              <a href="/admin" class="nav-header">
+                              <a href="/a" class="nav-header">
                                   Agenda
                               </a>
                           </li>
-                      </ul>
+                      </ul>      <?php  if ($this->zfcUserIdentity()) { ?>
+       <ul class="nav navbar-nav pull-right ">
+			
+       
+       
+			<li>
+				<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+	            <span class="glyphicon glyphicon-user"></span>
+	           	<?php echo $this->zfcUserDisplayName() ?>
+	           	<b class="caret"></b></a>
+				<ul class="dropdown-menu">
+					 <li><a href="<?php echo $this->url('zfcuser/perfil') ?>">Perfil</a></li>
+		   		     <li class="divider"></li>
+		   			 <li><a href="<?php echo $this->url('zfcuser/logout') ?>"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</a></li>
+		 		 </ul>
+			</li>
+		</ul>
+		<?php } ?>
                   </div>
               </div>
           </div>
