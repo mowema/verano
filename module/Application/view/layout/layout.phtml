@@ -34,6 +34,9 @@
  
 <!-- Default Theme -->
 <link rel="stylesheet" href="/owl-carousel/owl.theme.css">
+<style>
+    .caption{position:absolute;bottom:0%;left:0px;width:100%;display:block;background:rgba(0,0,0,0.5);color:#fff;padding:10px;font-size:2em;letter-spacing:0.1em;line-height:1.2;opacity:0;}
+</style>
 
         <!-- Scripts -->
         <?php
@@ -144,7 +147,6 @@
                             console.log(data["items"][i]);
                             content += "<img src='" +img+ "' alt='" +alt+ "'>";
                             }
-
                             $("#owl-emociones").html(content);
                         }
     });
@@ -176,11 +178,8 @@
                         }
     });
 
-    
      <?php } ?>
  
- 
-     
      
     });
 

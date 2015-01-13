@@ -65,37 +65,14 @@ class IndexController extends AbstractActionController {
     public function indexAction() {
         
         $entityManager = $this->getEntityManager(); 
-        //$registro = new \Application\Entity\Registro;
         
         $request = $this->getRequest();
-        $registroform = new \Application\Form\RegistroForm($entityManager);
-        $registro = new \Application\Entity\Registro();
-        $data = $request->getPost();
-        if ($request->isPost()) {
-            $registroform->setData($data);
         
-                \Zend\Debug\Debug::dump($data);
-            if ($registroform->isValid()) {
-                $validated = $registroform->getData();
-                \Zend\Debug\Debug::dump($validated);
-                
-                
-                $this->flashMessenger()->addMessage('success_La dependencia fué ' . $noa . ' con éxito');
-
-                /*
-                 * return $this->redirect()->toRoute('crud', array(
-                 
-                            'controller' => 'crud',
-                            'action' => 'listar-organismos',
-                ));*/
-                // $form->setData($validatedArray);
-            }
-        } 
-
+        $data = $request->getPost();
+        
         
         $imgnrand = rand(1, 5);
         //$registroform->bind($registro);
-        $this->view->setVariable('form', $registroform);
         $this->view->setVariable('imgnrand', $imgnrand);
         return $this->view;
     }

@@ -31,6 +31,20 @@ return array(
                     ),
                 ),
             ),
+            'admin' => array(
+                'type' => 'segment',
+                'options' => array(
+                    'route' => '/admin[/:action]',
+                    'constraints' => array(
+                        'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Application\Controller\Admin',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
             'usuarios' => array(
                 'type' => 'segment',
                 'options' => array(
@@ -130,6 +144,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Application\Controller\Index' => 'Application\Controller\IndexController',
+            'Application\Controller\Admin' => 'Application\Controller\AdminController',
             'Application\Controller\Ajax' => 'Application\Controller\AjaxController',
             'Application\Controller\crud' => 'Application\Controller\CRUDController',
             'Application\Controller\Usuarios' => 'Application\Controller\UsuariosController',

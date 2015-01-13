@@ -1,0 +1,73 @@
+<div class="panel panel-primary caja-admin">
+		<div class="panel-heading">
+			<h3 class="panel-title">Panel Contenidos</h3>
+		</div>
+		<div class="cpanel">
+		<?php if ($this->isAllowed('content', 'crear')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('contenido', array('action'=>'crear')) ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-article-add.png" class="img-rounded">
+					<span>Crear noticia</span>
+				</a>
+			</div>
+		 <?php } ?>
+		 <?php if ($this->isAllowed('content', 'index')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('contenido') ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-article.png" class="img-rounded">
+					<span>Listar noticias</span>
+				</a>
+			</div>
+		<?php } ?>
+		<?php if ($this->isAllowed('category', 'crear')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('categoria', array('action'=>'crear')) ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-themes.png" class="img-rounded">
+					<span>Crear categoría</span>
+				</a>
+			</div>
+		<?php  } ?>
+		<?php if ($this->isAllowed('category', 'index')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('categoria') ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-unarchive.png" class="img-rounded">
+					<span>Listar categorías</span>
+				</a>
+			</div>
+		<?php } ?>
+		
+		</div>
+	</div>
+	<div class="panel panel-danger caja-admin">
+		<div class="panel-heading">
+			<h3 class="panel-title">Panel Administración</h3>
+		</div>
+		<div class="cpanel">
+		<?php if ($this->isAllowed('user', 'crear')) { ?>
+		    <div class="icon">	
+				<a href="<?php echo $this->url('u', array('action'=>'crear')) ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-user-add.png" class="img-rounded">
+					<span>Crear usuario</span>
+				</a>
+			</div>
+		<?php  } ?>
+		<?php if ($this->isAllowed('user', 'index')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('u') ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-user.png" class="img-rounded">
+					<span>Listar usuarios</span>
+				</a>
+				
+			</div>
+		<?php } ?>
+		<?php if ($this->isAllowed('role', 'crear')) { ?>
+			<div class="icon">	
+				<a href="<?php echo $this->url('r', array('action'=>'crear')) ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-groups-add.png" class="img-rounded">
+					<span>Crear rol</span>
+				</a>
+			</div>
+		<?php } ?>
+		<?php if ($this->isAllowed('role', 'index')) { ?>
+			<div class="icon">
+				<a href="<?php echo $this->url('r') ?>"><img src="<?php echo $this->basepath()?>/images/icon-48-groups.png" class="img-rounded">
+					<span>Listar roles</span>
+				</a>
+			</div>
+		<?php } ?>
+		</div>
+		
+	</div>	
