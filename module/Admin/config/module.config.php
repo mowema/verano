@@ -67,6 +67,20 @@ return array(
             ),
         ),
     ),
+    'doctrine' => array(
+        'driver' => array(
+            __NAMESPACE__ . '_driver' => array(
+                'class' => 'Doctrine\ORM\Mapping\Driver\AnnotationDriver',
+                'cache' => 'array',
+                'paths' => array(__DIR__ . '/../src/' . __NAMESPACE__ . '/Entity'),
+            ),
+            'orm_default' => array(
+                'drivers' => array(
+                    'Admin\Entity' => __NAMESPACE__ . '_driver'
+                )
+            )
+        ),
+    ),
     'view_manager' => array(
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
