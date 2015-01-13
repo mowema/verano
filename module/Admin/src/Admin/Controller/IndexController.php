@@ -83,8 +83,9 @@ class IndexController extends AbstractActionController {
     public function noticiaAction()
     {
     	$noticiaForm = new NoticiasForm();
-    	return new ViewModel(array(
-    	));
+        $this->view->setVariable('form', $noticiaForm);
+        
+    	return $this->view;
 	    	 
 	}
 

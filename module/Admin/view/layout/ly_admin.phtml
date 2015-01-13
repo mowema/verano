@@ -11,7 +11,7 @@ $flashMessenger = new FlashMessenger();
   <head>
   <meta charset="UTF-8">
   <meta http-equiv='Content-Type' content='text/html; charset=utf-8'>
-    <?php echo $this->headTitle('ZF2 '. $this->translate('Administrador - Verano de Emociones'))->setSeparator(' - ')->setAutoEscape(false) ?>
+    <?php echo $this->headTitle('Administrador :: '. $this->translate('Verano de Emociones'))->setSeparator(' - ')->setAutoEscape(false) ?>
 
     <?php //echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
 
@@ -167,9 +167,6 @@ tinymce.init({
 		
 	<?php } ?>	
 			
-		<div class="page-header">
-			<h1>LAYOUT ADMIN</h1>
-		</div>	
 			  
 	      <?php echo $this->content; ?>
 	
