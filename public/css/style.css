@@ -2596,11 +2596,13 @@ in
     line-height: 17px;
     margin-left: 84px;
     margin-top: 230px;
+    padding-bottom: 99px;
     position: absolute;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     top: 0;
     width: 30%;
     z-index: 3;
+    
 }
 
 .areaLugares .bgLug .nombreLug b {
