@@ -882,7 +882,6 @@ input:focus, textarea:focus, label:focus, button:focus, select:focus {
     height: 430px;
     line-height: 21px;
     margin-top: 18px;
-    overflow: scroll;
     width: 64%;
 }
 
@@ -2572,17 +2571,17 @@ in
     cursor: default;
     display: block;
     font-family: "Raleway",sans-serif;
-    font-size: 60px;
+    font-size: 17px;
     font-weight: 300;
     left: 0;
-    line-height: 50px;
+    line-height: 21px;
     margin-left: 175px;
     margin-top: 70px;
     position: absolute;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
     top: 0;
-    width: 440px;
+    width: 60%;
     z-index: 3;
 }
 
@@ -2592,16 +2591,18 @@ in
     cursor: default;
     display: block;
     font-family: "Raleway",sans-serif;
-    font-size: 23px;
+    font-size: 18px;
     left: 0;
-    line-height: 28px;
-    margin-left: 175px;
-    margin-top: 70px;
+    line-height: 17px;
+    margin-left: 84px;
+    margin-top: 230px;
+    padding-bottom: 99px;
     position: absolute;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     top: 0;
-    width: 600px;
+    width: 30%;
     z-index: 3;
+    
 }
 
 .areaLugares .bgLug .nombreLug b {
@@ -2612,17 +2613,16 @@ in
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.75);
     border-radius: 1px;
     top: 300px;
-    overflow: scroll;
     color: #f5f5f5;
     cursor: default;
     display: block;
     font-size: 15px;
     line-height: 17px;
-    margin: 0 180px 75px 0;
+    margin: 0 80px 75px 0;
     padding: 25px;
     position: absolute;
     right: 0;
-    width: 490px;
+    width: 40%;
     z-index: 3;
 }
 .areaLugares .bgLug .descripcionLug table {    border-collapse: separate;
