@@ -45,7 +45,7 @@ $flashMessenger = new FlashMessenger();
     
     $this->headScript()
                 ->appendFile($this->basePath() . '/js/jquery-1.11.2.js')
-                ->appendFile($this->basePath() . '/js/tinymce/tinymce.min.js')
+                ->appendFile($this->basePath() . '/tinymce/tinymce.min.js')
                 ->appendFile($this->basePath() . '/bootstrap/js/bootstrap.min.js');
     
     $this->headScript()->captureStart(); 
@@ -63,11 +63,14 @@ $flashMessenger = new FlashMessenger();
 
 			
 tinymce.init({
-	language : 'es',
+    language : 'es',
     entity_encoding : "raw",
+    toolbar: "undo redo | bold italic | link unlink",
+    menubar : false,
+    mode : "specific_textareas",
+    editor_selector : "mceEditorF",
 
-    mode: "textareas",
-    plugins: "table",
+    plugins: "anchor,link",
     content_css: "/tinymce/skins/lightgray/content.min.css",
     style_formats: [
         {title: 'Bold text', inline: 'b'},
@@ -89,6 +92,17 @@ tinymce.init({
         strikethrough: {inline: 'del'},
         customformat: {inline: 'span', styles: {color: '#00ff00', fontSize: '20px'}, attributes: {title: 'My custom format'}}
     }
+});
+
+
+tinymce.init({
+    language : 'es',
+    entity_encoding : "raw",
+    toolbar: false,
+    menubar : false,
+    mode : "specific_textareas",
+    editor_selector : "mceEditorL",
+    content_css: "/tinymce/skins/lightgray/content.min.css",
 });
 		
 
@@ -115,8 +129,13 @@ tinymce.init({
                               </a>
                           </li>
                           <li>
+                              <a href="/a/listar-noticias" class="nav-header">
+                                  Listar Noticias
+                              </a> 
+                          </li>
+                          <li>
                               <a href="/a/noticia" class="nav-header">
-                                  Noticias
+                                  Crear una noticia
                               </a>
                           </li>
                           <li>

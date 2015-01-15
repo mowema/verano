@@ -41,6 +41,10 @@ class Noticias
 	 protected $imagen_url;
 	
          
+	 /**
+     * @ORM\Column(type="text", nullable=true)
+	  */
+	 protected $parametros;
          
          
          
@@ -73,89 +77,95 @@ class Noticias
 	/**
 	 * @return the $id
 	 */
+        
        
-       
-	function getId() {
+        public function getId() {
             return $this->id;
         }
 
-        function getTitle() {
+        public function getTitle() {
             return $this->title;
         }
 
-        function getCopete() {
+        public function getCopete() {
             return $this->copete;
         }
 
-        function getBajada() {
+        public function getBajada() {
             return $this->bajada;
         }
 
-        function getImagen_url() {
+        public function getImagen_url() {
             return $this->imagen_url;
         }
 
-        function getCreated_date() {
+        public function getParametros() {
+            return $this->parametros;
+        }
+
+        public function getCreated_date() {
             return $this->created_date;
         }
 
-        function getModified_date() {
+        public function getModified_date() {
             return $this->modified_date;
         }
 
-        function getCreated() {
+        public function getCreated() {
             return $this->created;
         }
 
-        function getModified() {
+        public function getModified() {
             return $this->modified;
         }
 
-        function getState() {
+        public function getState() {
             return $this->state;
         }
 
-        function setId($id) {
+        public function setId($id) {
             $this->id = $id;
         }
 
-        function setTitle($title) {
+        public function setTitle($title) {
             $this->title = $title;
         }
 
-        function setCopete($copete) {
+        public function setCopete($copete) {
             $this->copete = $copete;
         }
 
-        function setBajada($bajada) {
+        public function setBajada($bajada) {
             $this->bajada = $bajada;
         }
 
-        function setImagen_url($imagen_url) {
+        public function setImagen_url($imagen_url) {
             $this->imagen_url = $imagen_url;
         }
 
-        function setCreated_date($created_date) {
+        public function setParametros($parametros) {
+            $this->parametros = $parametros;
+        }
+
+        public function setCreated_date($created_date) {
             $this->created_date = $created_date;
         }
 
-        function setModified_date($modified_date) {
+        public function setModified_date($modified_date) {
             $this->modified_date = $modified_date;
         }
 
-        function setCreated($created) {
+        public function setCreated($created) {
             $this->created = $created;
         }
 
-        function setModified($modified) {
+        public function setModified($modified) {
             $this->modified = $modified;
         }
 
-        function setState($state) {
+        public function setState($state) {
             $this->state = $state;
         }
 
-
-	
 
 }

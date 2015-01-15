@@ -82,10 +82,143 @@ class IndexController extends AbstractActionController {
 	}
     public function noticiaAction()
     {
+        $entityManager = $this->getEntityManager();
+        $request = $this->getRequest();
     	$noticiaForm = new NoticiasForm();
         $this->view->setVariable('form', $noticiaForm);
+        $noticia = new \Admin\Entity\Noticias();
+
+
+
+        if ($request->isPost()) {
+            $post = $request->getPost()->toArray();
+            $noticiaForm->setData($post);
+            if ($noticiaForm->isValid()) {
+                $validated = $noticiaForm->getData();
+                //\Zend\Debug\Debug::dump($validated);
+                $title = $validated->getTitle();
+                $copete = $validated->getCopete();
+                $bajada = $validated->getBajada();
+                $imagen_url = $validated->getImagen_url();
+                $noticia->setTitle($title);
+                $noticia->setCopete($copete);
+                $noticia->setBajada($bajada);
+                $noticia->setImagen_url($imagen_url);
+                $noticia->setCreated_date(new \DateTime('now'));
+                $noticia->setModified_date(new \DateTime('now'));
+                $noticia->setState(1);
+                $entityManager->persist($noticia);
+                $entityManager->flush();
+
+                $this->flashMessenger()->addMessage('success_El usuario se creó con éxito!');
+
+                return $this->redirect()->toRoute('a');
+                
+            } else {
+                $messages = $noticiaForm->getMessages();
+                \Zend\Debug\Debug::dump($messages);
+            }
+        }
+
+
+
+        return $this->view;
+        /*
+         * 
+         * 
+         */
+
+
+        //$bcrypt = new Bcrypt();
+
+
+
+                
+
+/*
+
+                    $username	 = $validated->getUsername();
+                    $password	 = $validated->getPassword();
+                    $email		 = $validated->getEmail();
+                    $displayName = $validated->getDisplayName();
+
+                       if ($request->getPost()->usuario['organismo']) {
+                           $organismo = $entityManager->find('Sip\Entity\Organismos', $request->getPost()->usuario['organismo']);
+                           $usuario->setOrganismo($organismo);
+                       }
+
+                    $arrRoles	= $request->getPost()->roleid;
+                    foreach ($arrRoles as $roleId):
+                    $roles[] = $entityManager->find('Application\Entity\Role', $roleId);
+                    endforeach;
+
+                    $usuario->setRoles($roles);
+
+                    $usuario->setUsername($username);
+                    $usuario->setPassword($bcrypt->create($password));
+                    $usuario->setEmail($email);
+                    $usuario->setDisplayName($displayName);
+                    $usuario->setState(1);
+
+                    $entityManager->persist($usuario);
+
+                    $entityManager->flush();
+
+                    //$rUserGrupoTrabajo = new UserGrupoTrabajoReference();
+                    //$usuarioid = $usuario->getId();
+                    //$usuario = $entityManager->find('Application\Entity\User', $usuario->getId());
+                    //foreach ($arrGrupos as $grupoId):
+                    //$grupoId = $entityManager->find('Application\Entity\GrupoTrabajo', $grupoId);
+                    //$rUserGrupoTrabajo->setUsuario($usuario);
+                    //$rUserGrupoTrabajo->setGrupo($grupoId);
+                    //endforeach;
+                    //$entityManager->persist($rUserGrupoTrabajo);
+                    //$entityManager->flush();
+
+                    $this->flashMessenger()->addMessage('success_El usuario se creó con éxito!');
+
+                    return $this->redirect()->toRoute('usuarios');
+
+                    }
+            }
+            
+            $form->get('submit')->setAttribute('value', 'Guardar');
+
+            $this->view->setVariable('noticias', $usuario);
+            $this->view->setVariable('form', $form);
+            return $this->view;
+            
+            */
+            
+            
+            
+            
+            
+    }
         
-    	return $this->view;
+    public function listarNoticiasAction()
+    {
+        //$this->getRenderer()->headScript()->appendFile('/js/confirm-deletion.js', 'text/javascript');
+	//$this->getRenderer()->headLink()->appendStylesheet('/fancybox/jquery.fancybox.css');
+		
+		$entityManager = $this->getEntityManager();
+		
+		$matches = $this->getEvent()->getRouteMatch();
+		$page   = $matches->getParam('page', 1);
+		
+		$noticias = $entityManager->getRepository('Admin\Entity\Noticias')->findAll();
+		
+                //$this->view->setVariable('usuarios', $usuarios);
+		
+		$paginator = new \Zend\Paginator\Paginator(new \Zend\Paginator\Adapter\ArrayAdapter($noticias));
+		
+		$paginator->setCurrentPageNumber($page);
+		$paginator->setItemCountPerPage(20);
+		
+		$this->view->setVariable('lang', $matches->getParam('lang','es'));
+		$this->view->setVariable('noticias', $paginator);
+			
+		return $this->view;
 	    	 
 	}
 
