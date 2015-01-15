@@ -2575,7 +2575,7 @@ in
     font-weight: 300;
     left: 0;
     line-height: 21px;
-    margin-left: 175px;
+    margin-left: 80px;
     margin-top: 70px;
     position: absolute;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -2592,15 +2592,15 @@ in
     display: block;
     font-family: "Raleway",sans-serif;
     font-size: 18px;
-    left: 0;
+    right: 0;
     line-height: 17px;
-    margin-left: 84px;
-    margin-top: 230px;
+    margin-right: 10%;
+    margin-top: 222px;
     padding-bottom: 99px;
     position: absolute;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     top: 0;
-    width: 30%;
+    width: 32%;
     z-index: 3;
     
 }
@@ -2612,16 +2612,16 @@ in
 .areaLugares .bgLug .descripcionLug {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.75);
     border-radius: 1px;
-    top: 300px;
+    top: 196px;
     color: #f5f5f5;
     cursor: default;
     display: block;
     font-size: 15px;
     line-height: 17px;
-    margin: 0 80px 75px 0;
+    margin: 0 10px 0 80px;
     padding: 25px;
     position: absolute;
-    right: 0;
+    left: 0;
     width: 40%;
     z-index: 3;
 }
