@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">
-		<h3 class="panel-title">Listado de Usuarios</h3>
+		<h3 class="panel-title">Listado de Noticias</h3>
 	</div>
 <?php if ($this->isAllowed('usuarios', 'crear')) { ?> 
 	<div class="toolbardt"><a class="btn btn-success" href="/usuarios/crear">
@@ -12,14 +12,14 @@
 <tr>
     <th>ID</th>
     <th>Título</th>
-    <th>FechaCreación</th>
-    <th>&nbsp;</th>
+    <th>Copete</th>
+    <th>Imagen</th>
 </tr>
-<?php $this->partialloop()->setObjectKey('noticias');
+<?php $this->partialloop()->setObjectKey('noticia');
 echo $this->partialloop('/partial/rowNoticia.phtml', $this->noticias) ?>
 </table>
 
-<?php  echo ( count($this->noticias) > 0 ) ? $this->paginationControl($this->noticias, 'Sliding', 'pager.phtml', array('lang'=>$lang, 'controller'=>'listar-noticias')) : ""; ?>
+<?php  echo ( count($this->noticias) > 0 ) ? $this->paginationControl($this->noticias, 'Sliding', 'pager.phtml', array('lang'=>$lang, 'action'=>'listar-noticias')) : ""; ?>
 </div>
 <script type="text/javascript">
 	$(document).ready(function() {
