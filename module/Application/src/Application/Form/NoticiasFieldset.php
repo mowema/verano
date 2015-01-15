@@ -21,30 +21,56 @@ class NoticiasFieldset extends Fieldset implements InputFilterProviderInterface
           	  ->setObject(new Noticias());
       
     $this->add(array(
-	      'name' => 'titulo',
+	      'name' => 'title',
 	      'options' => array(
 	      	  'label' => 'Titulo'
 	      ),
 	      'attributes' => array(
 	      	  'type' => 'text',
-	      	  'required' => 'required'
+	      	  'required' => 'required',
+	      	 'id'   => 'title',
 	      )
     ));
  
     $this->add(array(
-	      'name' => 'cuerpo',
+	      'name' => 'copete',
+	      'required' => true,
+	      'options' => array(
+	       	 'label' => 'Copete'
+	      ),
+	      'attributes' => array(
+	       	 'type' => 'textarea',
+	      	 'id'   => 'copete',
+	      	 'class'=> 'mceEditorL',
+	      	 
+	      )
+    		
+    ));
+    $this->add(array(
+	      'name' => 'bajada',
 	      'required' => true,
 	      'options' => array(
 	       	 'label' => 'Cuerpo Noticia'
 	      ),
 	      'attributes' => array(
 	       	 'type' => 'textarea',
-	      	 'id'   => 'content',
-	      	 'class'=> 'article ',
-	      	 'placeholder' => 'Ingrese el texto'
+	      	 'id'   => 'bajada',
+	      	 'class'=> 'mceEditorF',
 	      	 
 	      )
     		
+    ));
+    
+    $this->add(array(
+	      'name' => 'imagen_url',
+	      'options' => array(
+	      	  'label' => 'Url de la imagen'
+	      ),
+	      'attributes' => array(
+	      	  'type' => 'text',
+                  
+	      	 'id'   => 'imagen_url',
+	      )
     ));
    
      
@@ -55,7 +81,7 @@ class NoticiasFieldset extends Fieldset implements InputFilterProviderInterface
     public function getInputFilterSpecification()
     {
         return array(
-            'name' => array(
+            'title' => array(
                 'required' => true,
             )
         );
