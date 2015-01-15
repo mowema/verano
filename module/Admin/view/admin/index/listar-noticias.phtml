@@ -10,10 +10,11 @@
 
 <table class="table table-hover">
 <tr>
-    <th>ID</th>
+    <th></th>
     <th>Título</th>
     <th>Copete</th>
     <th>Imagen</th>
+    <th></th>
 </tr>
 <?php $this->partialloop()->setObjectKey('noticia');
 echo $this->partialloop('/partial/rowNoticia.phtml', $this->noticias) ?>
@@ -22,7 +23,43 @@ echo $this->partialloop('/partial/rowNoticia.phtml', $this->noticias) ?>
 <?php  echo ( count($this->noticias) > 0 ) ? $this->paginationControl($this->noticias, 'Sliding', 'pager.phtml', array('lang'=>$lang, 'action'=>'listar-noticias')) : ""; ?>
 </div>
 <script type="text/javascript">
-	$(document).ready(function() {
-	$(".fancybox").fancybox();
-	});
+	//$(document).ready(function() {
+	//$(".fancybox").fancybox();
+	//});
+        
+        var MyDialogs={
+    loadConfirmationModal:function(modalId, confirmURL, caption, body, footer){
+                        var $modal=jQuery('#'+modalId);
+                        if($modal.size() === 0){
+
+			var modalString='<div id="'+modalId+'" class="modal">'+
+								'<div class="modal-dialog">'+
+									'<div class="modal-content">'+
+                                        '<div class="modal-header">'+
+                                                '<button class="close" data-dismiss="modal">×</button>'+
+                                                '<h3>'+caption+'</h3>'+
+                                        '</div>'+
+                                        '<div class="modal-body">'+body+
+                                                '</div>'+
+                                                '<div class="modal-footer">'+footer+
+                                                        '<button id="cancel" class="btn btn-default" data-dismiss="modal" type="button" name="cancel">Cancelar</button>'+
+                                                        '<a id="submit" class="btn btn-danger" href="'+confirmURL+'">Eliminar</a>'+
+                                                '</div>'+
+										
+									'</div>'+
+								'</div>'+
+                            '</div>';
+
+                                $modal=jQuery(modalString);
+
+                        }
+
+                        $modal.modal('show');
+                        return false;
+                }
+
+};
+
+
+
 </script>
