@@ -65,7 +65,7 @@ $flashMessenger = new FlashMessenger();
 tinymce.init({
     language : 'es',
     entity_encoding : "raw",
-    toolbar: "undo redo | bold italic | link unlink",
+    toolbar: "undo redo | bold italic | link unlink | removeformat",
     menubar : false,
     mode : "specific_textareas",
     editor_selector : "mceEditorF",
@@ -98,7 +98,7 @@ tinymce.init({
 tinymce.init({
     language : 'es',
     entity_encoding : "raw",
-    toolbar: false,
+    toolbar: 'removeformat',
     menubar : false,
     mode : "specific_textareas",
     editor_selector : "mceEditorL",

@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">
-		<h3 class="panel-title">Listado de Usuarios</h3>
+		<h3 class="panel-title">Listado de Noticias</h3>
 	</div>
 <?php if ($this->isAllowed('usuarios', 'crear')) { ?> 
 	<div class="toolbardt"><a class="btn btn-success" href="/usuarios/crear">
@@ -10,19 +10,56 @@
 
 <table class="table table-hover">
 <tr>
-    <th>ID</th>
+    <th></th>
     <th>Título</th>
-    <th>FechaCreación</th>
-    <th>&nbsp;</th>
+    <th>Copete</th>
+    <th>Imagen</th>
+    <th></th>
 </tr>
-<?php $this->partialloop()->setObjectKey('noticias');
+<?php $this->partialloop()->setObjectKey('noticia');
 echo $this->partialloop('/partial/rowNoticia.phtml', $this->noticias) ?>
 </table>
 
-<?php  echo ( count($this->noticias) > 0 ) ? $this->paginationControl($this->noticias, 'Sliding', 'pager.phtml', array('lang'=>$lang, 'controller'=>'listar-noticias')) : ""; ?>
+<?php  echo ( count($this->noticias) > 0 ) ? $this->paginationControl($this->noticias, 'Sliding', 'pager.phtml', array('lang'=>$lang, 'action'=>'listar-noticias')) : ""; ?>
 </div>
 <script type="text/javascript">
-	$(document).ready(function() {
-	$(".fancybox").fancybox();
-	});
+	//$(document).ready(function() {
+	//$(".fancybox").fancybox();
+	//});
+        
+        var MyDialogs={
+    loadConfirmationModal:function(modalId, confirmURL, caption, body, footer){
+                        var $modal=jQuery('#'+modalId);
+                        if($modal.size() === 0){
+
+			var modalString='<div id="'+modalId+'" class="modal">'+
+								'<div class="modal-dialog">'+
+									'<div class="modal-content">'+
+                                        '<div class="modal-header">'+
+                                                '<button class="close" data-dismiss="modal">×</button>'+
+                                                '<h3>'+caption+'</h3>'+
+                                        '</div>'+
+                                        '<div class="modal-body">'+body+
+                                                '</div>'+
+                                                '<div class="modal-footer">'+footer+
+                                                        '<button id="cancel" class="btn btn-default" data-dismiss="modal" type="button" name="cancel">Cancelar</button>'+
+                                                        '<a id="submit" class="btn btn-danger" href="'+confirmURL+'">Eliminar</a>'+
+                                                '</div>'+
+										
+									'</div>'+
+								'</div>'+
+                            '</div>';
+
+                                $modal=jQuery(modalString);
+
+                        }
+
+                        $modal.modal('show');
+                        return false;
+                }
+
+};
+
+
+
 </script>

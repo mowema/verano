@@ -6,16 +6,29 @@ use Doctrine\ORM\EntityRepository;
 class NoticiasRepository extends EntityRepository
 {
 
-    public function getActiveNoticias($state)
+    public function getEditables()
     {
 
     	$query = $this->_em->createQueryBuilder();
-    	$query->select('cat')
-    	->from('Admin\Entity\Category', 'cat')
-    	->where('cat.state = :state')
-    	->orderBy('cat.modified_date', 'DESC')
+    	$query->select('n')
+    	->from('Admin\Entity\Noticias', 'n')
+    	->where('n.state > 0')
     	->setFirstResult(0)
-    	->setMaxResults(5)
+    	->setMaxResults(10);
+    	
+    	return $query->getQuery()->getResult();
+    
+    }
+
+    public function getActivas($state=1)
+    {
+
+    	$query = $this->_em->createQueryBuilder();
+    	$query->select('n')
+    	->from('Admin\Entity\Noticias', 'n')
+    	->where('n.state = :state')
+    	->setFirstResult(0)
+    	->setMaxResults(10)
     	->setParameter('state', $state);
     	
     	return $query->getQuery()->getResult();

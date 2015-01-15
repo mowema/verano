@@ -80,13 +80,48 @@ class IndexController extends AbstractActionController {
     	));
 	    	 
 	}
+    public function papeleraNoticiaAction()
+    {
+        $id = (int) $this->params('id', null);
+
+        if (null === $id) {
+          return $this->redirect()->toRoute('a',array('action'=>'listar-noticias'));
+        }
+
+            $noticia = $this->getEntityManager()->find('Admin\Entity\Noticias', $id);
+
+            $noticia->setState(-1);
+
+            $this->getEntityManager()->persist($noticia);
+
+            $this->getEntityManager()->flush();
+
+            $this->flashMessenger()->addMessage('success_La noticia se envió a papelera!');
+
+            return $this->redirect()->toRoute('a',array('action'=>'listar-noticias'));
+            
+	    	 
+	}
     public function noticiaAction()
     {
         $entityManager = $this->getEntityManager();
         $request = $this->getRequest();
-    	$noticiaForm = new NoticiasForm();
+        $id = (int) $this->getEvent()->getRouteMatch()->getParam('id');
+        
+        $noticiaForm = new NoticiasForm();
+        if ($id) {
+            $noticia = $this->getEntityManager()->find('Admin\Entity\Noticias', $id);
+            if ($noticia){
+                $noticiaForm->bind($noticia);
+                
+            }else{return $this->redirect()->toRoute('a', array('action' => 'noticia'));}
+            
+            
+        } else {$noticia = new \Admin\Entity\Noticias();}
+
+
         $this->view->setVariable('form', $noticiaForm);
-        $noticia = new \Admin\Entity\Noticias();
+        
 
 
 
@@ -112,7 +147,7 @@ class IndexController extends AbstractActionController {
 
                 $this->flashMessenger()->addMessage('success_El usuario se creó con éxito!');
 
-                return $this->redirect()->toRoute('a');
+                return $this->redirect()->toRoute('a',array('action'=>'listar-noticias'));
                 
             } else {
                 $messages = $noticiaForm->getMessages();
@@ -206,7 +241,7 @@ class IndexController extends AbstractActionController {
 		$matches = $this->getEvent()->getRouteMatch();
 		$page   = $matches->getParam('page', 1);
 		
-		$noticias = $entityManager->getRepository('Admin\Entity\Noticias')->findAll();
+		$noticias = $entityManager->getRepository('Admin\Entity\Noticias')->getEditables();
 		
                 //$this->view->setVariable('usuarios', $usuarios);
 		

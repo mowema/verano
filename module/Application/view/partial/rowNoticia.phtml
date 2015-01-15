@@ -1,0 +1,25 @@
+<tr>
+    <td><?php if ($this->isAllowed('noticias', 'editar')) { ?>
+        <a title="Editar n<?php echo $this->escapeHtml($this->noticia->getId());?>" class="btn btn-success" href="<?php echo $this->url('a',array('action'=>'noticia', 'id' => $this->noticia->getId()));?>">
+        <span class="glyphicon glyphicon-pencil"></span></a>
+    <?php } ?></td>
+    <td><?php echo $this->escapeHtml($this->noticia->getTitle());?></td>
+    <td><?php echo $this->noticia->getCopete();?></td>
+    <td><img src="<?php echo $this->escapeHtml($this->noticia->getImagen_url());?>"></td>
+    
+    <td>
+    
+    <?php if ($this->isAllowed('noticias', 'apapelera')) {  ?>
+        <a class="btn btn-danger" title="Borrar" href="#" 
+            onclick="return MyDialogs.loadConfirmationModal('<?php echo $this->noticia->getId() ?>',
+            '<?php echo $this->url('a', array('action' => 'papelera-noticia', 'id' => $this->noticia->getId()))?>', 
+                'La siguiente Noticia será eliminada', 
+                '<?php echo $this->escapeHtml($this->noticia->getTitle()) ?>','');"><span class="glyphicon glyphicon-trash"></span></a>
+    <?php  }  ?>
+	<?php  if ($this->isAllowed('noticias', 'informe')) { /* ?>
+        <a title="Ver Informe" class="btn btn-info fancybox dropdown-toggle" data-fancybox-type="iframe" href="<?php echo $this->url('usuarios',array('action'=>'informe', 'id' => $this->usuario->getId()));?>">
+        <span class="glyphicon glyphicon-list-alt"></span></a>
+    <?php */ }   ?>
+      
+    </td>
+</tr>

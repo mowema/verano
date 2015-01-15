@@ -220,7 +220,10 @@ return array(
             ),
             'BjyAuthorize\Provider\Role\Config' => array(
                 'Invitado' => array(),
-                'Autenticado' => array()
+                'Autenticado' => array(),
+                'Gestor' => array('children' => array(
+                        'Administrador' => array(),
+                    )),
             ),
         ),
         'resource_providers' => array(
@@ -231,6 +234,7 @@ return array(
                 'crud' => array(),
                 'crudplus' => array(),
                 'reporte' => array(),
+                'noticias' => array(),
             ),
         ),
         'rule_providers' => array(
@@ -238,7 +242,7 @@ return array(
                 'allow' => array(
                     // allow guests and users (and admins, through inheritance)
                     // the "wear" privilege on the resource "pants"
-                    //array(array('Publicador', 'Gestor Noticias'), 'noticias', array('index', 'crear', 'editar', 'apapelera')),
+                    array(array('Administrador'), 'noticias', array('index', 'crear', 'editar', 'apapelera')),
                  ),
                 // Don't mix allow/deny rules if you are using role inheritance.
                 // There are some weird bugs.
