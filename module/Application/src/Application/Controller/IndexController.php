@@ -64,16 +64,11 @@ class IndexController extends AbstractActionController {
 
     public function indexAction() {
         
-        $entityManager = $this->getEntityManager(); 
-        
-        $request = $this->getRequest();
-        
-        $data = $request->getPost();
-        
-        
+        $entityManager = $this->getEntityManager();
+	$noticias = $entityManager->getRepository('Admin\Entity\Noticias')->getActivas();
         $imgnrand = rand(1, 5);
-        //$registroform->bind($registro);
         $this->view->setVariable('imgnrand', $imgnrand);
+        $this->view->setVariable('noticias', $noticias);
         return $this->view;
     }
     

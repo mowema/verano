@@ -2,7 +2,6 @@
     <td><?php echo $this->escapeHtml($this->usuario->getId());?></td>
     <td><?php echo $this->escapeHtml($this->usuario->getUsername());?></td>
     <td><?php echo $this->escapeHtml($this->usuario->getEmail());?></td>
-    <td><?php echo $this->escapeHtml($this->usuario->getOrganismo()->getNombre());?></td>
     
     <td>
     <?php if ($this->isAllowed('usuarios', 'editar')) { ?>

@@ -135,13 +135,14 @@ class IndexController extends AbstractActionController {
                 $copete = $validated->getCopete();
                 $bajada = $validated->getBajada();
                 $imagen_url = $validated->getImagen_url();
+                $state = $validated->getState();
                 $noticia->setTitle($title);
                 $noticia->setCopete($copete);
                 $noticia->setBajada($bajada);
                 $noticia->setImagen_url($imagen_url);
                 $noticia->setCreated_date(new \DateTime('now'));
                 $noticia->setModified_date(new \DateTime('now'));
-                $noticia->setState(1);
+                $noticia->setState($state);
                 $entityManager->persist($noticia);
                 $entityManager->flush();
 
