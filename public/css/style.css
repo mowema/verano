@@ -879,19 +879,19 @@ input:focus, textarea:focus, label:focus, button:focus, select:focus {
 .page .menu .institucional {    
     float: right;    
     font-size: 14px;
-    height: 430px;
     line-height: 21px;
+    margin-right: 40px;
     margin-top: 18px;
-    width: 64%;
+    width: 50%;
 }
 
 .page .menu .institucional p {
     font-family: 'Helvetica',sans-serif;
     text-transform: none;
+    padding:4px;
 }
 .page .menu .contenedor .iz .mLinks {
     display: block;
-    padding-top: 75px;
     width:35%
 }
 .page .menu .contenedor .iz .mLinks li {
