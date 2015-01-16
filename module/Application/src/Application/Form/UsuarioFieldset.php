@@ -75,24 +75,7 @@ class UsuarioFieldset extends Fieldset implements InputFilterProviderInterface
             'options' => array('label' => 'Password'),
      ));
   
-     $this->add(array(
-            'type'    => 'DoctrineModule\Form\Element\ObjectSelect',
-            'name'    => 'organismo',
-            'options' => array(
-                'label'          => 'Organismo dependiente',
-                'object_manager' => $objectManager,
-                'target_class'   => 'Sip\Entity\Organismos',
-                'property'       => 'nombre',
-                'empty_option'   => '--- Seleccionar ---',
-                'is_method'      => true,
-            ),
-            'attributes' => array(
-                'class' =>'form-control chzn',
-                'id' => 'organismo',
-                'required' => 'required'
-            ),
-      ));
-    
+     
   }
    
   /**
@@ -106,9 +89,6 @@ class UsuarioFieldset extends Fieldset implements InputFilterProviderInterface
     {
         return array(
             'displayName' => array(
-                'required' => true,
-            ),
-            'organismo' => array(
                 'required' => true,
             ),
             'password' => array(

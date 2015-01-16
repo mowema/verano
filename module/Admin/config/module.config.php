@@ -32,6 +32,21 @@ return array(
                     ),
                 ),
             ),
+            'usuarios' => array(
+                'type' => 'segment',
+                'options' => array(
+                    'route' => '/usuarios[/:action][/:id][/grupo/:grupo][/controlador/:controlador][/informe/:informe][/apapelera/:apapelera][/page/:page]',
+                    'constraints' => array(
+                        'action' => '(?!\bpage\b)[a-zA-Z][a-zA-Z0-9_-]*',
+                        'id' => '[0-9]+',
+                        'page' => '[0-9]+',
+                    ),
+                    'defaults' => array(
+                        'controller' => 'Admin\Controller\Usuarios',
+                        'action' => 'index',
+                    ),
+                ),
+            ),
         // The following is a route to simplify getting started creating
             // new controllers and actions without needing to create a new
             // module. Simply drop new controllers in, and you can access them
@@ -72,6 +87,7 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Admin\Controller\Index' => 'Admin\Controller\IndexController',
+            'Admin\Controller\Usuarios' => 'Admin\Controller\UsuariosController',
         ),
     ),
     'module_layouts' => array(

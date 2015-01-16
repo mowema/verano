@@ -45,21 +45,7 @@ return array(
                     ),
                 ),
             ),
-            'usuarios' => array(
-                'type' => 'segment',
-                'options' => array(
-                    'route' => '/usuarios[/:action][/:id][/grupo/:grupo][/controlador/:controlador][/informe/:informe][/apapelera/:apapelera][/page/:page]',
-                    'constraints' => array(
-                        'action' => '(?!\bpage\b)[a-zA-Z][a-zA-Z0-9_-]*',
-                        'id' => '[0-9]+',
-                        'page' => '[0-9]+',
-                    ),
-                    'defaults' => array(
-                        'controller' => 'Application\Controller\Usuarios',
-                        'action' => 'index',
-                    ),
-                ),
-            ),
+            
             'roles' => array(
                 'type' => 'segment',
                 'options' => array(
@@ -243,6 +229,7 @@ return array(
                     // allow guests and users (and admins, through inheritance)
                     // the "wear" privilege on the resource "pants"
                     array(array('Administrador'), 'noticias', array('index', 'crear', 'editar', 'apapelera')),
+                    array(array('Administrador'), 'usuarios', array('index', 'crear', 'editar', 'apapelera')),
                  ),
                 // Don't mix allow/deny rules if you are using role inheritance.
                 // There are some weird bugs.
@@ -259,7 +246,7 @@ return array(
             'BjyAuthorize\Guard\Controller' => array(
                 array('controller' => 'Application\Controller\Index', 'roles' => array('Invitado', 'Autenticado')),
                 array('controller' => 'Application\Controller\Roles', 'roles' => array()),
-                array('controller' => 'Application\Controller\Usuarios', 'roles' => array()),
+                array('controller' => 'Application\Controller\Usuarios', 'roles' => array('Administrador')),
                 array('controller' => 'zfcuser', 'roles' => array('Invitado', 'Autenticado')),
             // You can also specify an array of actions or an array of controllers (or both)
             // allow "guest" and "admin" to access actions "list" and "manage" on these "index",

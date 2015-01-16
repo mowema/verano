@@ -13,6 +13,7 @@ namespace Admin;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Authentication\AuthenticationService;
+use Zend\ModuleManager\ModuleManager;
 
 class Module implements AutoloaderProviderInterface
 {
@@ -37,6 +38,18 @@ class Module implements AutoloaderProviderInterface
     {
         return include __DIR__ . '/config/module.config.php';
     }
+
+    public function init(ModuleManager $manager)
+{
+    $events = $manager->getEventManager();
+    $sharedEvents = $events->getSharedManager();
+    $sharedEvents->attach(__NAMESPACE__, 'dispatch', function($e) {
+        $controller = $e->getTarget();
+        if (get_class($controller) == 'Application\Controller\UsuariosController')         {
+            $controller->layout('layout/admin');
+        }
+    }, 100);
+}
 
 	 public function onBootstrap($e)
     {
