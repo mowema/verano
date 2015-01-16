@@ -1,6 +1,6 @@
 <tr>
     <td><?php if ($this->isAllowed('noticias', 'editar')) { ?>
-        <a title="Editar n<?php echo $this->escapeHtml($this->noticia->getId());?>" class="btn btn-success" href="<?php echo $this->url('a',array('action'=>'noticia', 'id' => $this->noticia->getId()));?>">
+        <a title="Editar <?php echo $this->noticia->getState() ==0 ?'borrador ' : '' ?>n<?php echo $this->escapeHtml($this->noticia->getId());?>" class="btn <?php echo $this->noticia->getState() ==1 ?'btn-success' : 'btn-warning' ?>" href="<?php echo $this->url('a',array('action'=>'noticia', 'id' => $this->noticia->getId()));?>">
         <span class="glyphicon glyphicon-pencil"></span></a>
     <?php } ?></td>
     <td><?php echo $this->escapeHtml($this->noticia->getTitle());?></td>

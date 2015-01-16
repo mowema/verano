@@ -12,7 +12,7 @@ class NoticiasRepository extends EntityRepository
     	$query = $this->_em->createQueryBuilder();
     	$query->select('n')
     	->from('Admin\Entity\Noticias', 'n')
-    	->where('n.state > 0')
+    	->where('n.state >= 0')
     	->setFirstResult(0)
     	->setMaxResults(10);
     	
