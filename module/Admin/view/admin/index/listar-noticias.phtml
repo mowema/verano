@@ -1,11 +1,12 @@
 <div class="panel panel-primary">
-	<div class="panel-heading">
-		<h3 class="panel-title">Listado de Noticias</h3>
+	
+    
+    <div class="panel-heading">
+		<h3 class="panel-title">Listado de Noticias <?php if ($this->isAllowed('noticias', 'crear')) { ?> 
+	<a class="btn btn-sm pull-right" href="/a/noticia"> + Crear una nueva noticia</a>
+<?php } ?></h3>
 	</div>
-<?php if ($this->isAllowed('usuarios', 'crear')) { ?> 
-	<div class="toolbardt"><a class="btn btn-success" href="/usuarios/crear">
-	<span class="glyphicon glyphicon-list-alt"></span> Nuevo</a></div>
-<?php } ?>
+
 
 
 <table class="table table-hover">
