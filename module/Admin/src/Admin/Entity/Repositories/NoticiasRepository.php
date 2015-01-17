@@ -14,7 +14,8 @@ class NoticiasRepository extends EntityRepository
     	->from('Admin\Entity\Noticias', 'n')
     	->where('n.state >= 0')
     	->setFirstResult(0)
-    	->setMaxResults(10);
+    	->setMaxResults(10)
+        ->orderBy('n.id','DESC');
     	
     	return $query->getQuery()->getResult();
     
@@ -29,6 +30,8 @@ class NoticiasRepository extends EntityRepository
     	->where('n.state = :state')
     	->setFirstResult(0)
     	->setMaxResults(10)
+                // tengo que buscar por fecha
+        ->orderBy('n.id','DESC')
     	->setParameter('state', $state);
     	
     	return $query->getQuery()->getResult();

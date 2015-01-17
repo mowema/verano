@@ -1,1 +1,4 @@
 body {    padding-top: 70px;}
+.panel-title .btn:hover {
+    color:powderblue
+}
