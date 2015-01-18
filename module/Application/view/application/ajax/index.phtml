@@ -120,11 +120,13 @@ Desde el 10 de enero al 23 de febrero, de miércoles a domingo de 16 a 24 hs</p>
         <div class="areaBtnStreet">
             <?php if ($contenido[$this->data['id']]['plano']=='si'){?>
                 <div class="btnStreet btnActividades" target="_blank" data-idactividad="plano-<?php echo $contenido[$this->data['id']]['id'] ?>">
-            <?php } else { ?> <div class="btnStreet "> <?php } ?>
                     
                     <div class="icon"><img width="100%" src="img/pin_plano.png"/></div>
+                    <div class="clear"></div>
+            <?php } else { ?> <div > <?php } ?>
+                    
                        
-                        <div class="clear"></div>
+                        
                         <div class="icStreetVertical"><?php  echo $contenido[$this->data['id']]['dire'] ?></div><!---->
                 </div>
     </div>

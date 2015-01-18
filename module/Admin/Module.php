@@ -39,19 +39,7 @@ class Module implements AutoloaderProviderInterface
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function init(ModuleManager $manager)
-{
-    $events = $manager->getEventManager();
-    $sharedEvents = $events->getSharedManager();
-    $sharedEvents->attach(__NAMESPACE__, 'dispatch', function($e) {
-        $controller = $e->getTarget();
-        if (get_class($controller) == 'Application\Controller\UsuariosController')         {
-            $controller->layout('layout/admin');
-        }
-    }, 100);
-}
-
-	 public function onBootstrap($e)
+    public function onBootstrap($e)
     {
     $e->getApplication()->getServiceManager()->get('translator');
     $eventManager        = $e->getApplication()->getEventManager();
