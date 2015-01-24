@@ -2637,7 +2637,6 @@ in
 .areaLugares .bgLug .planito {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.75);
     border-radius: 1px;
-    overflow: scroll;
     color: #f5f5f5;
     cursor: default;
     display: block;
@@ -2646,7 +2645,7 @@ in
     padding: 25px;
     position: absolute;
     z-index: 3;
-    top: 20%;
+    top: 40px;
     left: 10%;
     
 }
