@@ -1012,7 +1012,7 @@ input:focus, textarea:focus, label:focus, button:focus, select:focus {
     position: relative;
 }
 .page .pInicio {
-    background: url("/img/bgInicio.jpg") no-repeat fixed 0 0 / cover rgba(0, 0, 0, 0);
+    background: url("/img/bgInicio.jpg") no-repeat scroll 0 0 / cover rgba(0, 0, 0, 0);
     background-position:50% 50%;
 }
 
