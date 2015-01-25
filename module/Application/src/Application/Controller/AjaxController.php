@@ -69,7 +69,12 @@ class AjaxController extends AbstractActionController {
         
         $request = $this->getRequest();
         $data = $request->getPost();
-        //echo $data['id'];
+        
+        if ($data['id']==0){
+            $entityManager = $this->getEntityManager();
+            $noticias = $entityManager->getRepository('Admin\Entity\Noticias')->getActivas(1,30);
+            $this->view->setVariable('noticias', $noticias);
+        }
         
         $this->view->setTerminal(true);
         
@@ -80,7 +85,7 @@ class AjaxController extends AbstractActionController {
         
         $request = $this->getRequest();
         $data = $request->getPost();
-        //echo $data['id'];
+        
         
         $this->view->setTerminal(true);
         
@@ -99,4 +104,16 @@ class AjaxController extends AbstractActionController {
         return $this->view;
     }
 
+        
+    public function noticiaAction(){
+        $request = $this->getRequest();
+        $data = $request->getPost();
+        $entityManager = $this->getEntityManager();
+        $noticia = $entityManager->getRepository('Admin\Entity\Noticias')->find($data['idnoticia']);
+        
+         $this->view->setTerminal(true);
+       
+        $this->view->setVariable('data', $noticia);
+        return $this->view;
+    }
 }

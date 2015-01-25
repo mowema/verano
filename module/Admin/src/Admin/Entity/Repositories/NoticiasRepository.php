@@ -21,7 +21,7 @@ class NoticiasRepository extends EntityRepository
     
     }
 
-    public function getActivas($state=1)
+    public function getActivas($state=1,$count=10)
     {
 
     	$query = $this->_em->createQueryBuilder();
@@ -29,7 +29,7 @@ class NoticiasRepository extends EntityRepository
     	->from('Admin\Entity\Noticias', 'n')
     	->where('n.state = :state')
     	->setFirstResult(0)
-    	->setMaxResults(10)
+    	->setMaxResults($count)
                 // tengo que buscar por fecha
         ->orderBy('n.id','DESC')
     	->setParameter('state', $state);
