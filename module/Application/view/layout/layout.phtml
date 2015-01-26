@@ -295,12 +295,15 @@
 		});
 		//smoothWheel
 		
-		//Scroll Anim
-		sk = skrollr.init({
+                if(!(/Android|iPhone|iPad|iPod|BlackBerry|Windows Phone/i).test(navigator.userAgent || navigator.vendor || window.opera)){
+                    sk = skrollr.init({
 			smoothScrolling:false,
 			smoothScrollingDuration:200,
 			forceHeight: false
-		});
+                    });
+                }
+		//Scroll Anim
+		
 		
 	});
 	
