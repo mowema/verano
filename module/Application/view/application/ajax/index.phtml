@@ -115,43 +115,60 @@ Desde el 10 de enero al 23 de febrero, de miércoles a domingo de 16 a 24 hs</p>
 if ($this->data['id']==0){ ?>
 <div class="bg1" style="background-image: url('/img/rp-noticias.jpg');"></div>
     <div class="cExtra">
-    <div class="contenido">
-        <style>
-            .noticiaRow {
-                display:block;
-                background: none repeat scroll 0 0 rgba(90,90,90,0.9);
-                    border: 1px solid snow;
-                    margin-top: 12px;
-                    padding: 10px;
-            }
-            .noticiaRow:hover{
-                display:block;
-                background: none repeat scroll 0 0 rgba(0,0,0,0.3);
-                    border: 1px solid snow;
-                    margin-top: 12px;
-                    padding: 10px;
-            }
-            
-        </style>
+    <div class="contenido " style="display: block;
+                                    padding: 35px 40px 0;
+                                    position: relative;
+                                    z-index: 100;">
+        <div class="titular">
+            <div class="span">NOTICIAS</div>
+        </div>
 <?php foreach($this->noticias as $noticia): ?>
     
         <a class="noticiaRow btnNoticia" data-idnoticia="<?php  echo $noticia->getId() ?>">
-            <img style="width:60px;float:left" src="<?php  echo $noticia->getImagen_url() ?>" />
-            <p style="width:360px;float:right"  class="txt">
+            <img src="<?php  echo $noticia->getImagen_url() ?>" />
+            <p class="txt">
                 <?php  echo $noticia->getTitle() ?>
             </p>
             <div class="clear"></div>
         </a>
         
-        
+        <!--
         <div class="clear"></div>
-        
+        -->
  <?php endforeach;?>
 
         
-    </div><!--contenido-->
+    </div>
 </div><!--cExtra-->
 
+        <style>
+            .noticiaRow {
+                    float:left;
+                    background: none repeat scroll 0 0 rgba(90, 90, 90, 0.9);
+    border: 1px solid snow;
+    display: block;
+    margin: 12px 10px 0 0;
+    padding: 10px;
+    width: 200px;
+            }
+                .noticiaRow:hover{
+                    display:block;
+                    background: none repeat scroll 0 0 rgba(0,0,0,0.3);
+                    border: 1px solid snow;
+                    margin-top: 12px;
+                    padding: 10px;
+                }
+                .noticiaRow img{
+                    float: left;
+                    margin-top: 33px;
+                    width: 200px;
+                }
+                .noticiaRow p{
+                    background-color: rgba(0, 0, 0, 0.8);
+    padding: 8px;
+    position: absolute;
+    width: 184px;}
+            </style>
 <script>
     
 $('.btnNoticia').click(function(event) {
