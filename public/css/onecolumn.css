@@ -1361,68 +1361,24 @@ in
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
     border-bottom-right-radius: 2px;
     border-top-right-radius: 2px;
-    bottom: 200px;
     display: block;
     left: 0;
     position: absolute;
-    width: 45%;
+    width: 300px !important;
 }
 .page .pCamino .areaInfo .caminoInfo {
     cursor: default;
     display: block;
     float: right;
-    padding: 20px 20px 14px;
-    width: 480px;
+    padding: 20px 30px 14px;
+    width: 240px !important;
 }
-.page .pCamino .areaInfo .caminoInfo .clima {
-    display: block;
-    float: left;
-    font-family: "Raleway",sans-serif;
-    font-weight: 900;
+.page .pCamino .areaInfo .caminoInfo img:hover{
+    
+    
 }
-.page .pCamino .areaInfo .caminoInfo .clima .ico {
-    display: block;
-    float: left;
-    height: 80px;
-    width: 80px;
-}
-.page .pCamino .areaInfo .caminoInfo .clima .grados {
-    display: block;
-    float: left;
-    font-size: 32px;
-    margin: 20px 0 0 5px;
-}
-.page .pCamino .areaInfo .caminoInfo .clima .grados span {
-    padding: 0 6px;
-}
-.page .pCamino .areaInfo .caminoInfo .hora {
-    display: block;
-    float: right;
-    font-family: "Raleway",sans-serif;
-    font-weight: 900;
-    margin-top: 20px;
-}
-.page .pCamino .areaInfo .caminoInfo .hora .horaAct {
-    display: block;
-    font-size: 25px;
-    padding: 1px 0;
-}
-.page .pCamino .areaInfo .caminoInfo .hora .gmt {
-    display: block;
-    font-size: 18px;
-    padding: 1px 0;
-}
-.page .pCamino .areaInfo .caminoInfo .txtClima {
-    display: block;
-    font-family: "Raleway",sans-serif;
-    font-size: 16px;
-    line-height: 18px;
-    padding-top: 25px;
-}
-.page .pCamino .areaInfo .caminoInfo .txtClima p {
-    display: block;
-    padding: 3px 0;
-}
+
+
 .page .pCamino .areaRequerimiento {
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.8);
     border-bottom-left-radius: 2px;
@@ -1558,11 +1514,10 @@ in
     background: none repeat scroll 0 0 rgba(0, 0, 0, 0.35);
     border-radius: 1px;
     display: block;
-    padding: 20px 200px 20px 20px;
+    padding: 14px 10px 14px 80px;
     position: absolute;
     right: 0;
-    top: 150px;
-    width: 275px;
+    top: 24px !important;
     z-index: 2;
 }
 .page .pGaleria .txt1 p {
@@ -1595,8 +1550,8 @@ in
     margin-left: auto;
     margin-right: auto;
     padding-bottom: 25px;
-    padding-top: 180px;
-    width: 900px;
+    padding-top: 60px;
+    width: 220px;
 }
 .page .pGaleria .dataGaleria h2 {
     color: #f5f5f5;
@@ -2599,7 +2554,7 @@ body, html{min-width:inherit;}
 #page1, #page2,#page3, #page4 {overflow: hidden;}
 
 .cucarda {float: left; padding: 0;}
-.cucarda div:first-child {padding:20px 0 !important; background:rgba(0,0,0,.5); margin-top: 80px; height: auto!important;}
+.cucarda div:first-child {padding:20px 0 !important; background:rgba(250,250,250,.9); margin-top: 80px; height: auto!important;}
 .cucarda > div img {width: 100%} 
 .full {min-width:inherit;}
 #page {min-width:inherit;}
@@ -2619,13 +2574,16 @@ body, html{min-width:inherit;}
 
 /*-----PAGE2----*/
 #page2 { position: relative; overflow: hidden; }
-.page .pCamino .titular {font-size: 1.5em; text-align: left; position: inherit; padding: 25px 0 0 25px; line-height:1.2em; width: 92%;}
-.page .pCamino .areaInfo {position: absolute;width: 100% !important;top: 25%; overflow: hidden;}
-.page .pCamino .areaInfo .caminoInfo {float: left;width: 94% !important; padding-right: 0px; overflow: hidden;}
+.page .pCamino .titular {font-size: 1.5em;top: 25px !important; text-align: right; position: inherit; padding: 0 25px 0 100px; line-height:1.2em; width: 62%;}
+.page .pCamino .areaInfo {position: absolute;top: 130px ; overflow: hidden;}
+.page .pCamino .areaInfo .caminoInfo {float: left; overflow: hidden;}
 /*.caminoInfo .owl-item {width: 100% !important;}*/
 .noticap {float: left !important; width: 100% !important;}
 .noticap p {margin-bottom: 20px;}
 
+#page2 {
+        min-height: 720px !important;
+}
 #page2 .noticap h1 {font-size: 1em;}
 .page .pCamino .areaRequerimiento {float: left; width: 100% !important; height: auto; bottom: 0;}
 .page .pCamino .areaRequerimiento .btnReq { width: 100% !important; padding: 20px 0;}
@@ -2641,6 +2599,5 @@ body, html{min-width:inherit;}
 .page .pEspecies3 .divEspecies .especie:hover img {left: inherit;top: inherit;;width: inherit;}
 /*-----PAGE4-----*/
 .page .pGaleria .titular, .page .pGaleria .txt1 {position: inherit;} 
-.page .pGaleria .titular {margin-left: 0; left: 0!important;}
+.page .pGaleria .titular {margin-left: 80px; left: 0!important;}
 .page .pGaleria .titular span {float: left!important;}
-.page .pGaleria .dataGaleria {width: auto;}
