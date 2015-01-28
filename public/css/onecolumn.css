@@ -2525,7 +2525,10 @@ body, html{min-width:inherit;}
 .noticap p {margin-bottom: 20px;}
 
 #page2 {
-        min-height: 720px !important;
+        min-height: 850px !important;
+}
+#page4 {
+        min-height: 820px !important;
 }
 #page2 .noticap h1 {font-size: 1em;}
 .page .pCamino .areaRequerimiento {float: left; width: 100% !important; height: auto; bottom: 0;}
