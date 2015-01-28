@@ -2155,13 +2155,10 @@ in
     background-size: 120% auto;
 }
 .rightPage .cExtra .contenido .comentario {
-    background: url("/assets/trComentario.png") no-repeat scroll right center rgba(0, 0, 0, 0);
-    display: block;
-    float: right;    top: 150px;
-    position: relative;
-    width: 440px;
+    float: right;
 }
-.rightPage .cExtra .contenido .comentario .txt {    font-size: 21px;
+.rightPage .cExtra .contenido .comentario .txt {    
+    font-size: 16px;
     bottom: 0;
     cursor: default;
     display: block;
@@ -2252,9 +2249,8 @@ in
 .rightPage .cExtra {min-height: 100%; padding-bottom: 30px;}
 .rightPage .cExtra .contenido { padding: 75px 0 0 0;}
 .rightPage .cExtra .contenido .areaBtnStreet .btnStreet .icStreetVertical{width: 100%; margin-left: 40px;}
-.rightPage .cExtra .contenido .comentario {display: block;float: left;width: 100%;margin-top: 30px; top: 0;}
+.rightPage .cExtra .contenido .comentario {display: block; width: 100%;margin-top: 90px;}
 .rightPage .cExtra .contenido .titular {padding-left: 15px;}
-.rightPage .cExtra .contenido .islaLugares .btnLugar {background:none !important; }
 
 
 .areaLugares {
@@ -2308,17 +2304,16 @@ in
     cursor: default;
     display: block;
     font-family: "Raleway",sans-serif;
-    font-size: 17px;
+    font-size: 12px;
     font-weight: 300;
     left: 0;
-    line-height: 21px;
+    line-height: 17px;
     margin-left: 80px;
-    margin-top: 70px;
+    margin-top: 20px;
     position: absolute;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-transform: uppercase;
     top: 0;
-    width: 60%;
     z-index: 3;
 }
 
@@ -2332,12 +2327,9 @@ in
     right: 0;
     line-height: 17px;
     margin-right: 10%;
-    margin-top: 222px;
-    padding-bottom: 99px;
-    position: absolute;
+    padding: 18px 18px 99px;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     top: 0;
-    width: 32%;
     z-index: 3;
     
 }
@@ -2355,11 +2347,8 @@ in
     display: block;
     font-size: 15px;
     line-height: 17px;
-    margin: 0 10px 0 80px;
-    padding: 25px;
-    position: absolute;
-    left: 0;
-    width: 40%;
+    margin: 120px 0 0 0;
+    padding: 19px;
     z-index: 3;
 }
 .areaLugares .bgLug .descripcionLug table {    border-collapse: separate;
@@ -2564,4 +2553,4 @@ div[data-clase="c5"]{left: -12% !important; }
 .page .pGaleria .titular {margin-left: 80px; left: 0!important;}
 .page .pGaleria .titular span {float: left!important;}
 
-.areaLugares .bgLug .descripcionLug {width: 90%; top: 150px; font-size: 0.8em; margin-left: 0; padding: 19px;}
+.areaLugares .bgLug .descripcionLug {width: 90%; font-size: 0.8em; padding: 19px;}
