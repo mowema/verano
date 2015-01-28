@@ -1234,16 +1234,16 @@ in
     display: block;
     font-family: "Raleway",sans-serif;
     margin-left: auto;
-    margin-right: auto;
-    padding-top: 50px;
+    padding-right: 10px;
+    padding-top: 20px;
     text-align: left;
-    width: 960px;
+    width: 74%;
 }
 .page .pEspecies3 .divTxt h2 {
     font-family: "claire_handbold",sans-serif;
     display: block;
     float: left;
-    font-size: 58px;
+    font-size: 48px;
     font-weight: 900;
     text-transform: uppercase;
 }
@@ -1267,7 +1267,6 @@ in
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    width: 960px;
 }
 .page .pEspecies3 .divEspecies .especie {
     cursor: pointer;
@@ -1292,15 +1291,13 @@ in
 }
 
 .page .pEspecies3 .areaBotones {
-    padding:20px;
     border-bottom-left-radius: 2px;
     border-top-left-radius: 2px;
-    top: 60px;
+    top: 260px;
     display: block;
     position: absolute;
-    right: 0;
-    width: 16%;
     z-index: 3;
+    left: 12%;
 }
 .page .pEspecies3 .areaBotones a {
         display: block;
@@ -1551,7 +1548,7 @@ in
     margin-right: auto;
     padding-bottom: 25px;
     padding-top: 60px;
-    width: 220px;
+    width: 176px;
 }
 .page .pGaleria .dataGaleria h2 {
     color: #f5f5f5;
@@ -2002,7 +1999,7 @@ in
     top: 0;
     transform: translateX(800px);
     transition: all 500ms ease-out 0s;
-    width: 800px;
+    width: 100%;
     z-index: 100;
 }
 .rightPage .bg1, .rightPage .bg2 {
@@ -2250,59 +2247,16 @@ in
 .rightPageOn {
     transform: translateX(0px);
 }
-.area360 {
-    background: url("/assets/trNegro.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
-    display: none;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 999;
-}
-.area360 .areaMap {
-    background: none repeat scroll 0 0 #f5f5f5;
-    border-radius: 10px;
-    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.2);
-    display: block;
-    height: auto;
-    left: 50%;
-    margin-left: -480px;
-    margin-top: -280px;
-    padding: 10px;
-    position: absolute;
-    top: 50%;
-    width: 960px;
-}
-.area360 .areaMap .bntClose {
-    cursor: pointer;
-    display: block;
-    height: 30px;
-    margin-right: -25px;
-    margin-top: -25px;
-    opacity: 0.75;
-    position: absolute;
-    right: 0;
-    top: 0;
-    width: 30px;
-}
-.area360 .areaMap .bntClose:hover {
-    opacity: 1;
-}
-.area360 .areaMap .embed-container {
-    height: auto;
-    max-width: 100%;
-    overflow: hidden;
-    padding-bottom: 56.25%;
-    position: relative;
-}
-.area360 .areaMap .embed-container iframe, .area360 .areaMap .embed-container object, .area360 .areaMap .embed-container embed {
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-}
+
+/*-----RIGHT PAGE ----*/
+.rightPage .cExtra {min-height: 100%; padding-bottom: 30px;}
+.rightPage .cExtra .contenido { padding: 75px 0 0 0;}
+.rightPage .cExtra .contenido .areaBtnStreet .btnStreet .icStreetVertical{width: 100%; margin-left: 40px;}
+.rightPage .cExtra .contenido .comentario {display: block;float: left;width: 100%;margin-top: 30px; top: 0;}
+.rightPage .cExtra .contenido .titular {padding-left: 15px;}
+.rightPage .cExtra .contenido .islaLugares .btnLugar {background:none !important; }
+
+
 .areaLugares {
     background: none repeat scroll 0 0 grey;
     display: none;
@@ -2591,13 +2545,23 @@ body, html{min-width:inherit;}
 .btnReq .social {float: right;}
 
 /*-----PAGE3----*/
-
-.page .pEspecies3 .divEspecies, .page .pEspecies3 .divTxt {width: 100% !important;}
 .page .pEspecies3 .divTxt p {width: auto; font-size: 15px; padding-left: 5px;}
 .page .pEspecies3 .divEspecies .especie {margin: 0 0 50px 0;}
 .page .pEspecies3 .divEspecies .especie img {left:0; position: inherit; width:230px; margin: 0;}
 .page .pEspecies3 .divEspecies .especie:hover img {left: inherit;top: inherit;;width: inherit;}
+.page .pEspecies3 .areaBotones {}
+.page .pEspecies3 .areaBotones a {width: 130px; float: left; padding:0;}
+
+
+.page .pEspecies3 .divEspecies div.especie[data-clase="c1"]{left: -12% !important; margin-top: 180px !important; }
+div[data-clase="c2"]{left: 12% !important; }
+div[data-clase="c3"]{left: -12% !important; }
+div[data-clase="c4"]{left: 12% !important; }
+div[data-clase="c5"]{left: -12% !important; }
+
 /*-----PAGE4-----*/
 .page .pGaleria .titular, .page .pGaleria .txt1 {position: inherit;} 
 .page .pGaleria .titular {margin-left: 80px; left: 0!important;}
 .page .pGaleria .titular span {float: left!important;}
+
+.areaLugares .bgLug .descripcionLug {width: 90%; top: 150px; font-size: 0.8em; margin-left: 0; padding: 19px;}
