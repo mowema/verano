@@ -2487,6 +2487,11 @@ VIEJOS MIOS
     color: #1d2c71;
 }
 
+a.vermas {
+    float:right;font-family: "claire_handbold",sans-serif;
+}a.vermas:hover {
+    color:skyblue;
+}
 /*
 PTorterolo
 */

@@ -143,7 +143,9 @@ San Rafael, Mendoza, vivió a pleno el 10 de enero su primer día de Verano de E
                         </div> <?php }  ?>
                     </div> 
 <?php // echo $this->imgnrand  ?>
-
+                    
+                    
+<a data-idajax="0" class ="btnDespleDer link vermas">Ver mas noticias...</a>
                 </div><!--caminoInfo-->
                 <div class="clear"></div>
             </div><!--areaInfo-->
@@ -244,7 +246,7 @@ San Rafael, Mendoza, vivió a pleno el 10 de enero su primer día de Verano de E
 	</div>
     </div><!--page-->
 
-    <div id="rightPage" class="rightPage" style="display: block; -webkit-transform: translateX(800px);">
+    <div id="rightPage" class="rightPage">
 
 
 
@@ -264,6 +266,8 @@ San Rafael, Mendoza, vivió a pleno el 10 de enero su primer día de Verano de E
 
 </div><!--full-->
 <script>
+    console.log($(window).outerWidth());
+
     $('.btnRedondo').click(function (event) {
         event.preventDefault();
         $('#loadingAjaxLug').fadeToggle(250);

@@ -2228,6 +2228,7 @@ in
     width: 800px;
     z-index: 100;
 }
+
 .rightPage .bg1, .rightPage .bg2 {
     background-repeat: no-repeat;
     background-size: cover;
@@ -2781,4 +2782,10 @@ VIEJOS MIOS
 
 body {
     background-color:#f3f3f3 !important
+}
+
+a.vermas {
+    float:right;font-family: "claire_handbold",sans-serif;
+}a.vermas:hover {
+    color:skyblue;
 }
