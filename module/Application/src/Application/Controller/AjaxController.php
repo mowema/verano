@@ -72,7 +72,7 @@ class AjaxController extends AbstractActionController {
         
         if ($data['id']==0){
             $entityManager = $this->getEntityManager();
-            $noticias = $entityManager->getRepository('Admin\Entity\Noticias')->getActivas(1,30);
+            $noticias = $entityManager->getRepository('Admin\Entity\Noticias')->getActivas(48);
             $this->view->setVariable('noticias', $noticias);
         }
         
