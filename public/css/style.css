@@ -2784,8 +2784,11 @@ body {
     background-color:#f3f3f3 !important
 }
 
-a.vermas {
-    float:right;font-family: "claire_handbold",sans-serif;
-}a.vermas:hover {
+div.vermas {
+    float:right;
+    font-family: "claire_handbold",sans-serif;
+    display: block;
+    padding: 6px 6px 0;
+}div.vermas:hover {
     color:skyblue;
 }
