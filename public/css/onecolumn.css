@@ -1528,7 +1528,7 @@ in
     cursor: default;
     display: block;
     font-family: "claire_handbold",sans-serif;
-    font-size: 65px;
+    font-size: 35px;
     font-weight: 900;
     left: 45%;
     letter-spacing: -1px;
@@ -2084,7 +2084,7 @@ in
     cursor: default;
     display: block;
     font-family: "Raleway",sans-serif;
-    font-size: 55px;
+    font-size: 40px;
     font-weight: 300;
     line-height: 47px;
     margin-bottom: 20px;
@@ -2487,6 +2487,11 @@ VIEJOS MIOS
     color: #1d2c71;
 }
 
+a.vermas {
+    float:right;font-family: "claire_handbold",sans-serif;
+}a.vermas:hover {
+    color:skyblue;
+}
 /*
 PTorterolo
 */
