@@ -2496,6 +2496,38 @@ div.vermas {
     color:skyblue;
 }
 
+    .captiono{    background:rgba(0,0,0,0.5);
+    bottom: 4px;
+    display: block;
+    padding: 12px;
+    position: absolute;
+    width: 64%;}
+    .caption{position:absolute;bottom:0%;left:0px;width:100%;display:block;background:rgba(0,0,0,0.5);color:#fff;padding:10px;font-size:2em;letter-spacing:0.1em;line-height:1.2;opacity:0;}
+    
+    .p2noticia .cap{
+        float:left;
+    }
+    .noticap p {
+    color: darkgray;
+    font-size: 14px;
+    margin-top: 8px;
+}
+    .noticap {
+    background: none repeat scroll 0 0 rgba(0,0,0,.7);
+    padding: 8px;
+    position: absolute;
+    top: 0;
+    width: 224px;
+}
+    #owl-noticias img{
+    float:left;
+    width:470px;
+    
+}
+
+#page4 .txt1 a{
+    color:snow;
+}
 /*
 PTorterolo
 */
@@ -2530,8 +2562,7 @@ body, html{min-width:inherit;}
 .page .pCamino .areaInfo {position: absolute;top: 130px ; overflow: hidden;}
 .page .pCamino .areaInfo .caminoInfo {float: left; overflow: hidden;}
 /*.caminoInfo .owl-item {width: 100% !important;}*/
-.noticap {float: left !important; width: 100% !important;}
-.noticap p {margin-bottom: 20px;}
+
 
 #page2 {
         min-height: 850px !important;

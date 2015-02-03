@@ -1529,7 +1529,7 @@ in
     padding: 14px 28px 14px 100px;
     position: absolute;
     text-transform: uppercase;
-    width: 100%;
+    width: 45%;
     z-index:3;
     
     //color:#18152d;
@@ -1550,7 +1550,7 @@ in
     display: block;
     float: right;
     padding: 20px 20px 14px;
-    width: 480px;
+    width: 470px;
 }
 .page .pCamino .areaInfo .caminoInfo .clima {
     display: block;
@@ -2791,4 +2791,40 @@ div.vermas {
     padding: 6px 6px 0;
 }div.vermas:hover {
     color:skyblue;
+}
+
+    .owl-pagination {
+    float: left;
+}
+
+    .captiono{    background:rgba(0,0,0,0.5);
+    bottom: 4px;
+    display: block;
+    padding: 12px;
+    position: absolute;
+    width: 64%;}
+    .caption{position:absolute;bottom:0%;left:0px;width:100%;display:block;background:rgba(0,0,0,0.5);color:#fff;padding:10px;font-size:2em;letter-spacing:0.1em;line-height:1.2;opacity:0;}
+    
+    .p2noticia .cap{
+        float:left;
+    }
+    .noticap p {
+    color: darkgray;
+    font-size: 14px;
+    margin-top: 8px;
+}
+    .noticap {
+    background: none repeat scroll 0 0 rgba(0,0,0,.7);
+    padding: 8px;
+    position: absolute;
+    top: 0;
+    width: 454px;
+}
+    #owl-noticias img{
+    float:left;
+    width:470px;
+}
+
+#page4 .txt1 a{
+    color:snow;
 }
