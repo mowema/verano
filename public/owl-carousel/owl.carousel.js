@@ -440,6 +440,8 @@ if (typeof Object.create !== "function") {
 
             base.paginationWrapper = $("<div class=\"owl-pagination\"/>");
             base.owlControls.append(base.paginationWrapper);
+            base.linkWrapper = $("<div data-idajax=\"0\" class=\"btnDespleDer link vermas\">Ver mas noticias...</div>");
+            base.owlControls.append(base.linkWrapper);
 
             base.paginationWrapper.on("touchend.owlControls mouseup.owlControls", ".owl-page", function (event) {
                 event.preventDefault();

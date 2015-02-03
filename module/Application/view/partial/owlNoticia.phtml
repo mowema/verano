@@ -1,8 +1,8 @@
 <div class="item">
     <div class="noticap"><h1><?php echo $this->escapeHtml($this->noticia->getTitle()); ?></h1><p>
-            <?php echo $this->noticia->getCopete(); ?>
+            <?php // echo $this->noticia->getCopete(); ?>
         </p></div>                                                                                                           
-    <div data-idajax="0" class="btnDespleDer link"><img src="<?php echo $this->noticia->getImagen_url(); ?>" width="190" height="190" alt="<?php echo $this->escapeHtml($this->noticia->getTitle()); ?>">
+    <div data-idajax="0" class="btnDespleDer link"><img src="<?php echo $this->noticia->getImagen_url(); ?>" alt="<?php echo $this->escapeHtml($this->noticia->getTitle()); ?>">
 </div></div>
 
 
